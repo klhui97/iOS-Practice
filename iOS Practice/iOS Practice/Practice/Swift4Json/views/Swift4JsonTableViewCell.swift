@@ -16,14 +16,42 @@ class Swift4JsonTableViewCell: UITableViewCell {
         return imageView
     }()
     
+    let nameLabel: UILabel = {
+       let label = UILabel()
+        return label
+    }()
+    
+    let loanLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    let dateLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        contentView.add(avatorImageView)
-        let views = ["avatorImageView": avatorImageView]
-        NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "|-24-[avatorImageView]", options: [], metrics: nil, views: views))
-        NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "V:|-24-[avatorImageView(48)]-24-|", options: [], metrics: nil, views: views))
+        contentView.autoresizesSubviews = false
+        contentView.add(avatorImageView, nameLabel, loanLabel, dateLabel)
+        
+        let views = ["avatorImageView": avatorImageView,
+                     "nameLabel": nameLabel,
+                     "loanLabel": loanLabel,
+                     "dateLabel": dateLabel]
+        
+        NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "[avatorImageView]-24-[nameLabel]-(>=8)-[loanLabel]", options: [.alignAllTop], metrics: nil, views: views))
+        NSLayoutConstraint.activateHighPriority(NSLayoutConstraint.constraints(withVisualFormat: "V:|-24-[avatorImageView(48)]-(>=24)-|", options: [], metrics: nil, views: views))
+        
+        dateLabel.al_rightToMargin()
+        dateLabel.al_leftToView(nameLabel)
+        dateLabel.al_bottomToView(avatorImageView)
+        
+        avatorImageView.al_leftToMargin()
+        loanLabel.al_rightToMargin()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
