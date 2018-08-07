@@ -68,8 +68,8 @@ class Swift4JsonTableViewController: UITableViewController, HasLoadingOverlay {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: Swift4JsonTableViewCell = tableView.dequeueReusableCell(for: indexPath)
         cell.nameLabel.text = loans[indexPath.row].name
-        cell.loanLabel.text = "$ " + String(loans[indexPath.row].loan_amount ?? 0)
-        cell.dateLabel.text = loans[indexPath.row].posted_date
+        cell.loanLabel.text = "$ " + String(loans[indexPath.row].loanAmount ?? 0)
+        cell.dateLabel.text = loans[indexPath.row].postedDate
         
         return cell
     }
@@ -109,15 +109,29 @@ extension Swift4JsonTableViewController {
     struct Page: Decodable {
         var page: Int?
         var total: Int?
-        var page_size: Int?
+        var pageSize: Int?
         var pages: Int?
+        
+        enum CodingKeys: String, CodingKey {
+            case page
+            case total
+            case pageSize = "page_size"
+            case pages
+        }
     }
     
     struct Loan: Decodable {
         var id: Int?
         var name: String?
-        var posted_date: String?
-        var loan_amount: Double?
+        var postedDate: String?
+        var loanAmount: Double?
+        
+        enum CodingKeys: String, CodingKey {
+            case id
+            case name
+            case postedDate = "posted_date"
+            case loanAmount = "loan_amount"
+        }
     }
     
     struct APIResponse: Decodable {
