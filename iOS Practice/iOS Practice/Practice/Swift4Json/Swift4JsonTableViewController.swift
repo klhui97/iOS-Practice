@@ -8,29 +8,6 @@
 
 import UIKit
 
-extension Swift4JsonTableViewController {
-    
-    // MARK: - JSON Structure
-    struct Page: Decodable {
-        var page: Int?
-        var total: Int?
-        var page_size: Int?
-        var pages: Int?
-    }
-    
-    struct Loan: Decodable {
-        var id: Int?
-        var name: String?
-        var posted_date: String?
-        var loan_amount: Double?
-    }
-    
-    struct APIResponse: Decodable {
-        var paging: Page
-        var loans: [Loan]
-    }
-}
-
 class Swift4JsonTableViewController: UITableViewController, HasLoadingOverlay {
     
     var loadingOverlay: LoadingOverlay?
@@ -123,5 +100,28 @@ class Swift4JsonTableViewController: UITableViewController, HasLoadingOverlay {
         })
         
         task.resume()
+    }
+}
+
+extension Swift4JsonTableViewController {
+    
+    // MARK: - JSON Structure
+    struct Page: Decodable {
+        var page: Int?
+        var total: Int?
+        var page_size: Int?
+        var pages: Int?
+    }
+    
+    struct Loan: Decodable {
+        var id: Int?
+        var name: String?
+        var posted_date: String?
+        var loan_amount: Double?
+    }
+    
+    struct APIResponse: Decodable {
+        var paging: Page
+        var loans: [Loan]
     }
 }
