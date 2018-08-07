@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3478C43A21193A73009F2240 /* Layoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C43921193A73009F2240 /* Layoutable.swift */; };
+		3478C43D21195BE1009F2240 /* Swift4JsonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C43C21195BE1009F2240 /* Swift4JsonTableViewCell.swift */; };
+		3478C44121195D26009F2240 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C44021195D26009F2240 /* UITableView.swift */; };
+		3478C44421195E7F009F2240 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C44321195E7F009F2240 /* CircleImageView.swift */; };
 		6B4C38032118A31A00D5320A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4C38022118A31A00D5320A /* AppDelegate.swift */; };
 		6B4C380A2118A31D00D5320A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B4C38092118A31D00D5320A /* Assets.xcassets */; };
 		6B4C380D2118A31D00D5320A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B4C380B2118A31D00D5320A /* LaunchScreen.storyboard */; };
@@ -15,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3478C43921193A73009F2240 /* Layoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layoutable.swift; sourceTree = "<group>"; };
+		3478C43C21195BE1009F2240 /* Swift4JsonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift4JsonTableViewCell.swift; sourceTree = "<group>"; };
+		3478C44021195D26009F2240 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		3478C44321195E7F009F2240 /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		6B4C37FF2118A31A00D5320A /* iOS Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B4C38022118A31A00D5320A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B4C38092118A31D00D5320A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -35,6 +43,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3478C43721193A46009F2240 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				3478C44221195E64009F2240 /* View */,
+				3478C43821193A62009F2240 /* extension */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		3478C43821193A62009F2240 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				3478C43921193A73009F2240 /* Layoutable.swift */,
+				3478C44021195D26009F2240 /* UITableView.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		3478C43B21195BC2009F2240 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				3478C43C21195BE1009F2240 /* Swift4JsonTableViewCell.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		3478C44221195E64009F2240 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3478C44321195E7F009F2240 /* CircleImageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6B4C37F62118A31A00D5320A = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +96,7 @@
 		6B4C38012118A31A00D5320A /* iOS Practice */ = {
 			isa = PBXGroup;
 			children = (
+				3478C43721193A46009F2240 /* Library */,
 				6B4C381B2118B0AE00D5320A /* Practice */,
 				6B4C38022118A31A00D5320A /* AppDelegate.swift */,
 				6B4C38162118A6FB00D5320A /* Home */,
@@ -83,6 +126,7 @@
 		6B4C38182118A8EE00D5320A /* Swift4Json */ = {
 			isa = PBXGroup;
 			children = (
+				3478C43B21195BC2009F2240 /* views */,
 				6B4C38192118A91F00D5320A /* Swift4JsonTableViewController.swift */,
 			);
 			path = Swift4Json;
@@ -167,8 +211,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B4C38152118A38600D5320A /* HomeTableViewController.swift in Sources */,
+				3478C43A21193A73009F2240 /* Layoutable.swift in Sources */,
+				3478C44421195E7F009F2240 /* CircleImageView.swift in Sources */,
 				6B4C381A2118A91F00D5320A /* Swift4JsonTableViewController.swift in Sources */,
+				3478C43D21195BE1009F2240 /* Swift4JsonTableViewCell.swift in Sources */,
 				6B4C38032118A31A00D5320A /* AppDelegate.swift in Sources */,
+				3478C44121195D26009F2240 /* UITableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
