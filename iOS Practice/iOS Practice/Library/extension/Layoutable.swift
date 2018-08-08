@@ -23,43 +23,14 @@ protocol Layoutable {
 }
 
 extension Layoutable {
-    func al_width(_ width: CGFloat) {
-        NSLayoutConstraint.activate([widthAnchor.constraint(equalToConstant: width)])
-    }
     
-    func al_widthEqualToView(_ view: UIView? = nil, constant: CGFloat = 0) {
-        let alView = view ?? owningView!
-        NSLayoutConstraint.activate([widthAnchor.constraint(equalTo: alView.widthAnchor, multiplier: 1, constant: constant)])
-    }
-    
-    func al_height(_ height: CGFloat) {
-        NSLayoutConstraint.activate([heightAnchor.constraint(equalToConstant: height)])
-    }
-    
-    func al_heightEqualToView(_ view: UIView? = nil, constant: CGFloat = 0) {
-        let alView = view ?? owningView!
-        NSLayoutConstraint.activate([heightAnchor.constraint(equalTo: alView.heightAnchor, multiplier: 1, constant: constant)])
-    }
-    
+    // MARK: - Super view
     func al_fillSuperview(inset: UIEdgeInsets = .zero) {
         al_fillView(owningView!, inset: inset)
     }
     
     func al_fillSuperview(margin: CGFloat) {
         al_fillView(owningView!, inset: UIEdgeInsetsMake(margin, margin, margin, margin))
-    }
-    
-    func al_fillView(_ view: UIView, inset: UIEdgeInsets = .zero) {
-        topAnchor.constraint(equalTo: view.topAnchor, constant: inset.top).isActive = true
-        leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: inset.left).isActive = true
-        view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: inset.bottom).isActive = true
-        view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: inset.right).isActive = true
-    }
-    
-    func al_equalToSuperview(_ attributes: [NSLayoutAttribute]) {
-        let owningView = self.owningView!
-        attributes.forEach {
-            NSLayoutConstraint(item: owningView, attribute: $0, relatedBy: .equal, toItem: self, attribute: $0, multiplier: 1, constant: 0).isActive = true }
     }
     
     func al_fillSuperViewHorizontally() {
@@ -74,6 +45,40 @@ extension Layoutable {
                                      bottomAnchor.constraint(equalTo: alView.bottomAnchor, constant: 0)])
     }
     
+    // MARK: - Width and height
+    func al_width(_ width: CGFloat) {
+        NSLayoutConstraint.activate([widthAnchor.constraint(equalToConstant: width)])
+    }
+    
+    func al_widthEqualToView(_ view: UIView, constant: CGFloat = 0) {
+        NSLayoutConstraint.activate([widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: constant)])
+    }
+    
+    func al_height(_ height: CGFloat) {
+        NSLayoutConstraint.activate([heightAnchor.constraint(equalToConstant: height)])
+    }
+    
+    func al_heightEqualToView(_ view: UIView, constant: CGFloat = 0) {
+        NSLayoutConstraint.activate([heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1, constant: constant)])
+    }
+    
+    // MARK: - View
+    func al_fillView(_ view: UIView, inset: UIEdgeInsets = .zero) {
+        topAnchor.constraint(equalTo: view.topAnchor, constant: inset.top).isActive = true
+        leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: inset.left).isActive = true
+        view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: inset.bottom).isActive = true
+        view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: inset.right).isActive = true
+    }
+    
+    func al_fillSafeAreaView(_ view: UIView) {
+        NSLayoutConstraint.activate([
+            leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)])
+    }
+    
+    // MARK: Left or leading
     func al_leftToSuperview(distance: CGFloat = 0) {
         al_leftToView(owningView!, distance: distance)
     }
@@ -87,6 +92,7 @@ extension Layoutable {
         NSLayoutConstraint.activate([leadingAnchor.constraint(equalTo: alView.layoutMarginsGuide.leadingAnchor)])
     }
     
+    // MARK: - Right or trailing
     func al_rightToMargin(_ view: UIView? = nil) {
         let alView = view ?? owningView!
         NSLayoutConstraint.activate([trailingAnchor.constraint(equalTo: alView.layoutMarginsGuide.trailingAnchor)])
@@ -100,6 +106,7 @@ extension Layoutable {
         NSLayoutConstraint.activate([rightAnchor.constraint(equalTo: view.rightAnchor, constant: distance)])
     }
     
+    // MARK: Top
     func al_topToSuperview(distance: CGFloat = 0) {
         al_topToView(owningView!, distance: distance)
     }
@@ -108,6 +115,7 @@ extension Layoutable {
         NSLayoutConstraint.activate([topAnchor.constraint(equalTo: view.topAnchor, constant: distance)])
     }
     
+    // MARK: - Bottom
     func al_bottomToSuperview(distance: CGFloat = 0) {
         al_bottomToView(owningView!, distance: distance)
     }
@@ -116,6 +124,7 @@ extension Layoutable {
         NSLayoutConstraint.activate([bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: distance)])
     }
     
+    // MARK: - X and Y
     func al_centerToView(_ view: UIView? = nil) {
         let alView = view ?? owningView!
         NSLayoutConstraint.activate([centerXAnchor.constraint(equalTo: alView.centerXAnchor, constant: 0),

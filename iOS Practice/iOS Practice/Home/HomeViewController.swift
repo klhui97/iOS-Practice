@@ -40,6 +40,7 @@ class HomeViewController: UIViewController, MenuTableViewControllerDelegate {
         
         view.add(backgroundImageView)
         backgroundImageView.al_fillSuperview()
+        overlayView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapOverlayView)))
         
         menuController.delegate = self
     }
@@ -63,11 +64,9 @@ class HomeViewController: UIViewController, MenuTableViewControllerDelegate {
             menuWidth = window.frame.size.width / 1.5
             
             navigationController?.view.add(overlayView)
-            overlayView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapOverlayView)))
             overlayView.al_fillSuperview()
             
             // menuContainerView
-            
             window.add(menuContainerView)
             if menuLeadingConstraint == nil {
                 menuLeadingConstraint = menuContainerView.leadingAnchor.constraint(equalTo: window.leadingAnchor)
@@ -79,13 +78,8 @@ class HomeViewController: UIViewController, MenuTableViewControllerDelegate {
                 menuContainerView.bottomAnchor.constraint(equalTo: window.bottomAnchor)])
             
             // menuController
-            
             menuContainerView.add(menuController.view)
-            NSLayoutConstraint.activate([
-                menuController.view.leadingAnchor.constraint(equalTo: menuContainerView.safeAreaLayoutGuide.leadingAnchor),
-                menuController.view.trailingAnchor.constraint(equalTo: menuContainerView.safeAreaLayoutGuide.trailingAnchor),
-                menuController.view.topAnchor.constraint(equalTo: menuContainerView.safeAreaLayoutGuide.topAnchor),
-                menuController.view.bottomAnchor.constraint(equalTo: menuContainerView.safeAreaLayoutGuide.bottomAnchor)])
+            menuController.view.al_fillSafeAreaView(menuContainerView)
             
             // animation
             overlayView.alpha = 0

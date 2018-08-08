@@ -64,7 +64,7 @@
 		3478C43721193A46009F2240 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				3478C44221195E64009F2240 /* View */,
+				3478C44221195E64009F2240 /* view */,
 				3478C43821193A62009F2240 /* extension */,
 			);
 			path = Library;
@@ -88,14 +88,14 @@
 			path = views;
 			sourceTree = "<group>";
 		};
-		3478C44221195E64009F2240 /* View */ = {
+		3478C44221195E64009F2240 /* view */ = {
 			isa = PBXGroup;
 			children = (
 				3478C44321195E7F009F2240 /* CircleImageView.swift */,
 				3478C49021199873009F2240 /* LoadingOverlay.swift */,
 				3478C496211A9F57009F2240 /* LargeTitleTableViewCell.swift */,
 			);
-			path = View;
+			path = view;
 			sourceTree = "<group>";
 		};
 		3478C499211AD1BE009F2240 /* Chat UI */ = {

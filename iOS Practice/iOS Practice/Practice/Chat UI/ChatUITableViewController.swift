@@ -26,7 +26,6 @@ class ChatUITableViewController: UITableViewController {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
-        tableView.layoutMargins = UIEdgeInsetsMake(0, 16, 0, 16)
         tableView.allowsSelection = false
         tableView.register(LeftBubbleTableViewCell.self)
         tableView.register(RightBubbleTableViewCell.self)

@@ -10,6 +10,8 @@ import UIKit
 
 class RightBubbleTableViewCell: BaseBubbleTableViewCell {
     
+    override var bubbleView: UIImageView? { get { return bubbleContentView}}
+    
     let profileImageView: CircleImageView = {
         let imageView = CircleImageView()
         imageView.backgroundColor = .purple
@@ -28,24 +30,24 @@ class RightBubbleTableViewCell: BaseBubbleTableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         textView.textColor = .darkGray
-        
-        contentView.add(profileImageView, bubbleContentView)
-        bubbleContentView.isUserInteractionEnabled = true
-        
-        let views = ["profileImageView": profileImageView,
-                     "bubbleContentView": bubbleContentView]
-        
-        NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "|-[profileImageView(36)]-7-[bubbleContentView]", options: [], metrics: nil, views: views))
-        bubbleContentView.trailingAnchor.constraint(lessThanOrEqualTo: layoutMarginsGuide.trailingAnchor).isActive = true
-        
-        profileImageView.widthAnchor.constraint(equalTo: profileImageView.heightAnchor).isActive = true
-        NSLayoutConstraint.activateHighPriority(NSLayoutConstraint.constraints(withVisualFormat: "V:|-16-[bubbleContentView]-16-|", options: [], metrics: nil, views: views))
-        profileImageView.al_topToView(bubbleContentView)
-        
-        addTextViewOnBubbleView(bubbleView: bubbleContentView)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func configureBubbleViewAutoLayout(bubbleView: UIView) {
+        contentView.add(profileImageView, bubbleView)
+        bubbleView.isUserInteractionEnabled = true
+        
+        let views = ["profileImageView": profileImageView,
+                     "bubbleView": bubbleView]
+        
+        NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "|-[profileImageView(36)]-7-[bubbleView]", options: [], metrics: nil, views: views))
+        NSLayoutConstraint.activate([bubbleView.trailingAnchor.constraint(lessThanOrEqualTo: layoutMarginsGuide.trailingAnchor)])
+        
+        profileImageView.widthAnchor.constraint(equalTo: profileImageView.heightAnchor).isActive = true
+        NSLayoutConstraint.activateHighPriority(NSLayoutConstraint.constraints(withVisualFormat: "V:|-16-[bubbleView]-16-|", options: [], metrics: nil, views: views))
+        profileImageView.al_topToView(bubbleView)
     }
 }

@@ -10,6 +10,8 @@ import UIKit
 
 class BaseBubbleTableViewCell: UITableViewCell {
     
+    var bubbleView: UIImageView? { get { return nil } }
+    
     let textView: UITextView = {
         let textView = UITextView()
         textView.clipsToBounds = false
@@ -31,13 +33,24 @@ class BaseBubbleTableViewCell: UITableViewCell {
         selectionStyle = .none
         backgroundColor = .clear
         contentView.backgroundColor = .clear
+        
+        if let bubbleView = bubbleView {
+            configureBubbleViewAutoLayout(bubbleView: bubbleView)
+            addTextViewOnBubbleView(bubbleView: bubbleView)
+        }else {
+            fatalError("bubbleView has not been assigned")
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func addTextViewOnBubbleView(bubbleView: UIView) {
+    func configureBubbleViewAutoLayout(bubbleView: UIView) {
+        fatalError("func configureBubbleViewAutoLayout(bubbleView: UIView) has not been implemented")
+    }
+    
+    private func addTextViewOnBubbleView(bubbleView: UIView) {
         bubbleView.add(textView)
         
         let views = ["textView": textView]

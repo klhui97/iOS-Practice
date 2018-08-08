@@ -10,6 +10,8 @@ import UIKit
 
 class LeftBubbleTableViewCell: BaseBubbleTableViewCell {
     
+    override var bubbleView: UIImageView? { get { return bubbleContentView } }
+    
     let bubbleContentView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = false
@@ -17,21 +19,13 @@ class LeftBubbleTableViewCell: BaseBubbleTableViewCell {
         return imageView
     }()
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override func configureBubbleViewAutoLayout(bubbleView: UIView) {
+        contentView.add(bubbleView)
+        bubbleView.isUserInteractionEnabled = true
         
-        contentView.add(bubbleContentView)
-        bubbleContentView.isUserInteractionEnabled = true
-        
-        let views = ["bubbleContentView": bubbleContentView]
-        NSLayoutConstraint.activateHighPriority(NSLayoutConstraint.constraints(withVisualFormat: "V:|-16-[bubbleContentView]-16-|", options: [], metrics: nil, views: views))
-        bubbleContentView.leadingAnchor.constraint(greaterThanOrEqualTo: contentView.layoutMarginsGuide.leadingAnchor).isActive = true
-        bubbleContentView.al_rightToMargin()
-        
-        addTextViewOnBubbleView(bubbleView: bubbleContentView)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        let views = ["bubbleView": bubbleView]
+        NSLayoutConstraint.activateHighPriority(NSLayoutConstraint.constraints(withVisualFormat: "V:|-16-[bubbleView]-16-|", options: [], metrics: nil, views: views))
+        NSLayoutConstraint.activateHighPriority(NSLayoutConstraint.constraints(withVisualFormat: "[bubbleView]-16-|", options: [], metrics: nil, views: views))
+        NSLayoutConstraint.activate([bubbleView.leadingAnchor.constraint(greaterThanOrEqualTo: contentView.layoutMarginsGuide.leadingAnchor)])
     }
 }
