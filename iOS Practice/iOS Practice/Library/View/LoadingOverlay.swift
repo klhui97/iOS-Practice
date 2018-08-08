@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoadingOverlay: UIView {
+open class LoadingOverlay: UIView {
     private let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     
     override init(frame: CGRect) {
@@ -22,11 +22,11 @@ class LoadingOverlay: UIView {
         loadingIndicator.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         loadingIndicator.startAnimating()
     }

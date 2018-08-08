@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CircleImageView: UIView {
+open class CircleImageView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,12 +22,12 @@ class CircleImageView: UIView {
         setContentCompressionResistancePriority(.required, for: .vertical)
     }
     
-    override func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = bounds.width / 2
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

@@ -8,7 +8,11 @@
 
 import UIKit
 
-private extension HomeTableViewController {
+protocol MenuTableViewControllerDelegate {
+    func changeRootViewControllerTo(controller: UIViewController)
+}
+
+private extension MenuTableViewController {
     
     func getController(_ rowType: Row) -> UIViewController {
         
@@ -19,7 +23,7 @@ private extension HomeTableViewController {
     }
 }
 
-class HomeTableViewController: UITableViewController {
+class MenuTableViewController: UITableViewController {
     
     // MARK: - Practice data
     enum Row: String {
@@ -27,47 +31,52 @@ class HomeTableViewController: UITableViewController {
     }
     
     var rows: [Row] = [.Swift4Json]
+    var delegate: MenuTableViewControllerDelegate?
     
     // MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initNavigation()
-        tableView.tableFooterView = nil
+        tableView.backgroundColor = .white
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 52
+        tableView.register(LargeTitleTableViewCell.self)
+        tableView.tableFooterView = UIView()
     }
-    
-    // MARK: - Init
-    
-    fileprivate func initNavigation() {
-        title = "iOS Practice Menu"
-        
-        navigationController?.navigationBar.backgroundColor = .white
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationItem.largeTitleDisplayMode = .always
-    }
-    
     
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rows.count
+        switch section {
+        case 0:
+            return 1
+        default:
+            return rows.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = rows[indexPath.row].rawValue
-        return cell
+        
+        switch indexPath.section {
+        case 0:
+            let cell: LargeTitleTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.largeTitleLabel.text = "Menu"
+            return cell
+        default:
+            let cell = UITableViewCell()
+            cell.textLabel?.text = rows[indexPath.row].rawValue
+            return cell
+        }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        navigationController?.pushViewController(getController(rows[indexPath.row]), animated: true)
-        
+        delegate?.changeRootViewControllerTo(controller: getController(rows[indexPath.row]))
     }
 }
