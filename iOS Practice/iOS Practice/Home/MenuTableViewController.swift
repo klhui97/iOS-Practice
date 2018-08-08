@@ -19,6 +19,8 @@ private extension MenuTableViewController {
         switch rowType {
         case .Swift4Json:
             return Swift4JsonTableViewController()
+        case .ChatUi:
+            return ChatUITableViewController()
         }
     }
 }
@@ -28,9 +30,10 @@ class MenuTableViewController: UITableViewController {
     // MARK: - Practice data
     enum Row: String {
         case Swift4Json = "Swift 4 JSON"
+        case ChatUi = "Chat UI"
     }
     
-    var rows: [Row] = [.Swift4Json]
+    var rows: [Row] = [.Swift4Json, .ChatUi]
     var delegate: MenuTableViewControllerDelegate?
     
     // MARK: - Life cycle
@@ -77,6 +80,8 @@ class MenuTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        delegate?.changeRootViewControllerTo(controller: getController(rows[indexPath.row]))
+        if indexPath.section == 1 {
+            delegate?.changeRootViewControllerTo(controller: getController(rows[indexPath.row]))
+        }
     }
 }

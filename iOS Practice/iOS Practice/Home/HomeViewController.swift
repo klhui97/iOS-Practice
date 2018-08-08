@@ -11,7 +11,8 @@ import UIKit
 class HomeViewController: UIViewController, MenuTableViewControllerDelegate {
 
     let menuController = MenuTableViewController()
-    var menuWidthConstraint: NSLayoutConstraint?
+    var menuWidth: CGFloat?
+    var menuLeadingConstraint: NSLayoutConstraint?
     
     // MARK: - View
     let overlayView: UIView = {
@@ -24,12 +25,22 @@ class HomeViewController: UIViewController, MenuTableViewControllerDelegate {
         view.backgroundColor = .white
         return view
     }()
+    let backgroundImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = #imageLiteral(resourceName: "background")
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
     
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         initNavigation()
+        
+        view.add(backgroundImageView)
+        backgroundImageView.al_fillSuperview()
+        
         menuController.delegate = self
     }
     
@@ -49,39 +60,41 @@ class HomeViewController: UIViewController, MenuTableViewControllerDelegate {
     // MARK: - Action
     @objc func showMenu() {
         if let window = UIApplication.shared.keyWindow {
-            let menuWidth = window.frame.size.width / 1.5
+            menuWidth = window.frame.size.width / 1.5
             
             navigationController?.view.add(overlayView)
             overlayView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapOverlayView)))
             overlayView.al_fillSuperview()
             
+            // menuContainerView
+            
             window.add(menuContainerView)
-            
-            if menuWidthConstraint == nil {
-                menuWidthConstraint = menuContainerView.widthAnchor.constraint(equalToConstant: menuWidth)
+            if menuLeadingConstraint == nil {
+                menuLeadingConstraint = menuContainerView.leadingAnchor.constraint(equalTo: window.leadingAnchor)
             }
-            NSLayoutConstraint.activate([menuWidthConstraint!])
-            
             NSLayoutConstraint.activate([
+                menuLeadingConstraint!,
                 menuContainerView.topAnchor.constraint(equalTo: window.topAnchor),
-                menuContainerView.leadingAnchor.constraint(equalTo: window.leadingAnchor),
+                menuContainerView.widthAnchor.constraint(equalToConstant: menuWidth!),
                 menuContainerView.bottomAnchor.constraint(equalTo: window.bottomAnchor)])
             
-            menuContainerView.add(menuController.view)
+            // menuController
             
+            menuContainerView.add(menuController.view)
             NSLayoutConstraint.activate([
                 menuController.view.leadingAnchor.constraint(equalTo: menuContainerView.safeAreaLayoutGuide.leadingAnchor),
                 menuController.view.trailingAnchor.constraint(equalTo: menuContainerView.safeAreaLayoutGuide.trailingAnchor),
                 menuController.view.topAnchor.constraint(equalTo: menuContainerView.safeAreaLayoutGuide.topAnchor),
                 menuController.view.bottomAnchor.constraint(equalTo: menuContainerView.safeAreaLayoutGuide.bottomAnchor)])
             
+            // animation
             overlayView.alpha = 0
-            menuWidthConstraint?.constant = 0
+            menuLeadingConstraint?.constant = -menuWidth!
             window.layoutIfNeeded()
             
             let animator = UIViewPropertyAnimator(duration: 0.35, dampingRatio: 1, animations: {
                 self.overlayView.alpha = 1
-                self.menuWidthConstraint?.constant = menuWidth
+                self.menuLeadingConstraint?.constant = 0
                 window.layoutIfNeeded()
             })
             
@@ -98,7 +111,7 @@ class HomeViewController: UIViewController, MenuTableViewControllerDelegate {
         if let window = UIApplication.shared.keyWindow {
             let animator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1, animations: {
                 self.overlayView.alpha = 0
-                self.menuWidthConstraint?.constant = 0
+                self.menuLeadingConstraint?.constant = -self.menuWidth!
                 window.layoutIfNeeded()
             })
             
