@@ -21,6 +21,8 @@ private extension MenuTableViewController {
             return Swift4JsonTableViewController()
         case .ChatUi:
             return ChatUITableViewController()
+        case .NotificationObserver:
+            return NotificationObserverViewController()
         }
     }
 }
@@ -31,9 +33,10 @@ class MenuTableViewController: UITableViewController {
     enum Row: String {
         case Swift4Json = "Swift 4 JSON"
         case ChatUi = "Chat UI"
+        case NotificationObserver = "Notification Observer"
     }
     
-    var rows: [Row] = [.Swift4Json, .ChatUi]
+    var rows: [Row] = [.Swift4Json, .ChatUi, .NotificationObserver]
     var delegate: MenuTableViewControllerDelegate?
     
     // MARK: - Life cycle

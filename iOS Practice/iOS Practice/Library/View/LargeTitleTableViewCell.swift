@@ -12,7 +12,7 @@ open class LargeTitleTableViewCell: UITableViewCell {
     
     open let largeTitleLabel: UILabel = {
         let label = UILabel()
-        label.font =  UIFont.systemFont(ofSize: 32, weight: UIFont.Weight.bold)
+        label.font =  UIFont.boldSystemFont(ofSize: 32)
         return label
     }()
     
