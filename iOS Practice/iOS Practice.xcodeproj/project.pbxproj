@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		343B1D9E211C4116004E7E42 /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343B1D9D211C4116004E7E42 /* LoginTableViewController.swift */; };
+		343B1DA1211C416B004E7E42 /* LoginTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343B1DA0211C416B004E7E42 /* LoginTableViewCell.swift */; };
 		3478C43A21193A73009F2240 /* Layoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C43921193A73009F2240 /* Layoutable.swift */; };
 		3478C43D21195BE1009F2240 /* Swift4JsonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C43C21195BE1009F2240 /* Swift4JsonTableViewCell.swift */; };
 		3478C44121195D26009F2240 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C44021195D26009F2240 /* UITableView.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		343B1D9D211C4116004E7E42 /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
+		343B1DA0211C416B004E7E42 /* LoginTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewCell.swift; sourceTree = "<group>"; };
 		3478C43921193A73009F2240 /* Layoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layoutable.swift; sourceTree = "<group>"; };
 		3478C43C21195BE1009F2240 /* Swift4JsonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift4JsonTableViewCell.swift; sourceTree = "<group>"; };
 		3478C44021195D26009F2240 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
@@ -61,6 +65,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		341E9CC3211BE0A500031E55 /* Reuseable View */ = {
+			isa = PBXGroup;
+			children = (
+				343B1D9C211C40F5004E7E42 /* Base Login */,
+			);
+			path = "Reuseable View";
+			sourceTree = "<group>";
+		};
+		343B1D9C211C40F5004E7E42 /* Base Login */ = {
+			isa = PBXGroup;
+			children = (
+				343B1D9F211C4155004E7E42 /* views */,
+				343B1D9D211C4116004E7E42 /* LoginTableViewController.swift */,
+			);
+			path = "Base Login";
+			sourceTree = "<group>";
+		};
+		343B1D9F211C4155004E7E42 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				343B1DA0211C416B004E7E42 /* LoginTableViewCell.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		3478C43721193A46009F2240 /* Library */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +175,7 @@
 			children = (
 				3478C43721193A46009F2240 /* Library */,
 				6B4C381B2118B0AE00D5320A /* Practice */,
+				341E9CC3211BE0A500031E55 /* Reuseable View */,
 				6B4C38022118A31A00D5320A /* AppDelegate.swift */,
 				6B4C38162118A6FB00D5320A /* Home */,
 				6B4C38092118A31D00D5320A /* Assets.xcassets */,
@@ -256,6 +286,7 @@
 				3478C49E211AD2E6009F2240 /* LeftBubbleTableViewCell.swift in Sources */,
 				3478C4A6211AF64B009F2240 /* NotificationObserverViewController.swift in Sources */,
 				6B4C38152118A38600D5320A /* MenuTableViewController.swift in Sources */,
+				343B1DA1211C416B004E7E42 /* LoginTableViewCell.swift in Sources */,
 				3478C43A21193A73009F2240 /* Layoutable.swift in Sources */,
 				3478C44421195E7F009F2240 /* CircleImageView.swift in Sources */,
 				3478C49B211AD1F0009F2240 /* ChatUITableViewController.swift in Sources */,
@@ -263,6 +294,7 @@
 				3478C43D21195BE1009F2240 /* Swift4JsonTableViewCell.swift in Sources */,
 				3478C493211A86E7009F2240 /* HomeViewController.swift in Sources */,
 				3478C4A2211ADC76009F2240 /* RightBubbleTableViewCell.swift in Sources */,
+				343B1D9E211C4116004E7E42 /* LoginTableViewController.swift in Sources */,
 				6B4C38032118A31A00D5320A /* AppDelegate.swift in Sources */,
 				3478C44121195D26009F2240 /* UITableView.swift in Sources */,
 				3478C48F211996AC009F2240 /* NSLayoutConstraint.swift in Sources */,

@@ -8,6 +8,9 @@
 
 import UIKit
 
-class NotificationObserverViewController: UIViewController {
+class NotificationObserverViewController: LoginTableViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }
