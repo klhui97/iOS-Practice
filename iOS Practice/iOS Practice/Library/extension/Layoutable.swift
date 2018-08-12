@@ -144,11 +144,4 @@ extension Layoutable {
 
 extension UIView: Layoutable {
     var owningView: UIView? { return superview }
-    
-    func add(_ subviews: UIView...) {
-        for view in subviews {
-            view.translatesAutoresizingMaskIntoConstraints = false
-            addSubview(view)
-        }
-    }
 }

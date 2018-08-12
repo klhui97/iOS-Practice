@@ -23,6 +23,8 @@ private extension MenuTableViewController {
             return ChatUITableViewController()
         case .NotificationObserver:
             return NotificationObserverViewController()
+        case .BluetoothReadWrite:
+            return BluetoothReadWriteViewController()
         }
     }
 }
@@ -34,9 +36,10 @@ class MenuTableViewController: UITableViewController {
         case Swift4Json = "Swift 4 JSON"
         case ChatUi = "Chat UI"
         case NotificationObserver = "Notification Observer"
+        case BluetoothReadWrite = "BT Read&Write"
     }
     
-    var rows: [Row] = [.Swift4Json, .ChatUi, .NotificationObserver]
+    var rows: [Row] = [.Swift4Json, .ChatUi, .NotificationObserver, .BluetoothReadWrite]
     var delegate: MenuTableViewControllerDelegate?
     
     // MARK: - Life cycle
