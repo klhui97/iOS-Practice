@@ -74,13 +74,25 @@ class WhatsappApiViewController: KLViewController, UITextFieldDelegate {
     // MARK: - Action
     @objc func didTapSendButton() {
         view.endEditing(true)
-        
+
+//        openWhatsappViaSafari()
+        openWhatsappDirectly()
+    }
+    
+    // MARK: - Method
+    private func openWhatsappViaSafari() {
         if let url = URL(string: "https://api.whatsapp.com/send?phone=\(phoneTextField.text ?? "")&text=\(textTextView.text.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)") {
             let config = SFSafariViewController.Configuration()
             config.entersReaderIfAvailable = true
             
             let vc = SFSafariViewController(url: url, configuration: config)
             navigationController?.present(vc, animated: true)
+        }
+    }
+    
+    private func openWhatsappDirectly() {
+        if let url = URL(string: "whatsapp://send?phone=\(phoneTextField.text ?? "")&text=\(textTextView.text.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)") {
+            UIApplication.shared.open(url, options: [:])
         }
     }
 }
