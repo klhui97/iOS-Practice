@@ -15,8 +15,8 @@ class LoginTableViewCell: UITableViewCell {
         return label
     }()
     
-    let inputTextField: UITextField = {
-        let textField = UITextField()
+    let inputTextField: PaddingTextField = {
+        let textField = PaddingTextField(edgeInsets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16))
         textField.backgroundColor = .lightGray
         textField.layer.cornerRadius = 4
         textField.clipsToBounds = true
