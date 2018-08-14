@@ -8,7 +8,7 @@
 
 import UIKit
 
-class KMBSearchViewController: UITableViewController {
+class KMBSearchViewController: UITableViewController, HasLoadingOverlay {
     
     enum Action: String {
         case getStop = "getstops"
@@ -16,21 +16,33 @@ class KMBSearchViewController: UITableViewController {
     
     var data: Result?
     
-    let stop = "31M"
+    let route = "2F"
     let bound = "1"
     let action = Action.getStop
+    
+    var loadingOverlay: LoadingOverlay?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "KMB Data"
         tableView.tableFooterView = UIView()
         tableView.estimatedRowHeight = 50
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        search { (error, result) in
-            if let result = result {
-                self.data = result
-                self.tableView.reloadData()
+        showLoadingOverlayInNavigationController()
+        fetchKmbData { (error, result) in
+            OperationQueue.main.addOperation {
+                self.loadingOverlay?.removeFromSuperview()
+                
+                if let error = error {
+                    print(error)
+                }
+                
+                if let result = result {
+                    self.data = result
+                    self.tableView.reloadData()
+                }
             }
         }
     }
@@ -74,10 +86,10 @@ class KMBSearchViewController: UITableViewController {
     
     // MARK: - API
     
-    func search(callback: @escaping (_ error: Error?, _ result: Result?) -> Void) {
+    func fetchKmbData(callback: @escaping (_ error: Error?, _ result: Result?) -> Void) {
         
         // test url: http://search.kmb.hk/KMBWebSite/Function/FunctionRequest.ashx?action=getstops&route=31M&bound=1
-        guard let url = URL(string: "http://search.kmb.hk/KMBWebSite/Function/FunctionRequest.ashx?action=\(action.rawValue)&route=\(stop)&bound=\(bound)") else {
+        guard let url = URL(string: "http://search.kmb.hk/KMBWebSite/Function/FunctionRequest.ashx?action=\(action.rawValue)&route=\(route)&bound=\(bound)") else {
             return
         }
         

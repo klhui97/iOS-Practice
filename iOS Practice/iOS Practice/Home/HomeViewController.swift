@@ -78,8 +78,12 @@ class HomeViewController: UIViewController, MenuTableViewControllerDelegate {
                 menuContainerView.bottomAnchor.constraint(equalTo: window.bottomAnchor)])
             
             // menuController
-            menuContainerView.add(menuController.view)
-            menuController.view.al_fillSafeAreaView(menuContainerView)
+            menuContainerView.add(menuController.tableView)
+            NSLayoutConstraint.activate([
+                menuController.tableView.leadingAnchor.constraint(equalTo: menuContainerView.leadingAnchor),
+                menuController.tableView.trailingAnchor.constraint(equalTo: menuContainerView.trailingAnchor),
+                menuController.tableView.topAnchor.constraint(equalTo: menuContainerView.topAnchor, constant: UIApplication.shared.statusBarFrame.height),
+                menuController.tableView.bottomAnchor.constraint(equalTo: menuContainerView.bottomAnchor)])
             
             // animation
             overlayView.alpha = 0
