@@ -31,6 +31,8 @@ private extension MenuTableViewController {
             return KMBSearchViewController()
         case .whatsappApi:
             return WhatsappApiViewController()
+        case .rssParse:
+            return RSSParseViewController()
         }
     }
 }
@@ -46,9 +48,10 @@ class MenuTableViewController: UITableViewController {
         case messageUi = "Message UI"
         case hkKmbData = "KMB Data"
         case whatsappApi = "Whatsapp API"
+        case rssParse = "RSS Parse"
     }
     
-    var rows: [Row] = [.swift4Json, .hkKmbData, .chatUi, .notificationObserver, .bluetoothReadWrite, .messageUi, .whatsappApi]
+    var rows: [Row] = [.swift4Json, .hkKmbData, .chatUi, .notificationObserver, .bluetoothReadWrite, .messageUi, .whatsappApi, .rssParse]
     var delegate: MenuTableViewControllerDelegate?
     
     // MARK: - Life cycle

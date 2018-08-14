@@ -34,6 +34,7 @@
 		6B7AC4FD2120534400590ED6 /* BluetoothReadWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7AC4FC2120534400590ED6 /* BluetoothReadWriteViewController.swift */; };
 		6B95898721231EBC0058CF74 /* WhatsappApiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B95898621231EBC0058CF74 /* WhatsappApiViewController.swift */; };
 		6B95898C21232C690058CF74 /* KLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B95898B21232C690058CF74 /* KLViewController.swift */; };
+		6B95898F21233B8B0058CF74 /* RSSParseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B95898E21233B8B0058CF74 /* RSSParseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		6B7AC4FC2120534400590ED6 /* BluetoothReadWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothReadWriteViewController.swift; sourceTree = "<group>"; };
 		6B95898621231EBC0058CF74 /* WhatsappApiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsappApiViewController.swift; sourceTree = "<group>"; };
 		6B95898B21232C690058CF74 /* KLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLViewController.swift; sourceTree = "<group>"; };
+		6B95898E21233B8B0058CF74 /* RSSParseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSParseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +241,7 @@
 		6B4C381B2118B0AE00D5320A /* Practice */ = {
 			isa = PBXGroup;
 			children = (
+				6B95898D21233B640058CF74 /* RSS Parse */,
 				6B95898521231E970058CF74 /* Whatsapp API */,
 				34645FC02122D41F00D3D59D /* KMB Data */,
 				34645FB62122909000D3D59D /* Message UI */,
@@ -272,6 +275,14 @@
 				6B95898B21232C690058CF74 /* KLViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		6B95898D21233B640058CF74 /* RSS Parse */ = {
+			isa = PBXGroup;
+			children = (
+				6B95898E21233B8B0058CF74 /* RSSParseViewController.swift */,
+			);
+			path = "RSS Parse";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,6 +360,7 @@
 				34645FB8212290B900D3D59D /* MessageUiViewController.swift in Sources */,
 				6B95898721231EBC0058CF74 /* WhatsappApiViewController.swift in Sources */,
 				6B4C38152118A38600D5320A /* MenuTableViewController.swift in Sources */,
+				6B95898F21233B8B0058CF74 /* RSSParseViewController.swift in Sources */,
 				343B1DA1211C416B004E7E42 /* LoginTableViewCell.swift in Sources */,
 				3478C43A21193A73009F2240 /* Layoutable.swift in Sources */,
 				6B7AC4FD2120534400590ED6 /* BluetoothReadWriteViewController.swift in Sources */,
