@@ -33,16 +33,26 @@ extension Layoutable {
         al_fillView(owningView!, inset: UIEdgeInsetsMake(margin, margin, margin, margin))
     }
     
-    func al_fillSuperViewHorizontally() {
+    func al_fillSuperViewHorizontally(alignToSafeArea: Bool = false) {
         let alView = self.owningView!
-        NSLayoutConstraint.activate([trailingAnchor.constraint(equalTo: alView.trailingAnchor, constant: 0),
-                                     leadingAnchor.constraint(equalTo: alView.leadingAnchor, constant: 0)])
+        if alignToSafeArea {
+            NSLayoutConstraint.activate([trailingAnchor.constraint(equalTo: alView.safeLeftAnchor, constant: 0),
+                                         leadingAnchor.constraint(equalTo: alView.safeRightAnchor, constant: 0)])
+        }else {
+            NSLayoutConstraint.activate([trailingAnchor.constraint(equalTo: alView.trailingAnchor, constant: 0),
+                                         leadingAnchor.constraint(equalTo: alView.leadingAnchor, constant: 0)])
+        }
     }
     
-    func al_fillSuperViewVertically() {
+    func al_fillSuperViewVertically(alignToSafeArea: Bool = false) {
         let alView = self.owningView!
-        NSLayoutConstraint.activate([topAnchor.constraint(equalTo: alView.topAnchor, constant: 0),
-                                     bottomAnchor.constraint(equalTo: alView.bottomAnchor, constant: 0)])
+        if alignToSafeArea {
+            NSLayoutConstraint.activate([topAnchor.constraint(equalTo: alView.safeTopAnchor, constant: 0),
+                                         bottomAnchor.constraint(equalTo: alView.safeBottomAnchor, constant: 0)])
+        }else {
+            NSLayoutConstraint.activate([topAnchor.constraint(equalTo: alView.topAnchor, constant: 0),
+                                         bottomAnchor.constraint(equalTo: alView.bottomAnchor, constant: 0)])
+        }
     }
     
     // MARK: - Width and height
@@ -107,21 +117,29 @@ extension Layoutable {
     }
     
     // MARK: Top
-    func al_topToSuperview(distance: CGFloat = 0) {
-        al_topToView(owningView!, distance: distance)
+    func al_topToSuperview(distance: CGFloat = 0, alignToSafeArea: Bool = false) {
+        al_topToView(owningView!, distance: distance, alignToSafeArea: alignToSafeArea)
     }
     
-    func al_topToView(_ view: UIView, distance: CGFloat = 0) {
-        NSLayoutConstraint.activate([topAnchor.constraint(equalTo: view.topAnchor, constant: distance)])
+    func al_topToView(_ view: UIView, distance: CGFloat = 0, alignToSafeArea: Bool = false) {
+        if alignToSafeArea {
+            NSLayoutConstraint.activate([topAnchor.constraint(equalTo: view.safeTopAnchor, constant: distance)])
+        }else {
+            NSLayoutConstraint.activate([topAnchor.constraint(equalTo: view.topAnchor, constant: distance)])
+        }
     }
     
     // MARK: - Bottom
-    func al_bottomToSuperview(distance: CGFloat = 0) {
-        al_bottomToView(owningView!, distance: distance)
+    func al_bottomToSuperview(distance: CGFloat = 0, alignToSafeArea: Bool = false) {
+        al_bottomToView(owningView!, distance: distance, alignToSafeArea: alignToSafeArea)
     }
     
-    func al_bottomToView(_ view: UIView, distance: CGFloat = 0) {
-        NSLayoutConstraint.activate([bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: distance)])
+    func al_bottomToView(_ view: UIView, distance: CGFloat = 0, alignToSafeArea: Bool = false) {
+        if alignToSafeArea {
+            NSLayoutConstraint.activate([bottomAnchor.constraint(equalTo: view.safeBottomAnchor, constant: distance)])
+        }else {
+            NSLayoutConstraint.activate([bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: distance)])
+        }
     }
     
     // MARK: - X and Y

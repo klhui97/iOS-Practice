@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, MenuTableViewControllerDelegate {
+class HomeViewController: KLViewController, MenuTableViewControllerDelegate {
 
     let menuController = MenuTableViewController()
     var menuWidth: CGFloat?

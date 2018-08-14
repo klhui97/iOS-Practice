@@ -9,7 +9,7 @@
 import UIKit
 import CoreBluetooth
 
-class BluetoothReadWriteViewController: UIViewController {
+class BluetoothReadWriteViewController: KLViewController {
     
     // MARK: - View
     let loggingTextView: UITextView = {
@@ -19,8 +19,6 @@ class BluetoothReadWriteViewController: UIViewController {
         textView.isUserInteractionEnabled = true
         return textView
     }()
-    
-    let container = UIView()
     
     // MARK: - Variable
     let deviceName = "SmartPlant\r\n"
@@ -45,19 +43,15 @@ class BluetoothReadWriteViewController: UIViewController {
         let centralQueue: DispatchQueue = DispatchQueue(label: "com.iosbrain.centralQueueName", attributes: .concurrent)
         centralManager = CBCentralManager(delegate: self, queue: centralQueue)
         
-        view.backgroundColor = .white
         setupAutoLayout()
     }
     
     // MARK: - View config
     private func setupAutoLayout() {
-        view.add(container)
-        NSLayoutConstraint.activate([container.topAnchor.constraint(equalTo: view.safeTopAnchor), container.bottomAnchor.constraint(equalTo: view.safeBottomAnchor), container.leftAnchor.constraint(equalTo: view.safeLeftAnchor), container.rightAnchor.constraint(equalTo: view.safeRightAnchor)])
-        
-        container.add(loggingTextView)
+        safeAreaContentView.add(loggingTextView)
         let views = ["loggingTextView": loggingTextView]
         loggingTextView.backgroundColor = .yellow
-        loggingTextView.heightAnchor.constraint(equalTo: container.heightAnchor, multiplier: 0.5).isActive = true
+        loggingTextView.heightAnchor.constraint(equalTo: safeAreaContentView.heightAnchor, multiplier: 0.5).isActive = true
         NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "|[loggingTextView]|", options: [], metrics: nil, views: views))
         NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "V:[loggingTextView]|", options: [], metrics: nil, views: views))
     }

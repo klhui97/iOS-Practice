@@ -17,18 +17,20 @@ private extension MenuTableViewController {
     func getController(_ rowType: Row) -> UIViewController {
         
         switch rowType {
-        case .Swift4Json:
+        case .swift4Json:
             return Swift4JsonTableViewController()
-        case .ChatUi:
+        case .chatUi:
             return ChatUITableViewController()
-        case .NotificationObserver:
+        case .notificationObserver:
             return NotificationObserverViewController()
-        case .BluetoothReadWrite:
+        case .bluetoothReadWrite:
             return BluetoothReadWriteViewController()
-        case .MessageUi:
+        case .messageUi:
             return MessageUiViewController()
-        case .HkKmbData:
+        case .hkKmbData:
             return KMBSearchViewController()
+        case .whatsappApi:
+            return WhatsappApiViewController()
         }
     }
 }
@@ -37,15 +39,16 @@ class MenuTableViewController: UITableViewController {
     
     // MARK: - Practice data
     enum Row: String {
-        case Swift4Json = "Swift 4 JSON"
-        case ChatUi = "Chat UI"
-        case NotificationObserver = "Notification Observer"
-        case BluetoothReadWrite = "BT Read&Write"
-        case MessageUi = "Message UI"
-        case HkKmbData = "KMB Data"
+        case swift4Json = "Swift 4 JSON"
+        case chatUi = "Chat UI"
+        case notificationObserver = "Notification Observer"
+        case bluetoothReadWrite = "BT Read&Write"
+        case messageUi = "Message UI"
+        case hkKmbData = "KMB Data"
+        case whatsappApi = "Whatsapp API"
     }
     
-    var rows: [Row] = [.Swift4Json, .HkKmbData, .ChatUi, .NotificationObserver, .BluetoothReadWrite, .MessageUi]
+    var rows: [Row] = [.swift4Json, .hkKmbData, .chatUi, .notificationObserver, .bluetoothReadWrite, .messageUi, .whatsappApi]
     var delegate: MenuTableViewControllerDelegate?
     
     // MARK: - Life cycle

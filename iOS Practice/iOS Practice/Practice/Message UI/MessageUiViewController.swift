@@ -9,27 +9,39 @@
 import UIKit
 import MessageUI
 
-class MessageUiViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class MessageUiViewController: KLViewController, MFMailComposeViewControllerDelegate {
 
+    let label = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Check if the device is capable to send email
+        title = "Message UI test"
+        
+        safeAreaContentView.add(label)
+        label.numberOfLines = 0
+        safeAreaContentView.layoutMargins = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
+        label.al_leftToMargin()
+        label.al_rightToMargin()
+        label.al_centerYToView()
+        
         guard MFMailComposeViewController.canSendMail() else {
             print("This device doesn't allow you to send mail.")
             return
         }
         
-        let emailTitle = "Great Photo and Doc"
-        let messageBody = "Hey, check this out!"
-        let toRecipients = ["support@appcoda.com"]
+        let emailTitle = "Hi, KL"
+        let messageBody = "Hey, Hello:)"
+        let toRecipients = ["me@klhui.hk"]
         
-        // Initialize the mail composer and populate the mail content
         let mailComposer = MFMailComposeViewController()
         mailComposer.mailComposeDelegate = self
         mailComposer.setSubject(emailTitle)
         mailComposer.setMessageBody(messageBody, isHTML: false)
         mailComposer.setToRecipients(toRecipients)
+        mailComposer.mailComposeDelegate = self
+        
+        present(mailComposer, animated: true)
     }
 
     // MARK: - MFMailComposeViewControllerDelegate
