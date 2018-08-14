@@ -27,6 +27,8 @@ private extension MenuTableViewController {
             return BluetoothReadWriteViewController()
         case .MessageUi:
             return MessageUiViewController()
+        case .HkKmbData:
+            return KMBSearchViewController()
         }
     }
 }
@@ -40,9 +42,10 @@ class MenuTableViewController: UITableViewController {
         case NotificationObserver = "Notification Observer"
         case BluetoothReadWrite = "BT Read&Write"
         case MessageUi = "Message UI"
+        case HkKmbData = "KMB Data"
     }
     
-    var rows: [Row] = [.Swift4Json, .ChatUi, .NotificationObserver, .BluetoothReadWrite, .MessageUi]
+    var rows: [Row] = [.Swift4Json, .HkKmbData, .ChatUi, .NotificationObserver, .BluetoothReadWrite, .MessageUi]
     var delegate: MenuTableViewControllerDelegate?
     
     // MARK: - Life cycle
