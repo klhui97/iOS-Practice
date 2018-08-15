@@ -12,7 +12,12 @@ class Swift4JsonTableViewController: UITableViewController, HasLoadingOverlay {
     
     var loadingOverlay: LoadingOverlay?
     
-    var loans: [Loan] = []
+    var loans: [KivawsLoanClient.Loan] = [] {
+        didSet {
+            self.tableView.reloadData()
+            self.tableView.refreshControl?.endRefreshing()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +36,11 @@ class Swift4JsonTableViewController: UITableViewController, HasLoadingOverlay {
         tableView.refreshControl = tableViewRefreshControl
         
         showLoadingOverlayInNavigationController()
-        getLatestLoans { (err, loans) in
+        KivawsLoanClient.shared.getLatestLoans { (err, loans) in
             OperationQueue.main.addOperation {
                 self.loadingOverlay?.removeFromSuperview()
                 if let loans = loans {
                     self.loans = loans
-                    self.tableView.reloadData()
                 }
             }
         }
@@ -44,12 +48,10 @@ class Swift4JsonTableViewController: UITableViewController, HasLoadingOverlay {
     
     // MARK: - Method
     @objc func handleRefresh() {
-        getLatestLoans { (err, loans) in
+        KivawsLoanClient.shared.getLatestLoans { (err, loans) in
             OperationQueue.main.addOperation {
                 if let loans = loans {
                     self.loans = loans
-                    self.tableView.reloadData()
-                    self.tableView.refreshControl?.endRefreshing()
                 }
             }
         }
@@ -72,70 +74,5 @@ class Swift4JsonTableViewController: UITableViewController, HasLoadingOverlay {
         cell.dateLabel.text = loans[indexPath.row].postedDate
         
         return cell
-    }
-
-    // MARK: - API
-    func getLatestLoans(callback: @escaping (_ error: Error?, _ result: [Loan]?) -> Void) {
-        guard let loanUrl = URL(string: "https://api.kivaws.org/v1/loans/newest.json") else {
-            return
-        }
-        
-        let request = URLRequest(url: loanUrl)
-        let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
-            
-            if let error = error {
-                callback(error, nil)
-                return
-            }
-        
-            let decoder = JSONDecoder()
-            do {
-                if let data = data {
-                    let response = try decoder.decode(APIResponse.self, from: data)
-                    callback(error, response.loans)
-                }
-            } catch {
-                callback(error, nil)
-            }
-        })
-        
-        task.resume()
-    }
-}
-
-extension Swift4JsonTableViewController {
-    
-    // MARK: - JSON Structure
-    struct Page: Decodable {
-        var page: Int?
-        var total: Int?
-        var pageSize: Int?
-        var pages: Int?
-        
-        enum CodingKeys: String, CodingKey {
-            case page
-            case total
-            case pageSize = "page_size"
-            case pages
-        }
-    }
-    
-    struct Loan: Decodable {
-        var id: Int?
-        var name: String?
-        var postedDate: String?
-        var loanAmount: Double?
-        
-        enum CodingKeys: String, CodingKey {
-            case id
-            case name
-            case postedDate = "posted_date"
-            case loanAmount = "loan_amount"
-        }
-    }
-    
-    struct APIResponse: Decodable {
-        var paging: Page
-        var loans: [Loan]
     }
 }

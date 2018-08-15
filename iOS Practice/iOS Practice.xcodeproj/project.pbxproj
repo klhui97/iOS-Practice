@@ -12,6 +12,9 @@
 		34645FB521227D7E00D3D59D /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34645FB421227D7E00D3D59D /* PaddingTextField.swift */; };
 		34645FB8212290B900D3D59D /* MessageUiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34645FB7212290B900D3D59D /* MessageUiViewController.swift */; };
 		34645FC22122D43800D3D59D /* KMBSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34645FC12122D43800D3D59D /* KMBSearchViewController.swift */; };
+		34645FC42123C82100D3D59D /* FreeAppParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34645FC32123C82100D3D59D /* FreeAppParser.swift */; };
+		34645FC62123CE5700D3D59D /* KMBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34645FC52123CE5700D3D59D /* KMBClient.swift */; };
+		34645FCC2123D2DA00D3D59D /* KivawsLoanClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34645FCB2123D2DA00D3D59D /* KivawsLoanClient.swift */; };
 		3478C43A21193A73009F2240 /* Layoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C43921193A73009F2240 /* Layoutable.swift */; };
 		3478C43D21195BE1009F2240 /* Swift4JsonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C43C21195BE1009F2240 /* Swift4JsonTableViewCell.swift */; };
 		3478C44121195D26009F2240 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C44021195D26009F2240 /* UITableView.swift */; };
@@ -43,6 +46,9 @@
 		34645FB421227D7E00D3D59D /* PaddingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
 		34645FB7212290B900D3D59D /* MessageUiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageUiViewController.swift; sourceTree = "<group>"; };
 		34645FC12122D43800D3D59D /* KMBSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMBSearchViewController.swift; sourceTree = "<group>"; };
+		34645FC32123C82100D3D59D /* FreeAppParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeAppParser.swift; sourceTree = "<group>"; };
+		34645FC52123CE5700D3D59D /* KMBClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMBClient.swift; sourceTree = "<group>"; };
+		34645FCB2123D2DA00D3D59D /* KivawsLoanClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KivawsLoanClient.swift; sourceTree = "<group>"; };
 		3478C43921193A73009F2240 /* Layoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layoutable.swift; sourceTree = "<group>"; };
 		3478C43C21195BE1009F2240 /* Swift4JsonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift4JsonTableViewCell.swift; sourceTree = "<group>"; };
 		3478C44021195D26009F2240 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
@@ -117,6 +123,7 @@
 		34645FC02122D41F00D3D59D /* KMB Data */ = {
 			isa = PBXGroup;
 			children = (
+				34645FC52123CE5700D3D59D /* KMBClient.swift */,
 				34645FC12122D43800D3D59D /* KMBSearchViewController.swift */,
 			);
 			path = "KMB Data";
@@ -234,6 +241,7 @@
 			children = (
 				3478C43B21195BC2009F2240 /* views */,
 				6B4C38192118A91F00D5320A /* Swift4JsonTableViewController.swift */,
+				34645FCB2123D2DA00D3D59D /* KivawsLoanClient.swift */,
 			);
 			path = Swift4Json;
 			sourceTree = "<group>";
@@ -280,6 +288,7 @@
 		6B95898D21233B640058CF74 /* RSS Parse */ = {
 			isa = PBXGroup;
 			children = (
+				34645FC32123C82100D3D59D /* FreeAppParser.swift */,
 				6B95898E21233B8B0058CF74 /* RSSParseViewController.swift */,
 			);
 			path = "RSS Parse";
@@ -358,13 +367,16 @@
 				3478C49E211AD2E6009F2240 /* LeftBubbleTableViewCell.swift in Sources */,
 				3478C4A6211AF64B009F2240 /* NotificationObserverViewController.swift in Sources */,
 				34645FB8212290B900D3D59D /* MessageUiViewController.swift in Sources */,
+				34645FCC2123D2DA00D3D59D /* KivawsLoanClient.swift in Sources */,
 				6B95898721231EBC0058CF74 /* WhatsappApiViewController.swift in Sources */,
 				6B4C38152118A38600D5320A /* MenuTableViewController.swift in Sources */,
 				6B95898F21233B8B0058CF74 /* RSSParseViewController.swift in Sources */,
+				34645FC42123C82100D3D59D /* FreeAppParser.swift in Sources */,
 				343B1DA1211C416B004E7E42 /* LoginTableViewCell.swift in Sources */,
 				3478C43A21193A73009F2240 /* Layoutable.swift in Sources */,
 				6B7AC4FD2120534400590ED6 /* BluetoothReadWriteViewController.swift in Sources */,
 				3478C44421195E7F009F2240 /* CircleImageView.swift in Sources */,
+				34645FC62123CE5700D3D59D /* KMBClient.swift in Sources */,
 				3478C49B211AD1F0009F2240 /* ChatUITableViewController.swift in Sources */,
 				6B4C381A2118A91F00D5320A /* Swift4JsonTableViewController.swift in Sources */,
 				3478C43D21195BE1009F2240 /* Swift4JsonTableViewCell.swift in Sources */,
