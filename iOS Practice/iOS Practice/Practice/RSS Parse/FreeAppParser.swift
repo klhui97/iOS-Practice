@@ -46,6 +46,21 @@ extension FreeAppParser {
         var link = ""
         var category = ""
         var pubDate = ""
+        var CDATA = Data()
+        
+        var attributedString: String {
+            let attributedOptions: [NSAttributedString.DocumentReadingOptionKey : Any] = [
+                .documentType: NSAttributedString.DocumentType.html,
+                .characterEncoding: String.Encoding.utf8.rawValue
+            ]
+            
+            do {
+                return try NSAttributedString(data: CDATA, options: attributedOptions, documentAttributes: nil).string
+            } catch {
+                print("Error: \(error.localizedDescription)")
+            }
+            return ""
+        }
         
         mutating func set(_ type: RssTag.RawValue, _ string: String) {
             let newString = string.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
@@ -107,5 +122,9 @@ extension FreeAppParser: XMLParserDelegate {
     
     func parserDidEndDocument(_ parser: XMLParser) {
         parserCompletionHandler?(items)
+    }
+    
+    func parser(_ parser: XMLParser, foundCDATA CDATABlock: Data) {
+        currentItem.CDATA = CDATABlock
     }
 }

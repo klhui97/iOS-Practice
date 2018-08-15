@@ -20,6 +20,7 @@ class RSSParseViewController: KLTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Free App RSS"
         tableView.register(FreeAppCell.self)
         tableView.layoutMargins = UIEdgeInsetsMake(0, 24, 0, 8)
         
