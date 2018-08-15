@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginTableViewController: UITableViewController {
+class LoginTableViewController: KLTableViewController {
     
     enum InputType: Int {
         case name = 1
@@ -30,9 +30,6 @@ class LoginTableViewController: UITableViewController {
         
         title = "Base Login"
         
-        tableView.estimatedRowHeight = 50
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.tableFooterView = UIView()
         tableView.allowsSelection = false
         tableView.register(LoginTableViewCell.self)
     }

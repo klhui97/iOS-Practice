@@ -37,7 +37,7 @@ private extension MenuTableViewController {
     }
 }
 
-class MenuTableViewController: UITableViewController {
+class MenuTableViewController: KLTableViewController {
     
     // MARK: - Practice data
     enum Row: String {
@@ -60,10 +60,7 @@ class MenuTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.backgroundColor = .white
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 52
         tableView.register(LargeTitleTableViewCell.self)
-        tableView.tableFooterView = UIView()
     }
     
     // MARK: - Table view data source

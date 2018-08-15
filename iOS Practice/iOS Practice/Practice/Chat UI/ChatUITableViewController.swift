@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatUITableViewController: UITableViewController {
+class ChatUITableViewController: KLTableViewController {
 
     let sampleChats = ["Hello John! How are you doing?",
                        "Perfect, I am really glad to hear that! How may I help you today?",
@@ -24,12 +24,9 @@ class ChatUITableViewController: UITableViewController {
 
         title = "Chat UI"
         
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 100
         tableView.allowsSelection = false
         tableView.register(LeftBubbleTableViewCell.self)
         tableView.register(RightBubbleTableViewCell.self)
-        tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
     }
 

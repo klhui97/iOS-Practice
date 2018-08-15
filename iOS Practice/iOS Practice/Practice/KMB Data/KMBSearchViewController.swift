@@ -8,7 +8,7 @@
 
 import UIKit
 
-class KMBSearchViewController: UITableViewController, HasLoadingOverlay {
+class KMBSearchViewController: KLTableViewController, HasLoadingOverlay {
     
     var data: KMBClient.Result? {
         didSet {
@@ -26,9 +26,6 @@ class KMBSearchViewController: UITableViewController, HasLoadingOverlay {
         super.viewDidLoad()
         
         title = "KMB Data"
-        tableView.tableFooterView = UIView()
-        tableView.estimatedRowHeight = 50
-        tableView.rowHeight = UITableViewAutomaticDimension
         
         fetchKmbData()
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RSSParseViewController: KLViewController {
+class RSSParseViewController: KLTableViewController {
     
     var items: [FreeAppParser.Item] = []
     override func viewDidLoad() {
@@ -19,6 +19,4 @@ class RSSParseViewController: KLViewController {
             self.items = items
         }
     }
-    
-
 }

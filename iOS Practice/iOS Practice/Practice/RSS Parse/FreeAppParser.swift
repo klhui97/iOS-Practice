@@ -11,17 +11,8 @@ import Foundation
 class FreeAppParser: NSObject {
 
     private var items: [Item] = []
+    private var currentItem = Item()
     private var currentElement = ""
-    private var currentTitle:String = "" {
-        didSet {
-            currentTitle = currentTitle.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        }
-    }
-    private var currentLink:String = "" {
-        didSet {
-            currentLink = currentLink.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        }
-    }
     private var parserCompletionHandler:(([Item]) -> Void)?
     
     func fetchData(completionHandler: (([Item]) -> Void)?) {
@@ -53,6 +44,25 @@ extension FreeAppParser {
     struct Item {
         var title = ""
         var link = ""
+        var category = ""
+        var pubDate = ""
+        
+        mutating func set(_ type: RssTag.RawValue, _ string: String) {
+            let newString = string.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            
+            switch type {
+            case RssTag.title.rawValue:
+                title += newString
+            case RssTag.link.rawValue:
+                link += newString
+            case RssTag.pubDate.rawValue:
+                category += newString
+            case RssTag.category.rawValue:
+                pubDate += newString
+            default:
+                return
+            }
+        }
     }
 }
 
@@ -64,6 +74,8 @@ extension FreeAppParser {
         case item = "item"
         case title = "title"
         case link = "link"
+        case category = "category"
+        case pubDate = "pubDate"
     }
 }
 
@@ -72,34 +84,21 @@ extension FreeAppParser {
 extension FreeAppParser: XMLParserDelegate {
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
-        print("didStartElement \(elementName)")
         currentElement = elementName
         
         if currentElement == RssTag.item.rawValue {
-            currentTitle = ""
-            currentLink = ""
+            currentItem = Item()
         }
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        print("didEndElement \(elementName)")
-        if elementName == "item" {
-            var item = Item()
-            item.title = currentTitle
-            item.link = currentLink
-            items.append(item)
+        if elementName == RssTag.item.rawValue {
+            items.append(currentItem)
         }
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
-        switch string {
-        case RssTag.title.rawValue:
-            currentTitle += string
-        case RssTag.link.rawValue:
-            currentLink += string
-        default:
-            break
-        }
+        currentItem.set(currentElement, string)
     }
     
     func parserDidStartDocument(_ parser: XMLParser) {

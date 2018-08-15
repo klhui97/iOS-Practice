@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Swift4JsonTableViewController: UITableViewController, HasLoadingOverlay {
+class Swift4JsonTableViewController: KLTableViewController, HasLoadingOverlay {
     
     var loadingOverlay: LoadingOverlay?
     
@@ -25,8 +25,6 @@ class Swift4JsonTableViewController: UITableViewController, HasLoadingOverlay {
         title = "Loan List"
         
         tableView.register(Swift4JsonTableViewCell.self)
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 100
         tableView.layoutMargins = UIEdgeInsetsMake(0, 24, 0, 24)
         tableView.allowsSelection = false
         
