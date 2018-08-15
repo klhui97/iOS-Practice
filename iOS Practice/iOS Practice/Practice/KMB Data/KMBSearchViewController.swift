@@ -10,15 +10,11 @@ import UIKit
 
 class KMBSearchViewController: KLTableViewController {
     
-    var data: KMBClient.Result? {
+    var data: KMBClient.GetStopsInBoundResponse.StopsInfo? {
         didSet {
             self.tableView.reloadData()
         }
     }
-    
-    let route = "2F"
-    let bound = "1"
-    let action = KMBClient.Action.getStop
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +26,7 @@ class KMBSearchViewController: KLTableViewController {
     
     func fetchKmbData() {
         showLoadingOverlayInNavigationController()
-        KMBClient.shared.getStops(action: action, route: route, bound: bound) { (error, result) in
+        KMBClient.shared.getStopsOfBound(route: "2F", bound: "1", ServiceType: "1") { (error, result) in
             OperationQueue.main.addOperation {
                 self.removeLoadingOverlay()
                 
@@ -45,10 +41,18 @@ class KMBSearchViewController: KLTableViewController {
             }
         }
         
-        KMBClient.shared.getRoutesInStop(action: KMBClient.Action.getRoutesInStop, bsiCode: "WO04-N-1050-0") { (error, stops) in
-            if let stops = stops {
-                for stop in stops {
-                    print(stop)
+        KMBClient.shared.getRouteBound(route: "2F") { (error, infos) in
+            if let infos = infos {
+                KMBDataHelper.shared.routeBoundInfoDict["2F"] = infos
+                for info in infos {
+                    if let bound = info.bound, let serviceType = info.serviceType, let route = info.route {
+                        KMBClient.shared.getStopsOfBound(route: route, bound: String(bound), ServiceType: String(serviceType), callback: { (error, stopsInfo) in
+                            if let stopsInfo = stopsInfo {
+                                print(info.hashValue)
+                                KMBDataHelper.shared.routeInfoStopsDict[info] = stopsInfo
+                            }
+                        })
+                    }
                 }
             }
         }
