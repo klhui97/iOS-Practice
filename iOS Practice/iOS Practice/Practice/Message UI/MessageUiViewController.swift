@@ -26,7 +26,7 @@ class MessageUiViewController: KLViewController, MFMailComposeViewControllerDele
         label.al_centerYToView()
         
         guard MFMailComposeViewController.canSendMail() else {
-            print("This device doesn't allow you to send mail.")
+            label.text = "This device doesn't allow you to send mail."
             return
         }
         
