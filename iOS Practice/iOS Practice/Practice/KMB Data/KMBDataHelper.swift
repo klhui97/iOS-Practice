@@ -8,10 +8,36 @@
 
 import Foundation
 
+/// a helper to load all data from kmbData.json
 class KMBDataHelper: NSObject {
     
-    static let shared = KMBDataHelper()
+    struct JsonFileStrut: Codable {
+        var result: [KMBData]
+    }
     
-    var routeBoundInfoDict: [String: [KMBClient.GetRouteBoundResponse.Info]] = [:]
-    var routeInfoStopsDict: [KMBClient.GetRouteBoundResponse.Info: KMBClient.GetStopsInBoundResponse.StopsInfo] = [:]
+    static let shared = KMBDataHelper()
+    var kmbData: [KMBData] = []
+    
+    private override init() {
+        if let path = Bundle.main.path(forResource: "kmbData", ofType: "json") {
+            
+            let decoder = JSONDecoder()
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let decodedResult = try decoder.decode(JsonFileStrut.self, from: data)
+                kmbData = decodedResult.result
+
+            } catch {
+                // handle error
+            }
+        }
+    }
+    
+    func getService(route: String) -> [KMBData.Service]? {
+        if let target = kmbData.first(where: { $0.route == route }) {
+            return target.services
+        }else {
+            return nil
+        }
+    }
 }

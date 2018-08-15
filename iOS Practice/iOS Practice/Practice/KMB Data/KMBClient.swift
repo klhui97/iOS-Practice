@@ -12,6 +12,7 @@ class KMBClient: NSObject {
     
     static let shared = KMBClient()
     
+    /// Get all stops in a bound of a route
     func getStopsOfBound(route: String, bound: String, ServiceType: String, callback: @escaping (_ error: Error?, _ result: GetStopsInBoundResponse.StopsInfo?) -> Void) {
         
         // test url: http://search.kmb.hk/KMBWebSite/Function/FunctionRequest.ashx?action=getstops&route=31M&bound=1
@@ -42,11 +43,7 @@ class KMBClient: NSObject {
     }
     
     
-    /// Get all route(bus number) in a stop by BSI code
-    ///
-    /// - Parameters:
-    ///   - bsiCode:
-    ///   - callback:
+    /// Get all route in a stop by BSI code
     func getRoutesInStop(bsiCode: String, callback: @escaping (_ error: Error?, _ result: [String]?) -> Void) {
         
         // test url: http://search.kmb.hk/KMBWebSite/Function/FunctionRequest.ashx?action=getRoutesInStop&bsiCode=WO04-N-1050-0
@@ -76,6 +73,7 @@ class KMBClient: NSObject {
         task.resume()
     }
     
+    /// Get all bound information of a route
     func getRouteBound(route: String, callback: @escaping (_ error: Error?, _ result: [GetRouteBoundResponse.Info]) -> Void) {
         
         // test url: http://search.kmb.hk/KMBWebSite/Function/FunctionRequest.ashx?action=getroutebound&route=2F
@@ -96,10 +94,6 @@ class KMBClient: NSObject {
                 if let data = data {
                     let response = try decoder.decode(GetRouteBoundResponse.self, from: data)
                     if let result = response.data {
-                        
-                        // Save the result to Data helper
-                        KMBDataHelper.shared.routeBoundInfoDict[route] = result
-                        
                         callback(error, result)
                     }else {
                         callback(error, [])
@@ -145,6 +139,22 @@ extension KMBClient {
             var bound: Int?
             var route: String?
             var serviceType: Int?
+            
+            var boundString: String {
+                if let bound = bound {
+                    return String(bound)
+                }else {
+                    return ""
+                }
+            }
+            
+            var serviceTypeString: String {
+                if let serviceType = serviceType {
+                    return String(serviceType)
+                }else {
+                    return ""
+                }
+            }
             
             enum CodingKeys: String, CodingKey {
                 case bound = "BOUND"

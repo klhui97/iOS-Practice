@@ -21,7 +21,16 @@ class KMBSearchViewController: KLTableViewController {
         
         title = "KMB Data"
         
-        fetchKmbData()
+        print(KMBDataHelper.shared.kmbData.count)
+        if let services = KMBDataHelper.shared.getService(route: "2F") {
+            print(services.count)
+            KMBEtaClient.shared.getEtaInfo(routeStop: services[0].routeStops[2]) { (error, etaData) in
+                if let etaData = etaData {
+                    print(etaData)
+                }
+            }
+        }
+//        fetchKmbData()
     }
     
     func fetchKmbData() {
@@ -38,22 +47,6 @@ class KMBSearchViewController: KLTableViewController {
                 }
                 
                 self.data = result
-            }
-        }
-        
-        KMBClient.shared.getRouteBound(route: "2F") { (error, infos) in
-            if let infos = infos {
-                KMBDataHelper.shared.routeBoundInfoDict["2F"] = infos
-                for info in infos {
-                    if let bound = info.bound, let serviceType = info.serviceType, let route = info.route {
-                        KMBClient.shared.getStopsOfBound(route: route, bound: String(bound), ServiceType: String(serviceType), callback: { (error, stopsInfo) in
-                            if let stopsInfo = stopsInfo {
-                                print(info.hashValue)
-                                KMBDataHelper.shared.routeInfoStopsDict[info] = stopsInfo
-                            }
-                        })
-                    }
-                }
             }
         }
     }
