@@ -16,20 +16,11 @@ class Swift4JsonTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    let nameLabel: UILabel = {
-       let label = UILabel()
-        return label
-    }()
+    let nameLabel = UILabel()
     
-    let loanLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
+    let loanLabel = UILabel()
     
-    let dateLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
+    let dateLabel = UILabel()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

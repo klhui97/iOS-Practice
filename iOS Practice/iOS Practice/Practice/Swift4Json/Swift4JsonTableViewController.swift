@@ -8,9 +8,7 @@
 
 import UIKit
 
-class Swift4JsonTableViewController: KLTableViewController, HasLoadingOverlay {
-    
-    var loadingOverlay: LoadingOverlay?
+class Swift4JsonTableViewController: KLTableViewController {
     
     var loans: [KivawsLoanClient.Loan] = [] {
         didSet {

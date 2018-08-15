@@ -56,9 +56,9 @@ extension FreeAppParser {
             case RssTag.link.rawValue:
                 link += newString
             case RssTag.pubDate.rawValue:
-                category += newString
-            case RssTag.category.rawValue:
                 pubDate += newString
+            case RssTag.category.rawValue:
+                category += newString
             default:
                 return
             }

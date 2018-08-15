@@ -44,6 +44,7 @@ class WhatsappApiViewController: KLViewController, UITextFieldDelegate {
     }()
     
     // MARK: - Life cycle
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
@@ -52,8 +53,16 @@ class WhatsappApiViewController: KLViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         title = "Whatsapp API"
-        phoneTextField.delegate = self
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Send", style: .done, target: self, action: #selector(didTapSendButton))
+        
+        setupLayout()
+    }
+    
+    // MARK: - Init
+    
+    func setupLayout() {
+        phoneTextField.delegate = self
         
         safeAreaContentView.add(phoneTextField, textTextView, messageLabel)
         
@@ -66,33 +75,20 @@ class WhatsappApiViewController: KLViewController, UITextFieldDelegate {
     }
     
     // MARK: - UITextFieldDelegate
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textTextView.becomeFirstResponder()
         return true
     }
     
     // MARK: - Action
+    
     @objc func didTapSendButton() {
         view.endEditing(true)
 
-//        openWhatsappViaSafari()
-        openWhatsappDirectly()
-    }
-    
-    // MARK: - Method
-    private func openWhatsappViaSafari() {
-        if let url = URL(string: "https://api.whatsapp.com/send?phone=\(phoneTextField.text ?? "")&text=\(textTextView.text.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)") {
-            let config = SFSafariViewController.Configuration()
-            config.entersReaderIfAvailable = true
-            
-            let vc = SFSafariViewController(url: url, configuration: config)
-            navigationController?.present(vc, animated: true)
-        }
-    }
-    
-    private func openWhatsappDirectly() {
-        if let url = URL(string: "whatsapp://send?phone=\(phoneTextField.text ?? "")&text=\(textTextView.text.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)") {
-            UIApplication.shared.open(url, options: [:])
+        if let phone = phoneTextField.text, let navigationController = navigationController {
+            WhatsappClient.shared.openWhatsappViaSafari(controller: navigationController, phone: phone, text: textTextView.text)
+//            WhatsappClient.shared.openWhatsappDirectly(controller: navigationController, phone: phone, text: textTextView.text)
         }
     }
 }

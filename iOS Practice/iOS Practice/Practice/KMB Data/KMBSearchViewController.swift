@@ -8,7 +8,7 @@
 
 import UIKit
 
-class KMBSearchViewController: KLTableViewController, HasLoadingOverlay {
+class KMBSearchViewController: KLTableViewController {
     
     var data: KMBClient.Result? {
         didSet {
@@ -19,8 +19,6 @@ class KMBSearchViewController: KLTableViewController, HasLoadingOverlay {
     let route = "2F"
     let bound = "1"
     let action = KMBClient.Action.getStop
-    
-    var loadingOverlay: LoadingOverlay?
     
     override func viewDidLoad() {
         super.viewDidLoad()

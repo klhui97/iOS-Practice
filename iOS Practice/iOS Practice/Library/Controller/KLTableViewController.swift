@@ -8,7 +8,9 @@
 
 import UIKit
 
-class KLTableViewController: UITableViewController {
+class KLTableViewController: UITableViewController, HasLoadingOverlay {
+    
+    var loadingOverlay: LoadingOverlay?
     
     override func viewDidLoad() {
         super.viewDidLoad()
