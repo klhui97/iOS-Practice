@@ -30,7 +30,7 @@ class KMBSearchViewController: KLTableViewController {
     
     func fetchKmbData() {
         showLoadingOverlayInNavigationController()
-        KMBClient.shared.fetchKmbData(action: action, route: route, bound: bound) { (error, result) in
+        KMBClient.shared.getStops(action: action, route: route, bound: bound) { (error, result) in
             OperationQueue.main.addOperation {
                 self.removeLoadingOverlay()
                 
@@ -42,6 +42,14 @@ class KMBSearchViewController: KLTableViewController {
                 }
                 
                 self.data = result
+            }
+        }
+        
+        KMBClient.shared.getRoutesInStop(action: KMBClient.Action.getRoutesInStop, bsiCode: "WO04-N-1050-0") { (error, stops) in
+            if let stops = stops {
+                for stop in stops {
+                    print(stop)
+                }
             }
         }
     }

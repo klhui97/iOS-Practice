@@ -12,7 +12,7 @@ class KMBClient: NSObject {
     
     static let shared = KMBClient()
     
-    func fetchKmbData(action: Action, route: String, bound: String, callback: @escaping (_ error: Error?, _ result: Result?) -> Void) {
+    func getStops(action: Action, route: String, bound: String, callback: @escaping (_ error: Error?, _ result: Result?) -> Void) {
         
         // test url: http://search.kmb.hk/KMBWebSite/Function/FunctionRequest.ashx?action=getstops&route=31M&bound=1
         guard let url = URL(string: "http://search.kmb.hk/KMBWebSite/Function/FunctionRequest.ashx?action=\(action.rawValue)&route=\(route)&bound=\(bound)") else {
@@ -30,7 +30,36 @@ class KMBClient: NSObject {
             let decoder = JSONDecoder()
             do {
                 if let data = data {
-                    let response = try decoder.decode(APIResponse.self, from: data)
+                    let response = try decoder.decode(GetStopsResponse.self, from: data)
+                    callback(error, response.data)
+                }
+            } catch {
+                callback(error, nil)
+            }
+        })
+        
+        task.resume()
+    }
+    
+    func getRoutesInStop(action: Action, bsiCode: String, callback: @escaping (_ error: Error?, _ result: [String]?) -> Void) {
+        
+        // test url: http://search.kmb.hk/KMBWebSite/Function/FunctionRequest.ashx?action=getRoutesInStop&bsiCode=WO04-N-1050-0
+        guard let url = URL(string: "http://search.kmb.hk/KMBWebSite/Function/FunctionRequest.ashx?action=\(action.rawValue)&bsiCode=\(bsiCode)") else {
+            return
+        }
+        
+        let request = URLRequest(url: url)
+        let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
+            
+            if let error = error {
+                callback(error, nil)
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            do {
+                if let data = data {
+                    let response = try decoder.decode(GetRoutesInStopsResponse.self, from: data)
                     callback(error, response.data)
                 }
             } catch {
@@ -48,6 +77,7 @@ extension KMBClient {
     
     enum Action: String {
         case getStop = "getstops"
+        case getRoutesInStop = "getRoutesInStop"
     }
 }
 
@@ -55,7 +85,12 @@ extension KMBClient {
 
 extension KMBClient {
     
-    struct APIResponse: Decodable {
+    struct GetRoutesInStopsResponse: Decodable {
+        var data: [String]?
+        var result: Bool?
+    }
+    
+    struct GetStopsResponse: Decodable {
         var data: Result?
         var result: Bool?
     }
