@@ -21,16 +21,12 @@ class KMBSearchViewController: KLTableViewController {
         
         title = "KMB Data"
         
-        print(KMBDataHelper.shared.kmbData.count)
-        if let services = KMBDataHelper.shared.getService(route: "2F") {
-            print(services.count)
-            KMBEtaClient.shared.getEtaInfo(routeStop: services[0].routeStops[2]) { (error, etaData) in
-                if let etaData = etaData {
-                    print(etaData)
-                }
-            }
-        }
-//        fetchKmbData()
+        let searchController = UISearchController(searchResultsController: nil)
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        print(KMBDataManager.shared.kmbData.count)
+        
+        tableView.register(RouteBaseInfoCell.self)
     }
     
     func fetchKmbData() {
@@ -70,7 +66,7 @@ class KMBSearchViewController: KLTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell: RouteBaseInfoCell = tableView.dequeueReusableCell(for: indexPath)
         
         if indexPath.section == 0, let baseInfo = data?.basicInfo {
             cell.textLabel?.text = "\(baseInfo.OriCName ?? "")   --->   \(baseInfo.DestCName ?? "")"

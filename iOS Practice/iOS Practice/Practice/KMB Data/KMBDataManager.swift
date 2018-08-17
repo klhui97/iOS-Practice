@@ -1,5 +1,5 @@
 //
-//  KMBDataHelper.swift
+//  KMBDataManager
 //  iOS Practice
 //
 //  Created by david.hui on 15/8/2018.
@@ -8,17 +8,18 @@
 
 import Foundation
 
-/// a helper to load all data from kmbData.json
-class KMBDataHelper: NSObject {
+/// a helper that loads all data from kmbData.json
+class KMBDataManager: NSObject {
     
     struct JsonFileStrut: Codable {
         var result: [KMBData]
     }
     
-    static let shared = KMBDataHelper()
+    static let shared = KMBDataManager()
     var kmbData: [KMBData] = []
     
     private override init() {
+        print(" KMBDataManager is init ")
         if let path = Bundle.main.path(forResource: "kmbData", ofType: "json") {
             
             let decoder = JSONDecoder()
@@ -33,9 +34,9 @@ class KMBDataHelper: NSObject {
         }
     }
     
-    func getService(route: String) -> [KMBData.Service]? {
+    func getKmbData(route: String) -> KMBData? {
         if let target = kmbData.first(where: { $0.route == route }) {
-            return target.services
+            return target
         }else {
             return nil
         }

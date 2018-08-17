@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
         
+        // init the KMBData Helper first.
+        print(KMBDataManager.shared.kmbData.count)
+        
         return true
     }
 

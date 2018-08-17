@@ -1,8 +1,7 @@
 //
 //  KMBClient.swift
 //  iOS Practice
-//
-//  Created by david.hui on 15/8/2018.
+////  Created by david.hui on 15/8/2018.
 //  Copyright © 2018 KL. All rights reserved.
 //
 
