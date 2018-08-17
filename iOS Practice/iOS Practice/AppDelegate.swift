@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
         
+        // Load the shared data first
+        print(KMBDataManager.shared.getKmbData)
+        
         return true
     }
 

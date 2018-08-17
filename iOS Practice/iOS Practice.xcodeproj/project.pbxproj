@@ -33,7 +33,6 @@
 		3478C4A0211AD9AF009F2240 /* BaseBubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C49F211AD9AF009F2240 /* BaseBubbleTableViewCell.swift */; };
 		3478C4A2211ADC76009F2240 /* RightBubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C4A1211ADC76009F2240 /* RightBubbleTableViewCell.swift */; };
 		3478C4A6211AF64B009F2240 /* NotificationObserverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C4A5211AF64B009F2240 /* NotificationObserverViewController.swift */; };
-		34F6D287212670F700C84CE6 /* RouteBaseInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6D286212670F700C84CE6 /* RouteBaseInfoCell.swift */; };
 		34F6D28B2126759A00C84CE6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6D28A2126759A00C84CE6 /* NetworkManager.swift */; };
 		34F6D28D2126899900C84CE6 /* KMBClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6D28C2126899900C84CE6 /* KMBClientModel.swift */; };
 		34F6D291212693A000C84CE6 /* KMBETAClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6D290212693A000C84CE6 /* KMBETAClientModel.swift */; };
@@ -81,7 +80,6 @@
 		3478C49F211AD9AF009F2240 /* BaseBubbleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBubbleTableViewCell.swift; sourceTree = "<group>"; };
 		3478C4A1211ADC76009F2240 /* RightBubbleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightBubbleTableViewCell.swift; sourceTree = "<group>"; };
 		3478C4A5211AF64B009F2240 /* NotificationObserverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationObserverViewController.swift; sourceTree = "<group>"; };
-		34F6D286212670F700C84CE6 /* RouteBaseInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBaseInfoCell.swift; sourceTree = "<group>"; };
 		34F6D28A2126759A00C84CE6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		34F6D28C2126899900C84CE6 /* KMBClientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMBClientModel.swift; sourceTree = "<group>"; };
 		34F6D290212693A000C84CE6 /* KMBETAClientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMBETAClientModel.swift; sourceTree = "<group>"; };
@@ -250,7 +248,6 @@
 		34F6D285212670D400C84CE6 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				34F6D286212670F700C84CE6 /* RouteBaseInfoCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -479,7 +476,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34F6D287212670F700C84CE6 /* RouteBaseInfoCell.swift in Sources */,
 				3478C49E211AD2E6009F2240 /* LeftBubbleTableViewCell.swift in Sources */,
 				3478C4A6211AF64B009F2240 /* NotificationObserverViewController.swift in Sources */,
 				34645FB8212290B900D3D59D /* MessageUiViewController.swift in Sources */,

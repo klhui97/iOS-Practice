@@ -8,8 +8,6 @@
 
 import Foundation
 
-let KmbDataManager = KMBDataManager()
-
 /// a helper that loads all data from kmbData.json
 class KMBDataManager {
     
@@ -17,9 +15,10 @@ class KMBDataManager {
         var result: [KMBData]
     }
     
+    static let shared = KMBDataManager()
     var kmbData: [KMBData] = []
     
-    init() {
+    private init() {
         if let path = Bundle.main.path(forResource: "kmbData", ofType: "json") {
             
             let decoder = JSONDecoder()
@@ -34,7 +33,7 @@ class KMBDataManager {
     }
     
     func getKmbData(route: String) -> KMBData? {
-        if let target = kmbData.first(where: { $0.route == route }) {
+        if let target = kmbData.first(where: { $0.route == route.uppercased() }) {
             return target
         }else {
             return nil

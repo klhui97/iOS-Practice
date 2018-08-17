@@ -20,7 +20,7 @@ class KMBClient: NSObject {
             "action": Action.getStopsInBound.rawValue,
             "route": route,
             "bound": bound,
-            "ServiceType": ServiceType,
+            "ServiceType": ServiceType
         ]
         
         NetworkManager.decodableGet(url: baseUrl, query: query) { (error, result: GetStopsInBoundResponse?) in

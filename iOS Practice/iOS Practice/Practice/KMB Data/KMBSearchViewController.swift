@@ -8,11 +8,12 @@
 
 import UIKit
 
-class KMBSearchViewController: KLTableViewController {
+class KMBSearchViewController: KLTableViewController, UISearchBarDelegate {
     
-    var data: KMBClient.GetStopsInBoundResponse.StopsInfo? {
+    let searchController = UISearchController(searchResultsController: nil)
+    var targetRouteData: KMBData? {
         didSet {
-            self.tableView.reloadData()
+            tableView.reloadData()
         }
     }
     
@@ -21,49 +22,62 @@ class KMBSearchViewController: KLTableViewController {
         
         title = "KMB Data"
         
-        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         
-        tableView.register(RouteBaseInfoCell.self)
+    }
+    
+    // MARK: - UISearchBarDelegate
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchController.dismiss(animated: true) {
+            self.targetRouteData = KMBDataManager.shared.getKmbData(route: searchBar.text ?? "")
+        }
     }
     
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let data = data {
-            if section == 0 {
-                return 1
-            }else {
-                return data.routeStops?.count ?? 0
-            }
+        if let targetRouteData = targetRouteData {
+            return targetRouteData.services.count
         }else {
             return 0
         }
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return targetRouteData?.route ?? "Please enter a correct route number."
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: RouteBaseInfoCell = tableView.dequeueReusableCell(for: indexPath)
+        let cell = UITableViewCell()
         
-        if indexPath.section == 0, let baseInfo = data?.basicInfo {
-            cell.textLabel?.text = "\(baseInfo.OriCName ?? "")   --->   \(baseInfo.DestCName ?? "")"
-        }else if indexPath.section == 1, let stops = data?.routeStops {
-            cell.textLabel?.numberOfLines = 0
-            cell.textLabel?.text =
-            """
-            \(stops[indexPath.row].CName ?? "")
-            BSICode: \(stops[indexPath.row].BSICode ?? "")
-            $ \(stops[indexPath.row].fare)
-            Seq: \(stops[indexPath.row].Seq ?? "")
-            Bound: \(stops[indexPath.row].Bound ?? "")
-            """
+        cell.accessoryType = .disclosureIndicator
+        
+        if let service = targetRouteData?.services[indexPath.row] {
+            if service.serviceType == "1" {
+                cell.textLabel?.numberOfLines = 0
+                cell.textLabel?.text = """
+                路線\(service.bound):  由 \(service.basicInfo.originName) 出發至 \(service.basicInfo.destinationName)
+                """
+            }else {
+                cell.textLabel?.numberOfLines = 0
+                cell.textLabel?.text = """
+                ＊特別線:  由 \(service.basicInfo.originName) 出發至 \(service.basicInfo.destinationName)
+                """
+            }
+            
         }
         
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
