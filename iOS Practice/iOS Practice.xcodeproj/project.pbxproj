@@ -34,6 +34,9 @@
 		3478C4A2211ADC76009F2240 /* RightBubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C4A1211ADC76009F2240 /* RightBubbleTableViewCell.swift */; };
 		3478C4A6211AF64B009F2240 /* NotificationObserverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C4A5211AF64B009F2240 /* NotificationObserverViewController.swift */; };
 		34F6D287212670F700C84CE6 /* RouteBaseInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6D286212670F700C84CE6 /* RouteBaseInfoCell.swift */; };
+		34F6D28B2126759A00C84CE6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6D28A2126759A00C84CE6 /* NetworkManager.swift */; };
+		34F6D28D2126899900C84CE6 /* KMBClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6D28C2126899900C84CE6 /* KMBClientModel.swift */; };
+		34F6D291212693A000C84CE6 /* KMBETAClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6D290212693A000C84CE6 /* KMBETAClientModel.swift */; };
 		6B4C38032118A31A00D5320A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4C38022118A31A00D5320A /* AppDelegate.swift */; };
 		6B4C380A2118A31D00D5320A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B4C38092118A31D00D5320A /* Assets.xcassets */; };
 		6B4C380D2118A31D00D5320A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B4C380B2118A31D00D5320A /* LaunchScreen.storyboard */; };
@@ -43,7 +46,7 @@
 		6B7AC4FD2120534400590ED6 /* BluetoothReadWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7AC4FC2120534400590ED6 /* BluetoothReadWriteViewController.swift */; };
 		6B7AE3C221247C2F00365A65 /* kmbData.json in Resources */ = {isa = PBXBuildFile; fileRef = 6B7AE3C121247C2F00365A65 /* kmbData.json */; };
 		6B7AE3C421247D3600365A65 /* KMBData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7AE3C321247D3600365A65 /* KMBData.swift */; };
-		6B7AE3C62124807200365A65 /* KMBEtaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7AE3C52124807200365A65 /* KMBEtaClient.swift */; };
+		6B7AE3C62124807200365A65 /* KMBETAClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7AE3C52124807200365A65 /* KMBETAClient.swift */; };
 		6B95898721231EBC0058CF74 /* WhatsappApiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B95898621231EBC0058CF74 /* WhatsappApiViewController.swift */; };
 		6B95898C21232C690058CF74 /* KLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B95898B21232C690058CF74 /* KLViewController.swift */; };
 		6B95898F21233B8B0058CF74 /* RSSParseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B95898E21233B8B0058CF74 /* RSSParseViewController.swift */; };
@@ -77,6 +80,9 @@
 		3478C4A1211ADC76009F2240 /* RightBubbleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightBubbleTableViewCell.swift; sourceTree = "<group>"; };
 		3478C4A5211AF64B009F2240 /* NotificationObserverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationObserverViewController.swift; sourceTree = "<group>"; };
 		34F6D286212670F700C84CE6 /* RouteBaseInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBaseInfoCell.swift; sourceTree = "<group>"; };
+		34F6D28A2126759A00C84CE6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		34F6D28C2126899900C84CE6 /* KMBClientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMBClientModel.swift; sourceTree = "<group>"; };
+		34F6D290212693A000C84CE6 /* KMBETAClientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMBETAClientModel.swift; sourceTree = "<group>"; };
 		6B4C37FF2118A31A00D5320A /* iOS Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B4C38022118A31A00D5320A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B4C38092118A31D00D5320A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,7 +94,7 @@
 		6B7AC4FC2120534400590ED6 /* BluetoothReadWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothReadWriteViewController.swift; sourceTree = "<group>"; };
 		6B7AE3C121247C2F00365A65 /* kmbData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kmbData.json; sourceTree = "<group>"; };
 		6B7AE3C321247D3600365A65 /* KMBData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMBData.swift; sourceTree = "<group>"; };
-		6B7AE3C52124807200365A65 /* KMBEtaClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMBEtaClient.swift; sourceTree = "<group>"; };
+		6B7AE3C52124807200365A65 /* KMBETAClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMBETAClient.swift; sourceTree = "<group>"; };
 		6B95898621231EBC0058CF74 /* WhatsappApiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsappApiViewController.swift; sourceTree = "<group>"; };
 		6B95898B21232C690058CF74 /* KLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLViewController.swift; sourceTree = "<group>"; };
 		6B95898E21233B8B0058CF74 /* RSSParseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSParseViewController.swift; sourceTree = "<group>"; };
@@ -146,8 +152,8 @@
 				34F6D28421266A0400C84CE6 /* Model */,
 				6B7AE3C121247C2F00365A65 /* kmbData.json */,
 				34645FD721242D9100D3D59D /* KMBDataManager.swift */,
-				6B7AE3C52124807200365A65 /* KMBEtaClient.swift */,
-				34645FC52123CE5700D3D59D /* KMBClient.swift */,
+				34F6D28F2126937B00C84CE6 /* KMB ETA Client */,
+				34F6D28E212689E300C84CE6 /* KMB Client */,
 			);
 			path = "KMB Data";
 			sourceTree = "<group>";
@@ -248,8 +254,27 @@
 		34F6D2882126755800C84CE6 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				34F6D28A2126759A00C84CE6 /* NetworkManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		34F6D28E212689E300C84CE6 /* KMB Client */ = {
+			isa = PBXGroup;
+			children = (
+				34645FC52123CE5700D3D59D /* KMBClient.swift */,
+				34F6D28C2126899900C84CE6 /* KMBClientModel.swift */,
+			);
+			path = "KMB Client";
+			sourceTree = "<group>";
+		};
+		34F6D28F2126937B00C84CE6 /* KMB ETA Client */ = {
+			isa = PBXGroup;
+			children = (
+				6B7AE3C52124807200365A65 /* KMBETAClient.swift */,
+				34F6D290212693A000C84CE6 /* KMBETAClientModel.swift */,
+			);
+			path = "KMB ETA Client";
 			sourceTree = "<group>";
 		};
 		6B4C37F62118A31A00D5320A = {
@@ -437,19 +462,22 @@
 				343B1DA1211C416B004E7E42 /* LoginTableViewCell.swift in Sources */,
 				3478C43A21193A73009F2240 /* Layoutable.swift in Sources */,
 				6B7AC4FD2120534400590ED6 /* BluetoothReadWriteViewController.swift in Sources */,
-				6B7AE3C62124807200365A65 /* KMBEtaClient.swift in Sources */,
+				6B7AE3C62124807200365A65 /* KMBETAClient.swift in Sources */,
+				34F6D291212693A000C84CE6 /* KMBETAClientModel.swift in Sources */,
 				3478C44421195E7F009F2240 /* CircleImageView.swift in Sources */,
 				34645FD52123EFA400D3D59D /* String.swift in Sources */,
 				34645FC62123CE5700D3D59D /* KMBClient.swift in Sources */,
 				3478C49B211AD1F0009F2240 /* ChatUITableViewController.swift in Sources */,
 				6B4C381A2118A91F00D5320A /* Swift4JsonTableViewController.swift in Sources */,
 				3478C43D21195BE1009F2240 /* Swift4JsonTableViewCell.swift in Sources */,
+				34F6D28B2126759A00C84CE6 /* NetworkManager.swift in Sources */,
 				3478C493211A86E7009F2240 /* HomeViewController.swift in Sources */,
 				3478C4A2211ADC76009F2240 /* RightBubbleTableViewCell.swift in Sources */,
 				34645FCE2123DE4200D3D59D /* KLTableViewController.swift in Sources */,
 				343B1D9E211C4116004E7E42 /* LoginTableViewController.swift in Sources */,
 				6B4C38032118A31A00D5320A /* AppDelegate.swift in Sources */,
 				6B7AC4FA2120530700590ED6 /* UIView.swift in Sources */,
+				34F6D28D2126899900C84CE6 /* KMBClientModel.swift in Sources */,
 				34645FD32123E99A00D3D59D /* WhatsappClient.swift in Sources */,
 				34645FD12123DF0B00D3D59D /* FreeAppCell.swift in Sources */,
 				3478C44121195D26009F2240 /* UITableView.swift in Sources */,

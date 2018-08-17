@@ -8,18 +8,18 @@
 
 import Foundation
 
+let KmbDataManager = KMBDataManager()
+
 /// a helper that loads all data from kmbData.json
-class KMBDataManager: NSObject {
+class KMBDataManager {
     
     struct JsonFileStrut: Codable {
         var result: [KMBData]
     }
     
-    static let shared = KMBDataManager()
     var kmbData: [KMBData] = []
     
-    private override init() {
-        print(" KMBDataManager is init ")
+    init() {
         if let path = Bundle.main.path(forResource: "kmbData", ofType: "json") {
             
             let decoder = JSONDecoder()
@@ -27,7 +27,6 @@ class KMBDataManager: NSObject {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let decodedResult = try decoder.decode(JsonFileStrut.self, from: data)
                 kmbData = decodedResult.result
-
             } catch {
                 // handle error
             }

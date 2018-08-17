@@ -31,33 +31,33 @@ struct KMBData: Codable {
             case basicInfo = "BASIC_INFO"
             case routeStops = "ROUTE_STOPS"
         }
+    }
+    
+    struct BasicInfo: Codable {
+        var originName: String
+        var destinationName: String
         
-        struct BasicInfo: Codable {
-            var originName: String
-            var destinationName: String
-            
-            enum CodingKeys: String, CodingKey {
-                case originName = "OriCName"
-                case destinationName = "DestCName"
-            }
+        enum CodingKeys: String, CodingKey {
+            case originName = "OriCName"
+            case destinationName = "DestCName"
         }
+    }
+    
+    struct RouteStop: Codable {
+        var cName: String
+        var serviceType: String
+        var bound: String
+        var route: String
+        var bsiCode: String
+        var stopSeq: String
         
-        struct RouteStop: Codable {
-            var cName: String
-            var serviceType: String
-            var bound: String
-            var route: String
-            var bsiCode: String
-            var stopSeq: String
-            
-            enum CodingKeys: String, CodingKey {
-                case cName = "CName"
-                case serviceType = "ServiceType"
-                case bound = "Bound"
-                case route = "Route"
-                case stopSeq = "Seq"
-                case bsiCode = "BSICode"
-            }
+        enum CodingKeys: String, CodingKey {
+            case cName = "CName"
+            case serviceType = "ServiceType"
+            case bound = "Bound"
+            case route = "Route"
+            case stopSeq = "Seq"
+            case bsiCode = "BSICode"
         }
     }
 }

@@ -24,27 +24,8 @@ class KMBSearchViewController: KLTableViewController {
         let searchController = UISearchController(searchResultsController: nil)
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        print(KMBDataManager.shared.kmbData.count)
         
         tableView.register(RouteBaseInfoCell.self)
-    }
-    
-    func fetchKmbData() {
-        showLoadingOverlayInNavigationController()
-        KMBClient.shared.getStopsOfBound(route: "2F", bound: "1", ServiceType: "1") { (error, result) in
-            OperationQueue.main.addOperation {
-                self.removeLoadingOverlay()
-                
-                guard let result = result else {
-                    if let error = error {
-                        print(error)
-                    }
-                    return
-                }
-                
-                self.data = result
-            }
-        }
     }
     
     // MARK: - Table view data source
