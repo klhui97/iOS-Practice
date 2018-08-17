@@ -41,7 +41,7 @@ class MenuTableViewController: KLTableViewController {
     
     // MARK: - Practice data
     enum Row: String {
-        case swift4Json = "Swift 4 JSON"
+        case swift4Json = "Codable JSON Example"
         case chatUi = "Chat UI"
         case notificationObserver = "Notification Observer"
         case bluetoothReadWrite = "BT Read&Write"

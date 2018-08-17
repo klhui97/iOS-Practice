@@ -45,6 +45,27 @@ class NetworkManager {
         }).resume()
     }
     
+    static func get(url: String, query: [String: String]?, callback: @escaping (_ error: Error?, _ data: Data?) -> Void) {
+        var urlComponents = URLComponents(url: URL(string: url)!, resolvingAgainstBaseURL: false)!
+        if let query = query {
+            urlComponents.queryItems = getQueryItems(from: query)
+        }
+        print("url", urlComponents.url!)
+        
+        var request = URLRequest(url: urlComponents.url!)
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
+            #if targetEnvironment(simulator)
+            if let data = data {
+                let result = try? JSONSerialization.jsonObject(with: data, options: [])
+                print("returned json: ", result ?? "JSONSerialization error")
+            }
+            #endif
+            callback(error, data)
+        }).resume()
+    }
+    
     static func getQueryItems(from query: [String: String?]) -> [URLQueryItem] {
         var array = [URLQueryItem]()
         for case let (key, value?) in query {

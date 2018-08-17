@@ -32,11 +32,11 @@ class Swift4JsonTableViewController: KLTableViewController {
         tableView.refreshControl = tableViewRefreshControl
         
         showLoadingOverlayInNavigationController()
-        KivawsLoanClient.shared.getLatestLoans { (err, loans) in
+        KivawsLoanClient.getLatestLoans { (err, repsonse) in
             OperationQueue.main.addOperation {
                 self.loadingOverlay?.removeFromSuperview()
-                if let loans = loans {
-                    self.loans = loans
+                if let repsonse = repsonse {
+                    self.loans = repsonse.loans
                 }
             }
         }
@@ -44,10 +44,10 @@ class Swift4JsonTableViewController: KLTableViewController {
     
     // MARK: - Method
     @objc func handleRefresh() {
-        KivawsLoanClient.shared.getLatestLoans { (err, loans) in
+        KivawsLoanClient.getLatestLoans { (err, repsonse) in
             OperationQueue.main.addOperation {
-                if let loans = loans {
-                    self.loans = loans
+                if let repsonse = repsonse {
+                    self.loans = repsonse.loans
                 }
             }
         }

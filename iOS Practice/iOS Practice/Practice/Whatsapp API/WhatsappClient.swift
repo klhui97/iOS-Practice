@@ -11,9 +11,7 @@ import SafariServices
 
 class WhatsappClient: NSObject {
     
-    static let shared = WhatsappClient()
-    
-    func openWhatsappViaSafari(controller: UIViewController, phone: String, text: String) {
+    static func openWhatsappViaSafari(controller: UIViewController, phone: String, text: String) {
         if let url = URL(string: "https://api.whatsapp.com/send?phone=\(phone)&text=\(text.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)") {
             let config = SFSafariViewController.Configuration()
             config.entersReaderIfAvailable = true
@@ -23,7 +21,7 @@ class WhatsappClient: NSObject {
         }
     }
     
-    func openWhatsappDirectly(controller: UIViewController, phone: String, text: String) {
+    static func openWhatsappDirectly(controller: UIViewController, phone: String, text: String) {
         if let url = URL(string: "whatsapp://send?phone=\(phone)&text=\(text.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)") {
             UIApplication.shared.open(url, options: [:])
         }
