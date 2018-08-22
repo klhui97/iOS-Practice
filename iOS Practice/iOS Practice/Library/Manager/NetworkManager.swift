@@ -8,25 +8,32 @@
 
 import Foundation
 
+enum RequestMethod: String {
+    case get = "Get"
+}
+
 class NetworkManager {
     
-    static func decodableGet<T: Decodable>(url: String, query: [String: String]?, callback: @escaping (_ error: Error?, _ decodedResult: T?) -> Void) {
+    static func request(url: String, query: [String: String]? = nil, method: RequestMethod = .get, callback: @escaping (_ error: Error?, _ data: Data?) -> Void) {
         var urlComponents = URLComponents(url: URL(string: url)!, resolvingAgainstBaseURL: false)!
         if let query = query {
             urlComponents.queryItems = getQueryItems(from: query)
         }
+        #if targetEnvironment(simulator)
         print("url", urlComponents.url!)
+        #endif
         
         var request = URLRequest(url: urlComponents.url!)
-        request.httpMethod = "GET"
+        request.httpMethod = method.rawValue
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
-            
-            if let error = error {
-                callback(error, nil)
-                return
-            }
-            
+            callback(error, data)
+        }).resume()
+    }
+    
+    static func decodableGet<T: Decodable>(url: String, query: [String: String]?, callback: @escaping (_ error: Error?, _ decodedResult: T?) -> Void) {
+        
+        request(url: url, query: query, method: .get) { (error, data) in
             let decoder = JSONDecoder()
             do {
                 if let data = data {
@@ -37,33 +44,12 @@ class NetworkManager {
                     print("returned json: ", result ?? "JSONSerialization error")
                     #endif
                 }else {
-                    print("no data")
+                    callback(error, nil)
                 }
             } catch {
                 callback(error, nil)
             }
-        }).resume()
-    }
-    
-    static func get(url: String, query: [String: String]?, callback: @escaping (_ error: Error?, _ data: Data?) -> Void) {
-        var urlComponents = URLComponents(url: URL(string: url)!, resolvingAgainstBaseURL: false)!
-        if let query = query {
-            urlComponents.queryItems = getQueryItems(from: query)
         }
-        print("url", urlComponents.url!)
-        
-        var request = URLRequest(url: urlComponents.url!)
-        request.httpMethod = "GET"
-        
-        URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
-            #if targetEnvironment(simulator)
-            if let data = data {
-                let result = try? JSONSerialization.jsonObject(with: data, options: [])
-                print("returned json: ", result ?? "JSONSerialization error")
-            }
-            #endif
-            callback(error, data)
-        }).resume()
     }
     
     static func getQueryItems(from query: [String: String?]) -> [URLQueryItem] {
