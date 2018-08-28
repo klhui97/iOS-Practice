@@ -33,6 +33,8 @@ private extension MenuTableViewController {
             return WhatsappApiViewController()
         case .rssParse:
             return RSSParseViewController()
+        case .circleProgressView:
+            return CircleProgressViewController()
         }
     }
 }
@@ -49,9 +51,10 @@ class MenuTableViewController: KLTableViewController {
         case hkKmbData = "KMB Data"
         case whatsappApi = "Whatsapp API"
         case rssParse = "RSS Parse"
+        case circleProgressView = "Circle Progress View"
     }
     
-    var rows: [Row] = [.swift4Json, .hkKmbData, .chatUi, .notificationObserver, .bluetoothReadWrite, .messageUi, .whatsappApi, .rssParse]
+    var rows: [Row] = [.swift4Json, .hkKmbData, .chatUi, .notificationObserver, .bluetoothReadWrite, .messageUi, .whatsappApi, .rssParse, .circleProgressView]
     var delegate: MenuTableViewControllerDelegate?
     
     // MARK: - Life cycle
