@@ -27,7 +27,7 @@ class FreeAppParser: NSObject {
             "category": "all"
         ]
         
-        NetworkManager.get(url: "https://appshopper.com/feed", query: query) { (error, data) in
+        NetworkManager.request(url: "https://appshopper.com/feed", query: query, method: .get) { (error, data) in
             guard let data = data else {
                 if let error = error {
                     print(error)
