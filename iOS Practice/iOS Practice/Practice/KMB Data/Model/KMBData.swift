@@ -50,6 +50,7 @@ struct KMBData: Codable {
         var route: String
         var bsiCode: String
         var stopSeq: String
+        var eta: [KMBETAClient.EtaData]?
         
         enum CodingKeys: String, CodingKey {
             case cName = "CName"

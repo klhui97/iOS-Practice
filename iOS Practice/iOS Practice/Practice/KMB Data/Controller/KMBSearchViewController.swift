@@ -81,7 +81,7 @@ class KMBSearchViewController: KLTableViewController, UISearchBarDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if let service = targetRouteData?.services[indexPath.row] {
-            navigationController?.pushViewController(KMBServiceInfoTableViewController(service: service), animated: true)
+            navigationController?.pushViewController(KMBStopsInformationTableViewController(service: service), animated: true)
         }
     }
 }
