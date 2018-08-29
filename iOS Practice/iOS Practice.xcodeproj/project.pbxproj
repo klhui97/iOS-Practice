@@ -10,6 +10,9 @@
 		340E07822135104A0029D8E2 /* CircleProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E07812135104A0029D8E2 /* CircleProgressViewController.swift */; };
 		340E078421365C510029D8E2 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E078321365C510029D8E2 /* UIColor.swift */; };
 		340E07872136645B0029D8E2 /* MagicalGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E07862136645B0029D8E2 /* MagicalGridViewController.swift */; };
+		340E078D213691830029D8E2 /* AnimationViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E078C213691830029D8E2 /* AnimationViewTableViewController.swift */; };
+		340E0790213692600029D8E2 /* ShimmerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E078F213692600029D8E2 /* ShimmerTableViewCell.swift */; };
+		340E0792213697770029D8E2 /* NoneSelectionStyleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E0791213697770029D8E2 /* NoneSelectionStyleTableViewCell.swift */; };
 		343B1D9E211C4116004E7E42 /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343B1D9D211C4116004E7E42 /* LoginTableViewController.swift */; };
 		343B1DA1211C416B004E7E42 /* LoginTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343B1DA0211C416B004E7E42 /* LoginTableViewCell.swift */; };
 		34645FB521227D7E00D3D59D /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34645FB421227D7E00D3D59D /* PaddingTextField.swift */; };
@@ -62,6 +65,9 @@
 		340E07812135104A0029D8E2 /* CircleProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressViewController.swift; sourceTree = "<group>"; };
 		340E078321365C510029D8E2 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		340E07862136645B0029D8E2 /* MagicalGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicalGridViewController.swift; sourceTree = "<group>"; };
+		340E078C213691830029D8E2 /* AnimationViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewTableViewController.swift; sourceTree = "<group>"; };
+		340E078F213692600029D8E2 /* ShimmerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerTableViewCell.swift; sourceTree = "<group>"; tabWidth = 5; };
+		340E0791213697770029D8E2 /* NoneSelectionStyleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneSelectionStyleTableViewCell.swift; sourceTree = "<group>"; };
 		343B1D9D211C4116004E7E42 /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
 		343B1DA0211C416B004E7E42 /* LoginTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewCell.swift; sourceTree = "<group>"; };
 		34645FB421227D7E00D3D59D /* PaddingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
@@ -137,6 +143,24 @@
 				340E07862136645B0029D8E2 /* MagicalGridViewController.swift */,
 			);
 			path = "Magical Grid";
+			sourceTree = "<group>";
+		};
+		340E078B213691550029D8E2 /* Animation View */ = {
+			isa = PBXGroup;
+			children = (
+				340E078E213691F30029D8E2 /* views */,
+				340E078C213691830029D8E2 /* AnimationViewTableViewController.swift */,
+			);
+			path = "Animation View";
+			sourceTree = "<group>";
+		};
+		340E078E213691F30029D8E2 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				340E078F213692600029D8E2 /* ShimmerTableViewCell.swift */,
+				340E0791213697770029D8E2 /* NoneSelectionStyleTableViewCell.swift */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 		341E9CC3211BE0A500031E55 /* Reuseable View */ = {
@@ -394,6 +418,7 @@
 		6B4C381B2118B0AE00D5320A /* Practice */ = {
 			isa = PBXGroup;
 			children = (
+				340E078B213691550029D8E2 /* Animation View */,
 				340E0785213664420029D8E2 /* Magical Grid */,
 				340E0780213510220029D8E2 /* Circle Progress View */,
 				6B95898D21233B640058CF74 /* RSS Parse */,
@@ -519,6 +544,8 @@
 				3478C4A6211AF64B009F2240 /* NotificationObserverViewController.swift in Sources */,
 				34645FB8212290B900D3D59D /* MessageUiViewController.swift in Sources */,
 				34F6D29D2126D3FF00C84CE6 /* ETATableViewCell.swift in Sources */,
+				340E078D213691830029D8E2 /* AnimationViewTableViewController.swift in Sources */,
+				340E0792213697770029D8E2 /* NoneSelectionStyleTableViewCell.swift in Sources */,
 				340E078421365C510029D8E2 /* UIColor.swift in Sources */,
 				6B7AE3C421247D3600365A65 /* KMBData.swift in Sources */,
 				34645FCC2123D2DA00D3D59D /* KivawsLoanClient.swift in Sources */,
@@ -559,6 +586,7 @@
 				340E07822135104A0029D8E2 /* CircleProgressViewController.swift in Sources */,
 				34F6D29F2126D8F700C84CE6 /* KMBStopsInformationTableViewController.swift in Sources */,
 				3478C497211A9F57009F2240 /* LargeTitleTableViewCell.swift in Sources */,
+				340E0790213692600029D8E2 /* ShimmerTableViewCell.swift in Sources */,
 				3478C4A0211AD9AF009F2240 /* BaseBubbleTableViewCell.swift in Sources */,
 				3478C49121199873009F2240 /* LoadingOverlay.swift in Sources */,
 			);

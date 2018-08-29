@@ -37,6 +37,8 @@ private extension MenuTableViewController {
             return CircleProgressViewController()
         case .magicalGridView:
             return MagicalGridViewController()
+        case .animationView:
+            return AnimationViewTableViewController()
         }
     }
 }
@@ -55,9 +57,10 @@ class MenuTableViewController: KLTableViewController {
         case rssParse = "RSS Parse"
         case circleProgressView = "Circle Progress View"
         case magicalGridView = "Magical Grid View"
+        case animationView = "Animation View"
     }
     
-    var rows: [Row] = [.swift4Json, .hkKmbData, .chatUi, .notificationObserver, .bluetoothReadWrite, .messageUi, .whatsappApi, .rssParse, .circleProgressView, .magicalGridView]
+    var rows: [Row] = [.swift4Json, .hkKmbData, .chatUi, .notificationObserver, .bluetoothReadWrite, .messageUi, .whatsappApi, .rssParse, .circleProgressView, .magicalGridView, .animationView]
     var delegate: MenuTableViewControllerDelegate?
     
     // MARK: - Life cycle
