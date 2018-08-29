@@ -139,13 +139,6 @@
 			path = "Magical Grid";
 			sourceTree = "<group>";
 		};
-		340E078821366FBD0029D8E2 /* Debug */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Debug;
-			sourceTree = "<group>";
-		};
 		341E9CC3211BE0A500031E55 /* Reuseable View */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,7 +197,6 @@
 		3478C43721193A46009F2240 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				340E078821366FBD0029D8E2 /* Debug */,
 				34F6D2882126755800C84CE6 /* Manager */,
 				6B95898A21232C5B0058CF74 /* Controller */,
 				3478C44221195E64009F2240 /* View */,
