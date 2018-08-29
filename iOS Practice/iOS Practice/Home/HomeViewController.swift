@@ -11,7 +11,7 @@ import UIKit
 class HomeViewController: KLViewController, MenuTableViewControllerDelegate {
 
     let menuController = MenuTableViewController()
-    var menuWidth: CGFloat?
+    var menuWidth: CGFloat!
     var menuLeadingConstraint: NSLayoutConstraint?
     
     // MARK: - View
@@ -42,6 +42,10 @@ class HomeViewController: KLViewController, MenuTableViewControllerDelegate {
         backgroundImageView.al_fillSuperview()
         overlayView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapOverlayView)))
         
+        if let window = UIApplication.shared.keyWindow {
+            menuWidth = window.frame.size.width / 1.5
+        }
+        
         menuController.delegate = self
     }
     
@@ -61,8 +65,6 @@ class HomeViewController: KLViewController, MenuTableViewControllerDelegate {
     // MARK: - Action
     @objc func showMenu() {
         if let window = UIApplication.shared.keyWindow {
-            menuWidth = window.frame.size.width / 1.5
-            
             navigationController?.view.add(overlayView)
             overlayView.al_fillSuperview()
             
@@ -74,7 +76,7 @@ class HomeViewController: KLViewController, MenuTableViewControllerDelegate {
             NSLayoutConstraint.activate([
                 menuLeadingConstraint!,
                 menuContainerView.topAnchor.constraint(equalTo: window.topAnchor),
-                menuContainerView.widthAnchor.constraint(equalToConstant: menuWidth!),
+                menuContainerView.widthAnchor.constraint(equalToConstant: menuWidth),
                 menuContainerView.bottomAnchor.constraint(equalTo: window.bottomAnchor)])
             
             // menuController
@@ -85,9 +87,10 @@ class HomeViewController: KLViewController, MenuTableViewControllerDelegate {
                 menuController.tableView.topAnchor.constraint(equalTo: menuContainerView.topAnchor, constant: UIApplication.shared.statusBarFrame.height),
                 menuController.tableView.bottomAnchor.constraint(equalTo: menuContainerView.bottomAnchor)])
             
-            // animation
+            // before animation
             overlayView.alpha = 0
-            menuLeadingConstraint?.constant = -menuWidth!
+            menuLeadingConstraint?.constant = -menuWidth
+            view.layoutIfNeeded()
             window.layoutIfNeeded()
             
             let animator = UIViewPropertyAnimator(duration: 0.35, dampingRatio: 1, animations: {
@@ -109,7 +112,7 @@ class HomeViewController: KLViewController, MenuTableViewControllerDelegate {
         if let window = UIApplication.shared.keyWindow {
             let animator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1, animations: {
                 self.overlayView.alpha = 0
-                self.menuLeadingConstraint?.constant = -self.menuWidth!
+                self.menuLeadingConstraint?.constant = -self.menuWidth
                 window.layoutIfNeeded()
             })
             
