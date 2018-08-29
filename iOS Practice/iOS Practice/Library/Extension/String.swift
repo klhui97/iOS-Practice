@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
     
-    init(htmlString: String) {
+   init(htmlString: String) {
         self.init()
         guard let encodedData = htmlString.data(using: .utf8) else {
             self = htmlString

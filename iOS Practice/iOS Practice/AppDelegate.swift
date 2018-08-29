@@ -19,10 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
+        window?.rootViewController = UINavigationController(rootViewController: MagicalGridViewController())
         
         // Load the shared data first
-        print(KMBDataManager.shared.getKmbData)
+//        print(KMBDataManager.shared.getKmbData)
         
         return true
     }
