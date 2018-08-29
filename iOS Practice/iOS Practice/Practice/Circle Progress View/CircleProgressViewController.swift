@@ -11,6 +11,7 @@ import UIKit
 class CircleProgressViewController: KLViewController, URLSessionDownloadDelegate {
     
     let progressShapeLayer = CAShapeLayer()
+    let trackLayer = CAShapeLayer()
     let percentageLabel: UILabel = {
        let label = UILabel()
         label.text = "Start"
@@ -24,12 +25,10 @@ class CircleProgressViewController: KLViewController, URLSessionDownloadDelegate
         
         title = "Circle Progress View"
         
-        safeAreaContentView.addSubview(percentageLabel)
-        percentageLabel.center = safeAreaContentView.center
-        percentageLabel.al_centerToView()
-        
         setupProgressView()
-        
+        view.addSubview(percentageLabel)
+        percentageLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        percentageLabel.center = view.center
     }
 }
 
@@ -37,19 +36,17 @@ class CircleProgressViewController: KLViewController, URLSessionDownloadDelegate
 extension CircleProgressViewController {
     
     fileprivate func setupProgressView() {
-        let center = safeAreaContentView.center
-        let circularPath = UIBezierPath(arcCenter: .zero, radius: 150, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+        let center = view.center
+        let circularPath = UIBezierPath(arcCenter: .zero, radius: 100, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
         
         // track layer
-        let trackLayer = CAShapeLayer()
         trackLayer.path = circularPath.cgPath
         trackLayer.strokeColor = UIColor.lightGray.cgColor
         trackLayer.lineWidth = 10
         trackLayer.lineCap = kCALineCapRound
         trackLayer.position = center
-        trackLayer.fillColor = UIColor.yellow.cgColor
 
-        safeAreaContentView.layer.addSublayer(trackLayer)
+        view.layer.addSublayer(trackLayer)
 
         // progress
         progressShapeLayer.path = circularPath.cgPath
@@ -58,12 +55,13 @@ extension CircleProgressViewController {
         progressShapeLayer.lineCap = kCALineCapRound
         progressShapeLayer.strokeEnd = 0
         progressShapeLayer.position = center
+        
         progressShapeLayer.transform = CATransform3DMakeRotation(-CGFloat.pi / 2, 0, 0, 1)
-        progressShapeLayer.fillColor = UIColor.yellow.cgColor
 
-        safeAreaContentView.layer.addSublayer(progressShapeLayer)
+        view.layer.addSublayer(progressShapeLayer)
+        progressShapeLayer.fillColor = UIColor.white.cgColor
 
-        safeAreaContentView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleProgressTap)))
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleProgressTap)))
     }
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
@@ -71,7 +69,7 @@ extension CircleProgressViewController {
         
         OperationQueue.main.addOperation {
             print(precentage)
-            
+            self.percentageLabel.text = "\(Int(precentage * 100))%"
             self.progressShapeLayer.strokeEnd = precentage
         }
     }
