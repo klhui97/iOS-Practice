@@ -40,8 +40,6 @@ class ShimmerTableViewCell: NoneSelectionStyleTableViewCell {
         let angle = 30 * CGFloat.pi / 180
         gradientLayer.transform = CATransform3DMakeRotation(angle, 0, 0, 1)
 
-//        contentView.layer.addSublayer(gradientLayer)
-//        contentView.layer.masksToBounds = true
         shinyTextLabel.layer.mask = gradientLayer
     }
     

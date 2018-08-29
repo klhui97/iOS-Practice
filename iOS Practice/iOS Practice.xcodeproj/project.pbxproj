@@ -13,6 +13,7 @@
 		340E078D213691830029D8E2 /* AnimationViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E078C213691830029D8E2 /* AnimationViewTableViewController.swift */; };
 		340E0790213692600029D8E2 /* ShimmerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E078F213692600029D8E2 /* ShimmerTableViewCell.swift */; };
 		340E0792213697770029D8E2 /* NoneSelectionStyleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E0791213697770029D8E2 /* NoneSelectionStyleTableViewCell.swift */; };
+		340E07952136A49E0029D8E2 /* GenericTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E07942136A49E0029D8E2 /* GenericTableViewController.swift */; };
 		343B1D9E211C4116004E7E42 /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343B1D9D211C4116004E7E42 /* LoginTableViewController.swift */; };
 		343B1DA1211C416B004E7E42 /* LoginTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343B1DA0211C416B004E7E42 /* LoginTableViewCell.swift */; };
 		34645FB521227D7E00D3D59D /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34645FB421227D7E00D3D59D /* PaddingTextField.swift */; };
@@ -68,6 +69,7 @@
 		340E078C213691830029D8E2 /* AnimationViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewTableViewController.swift; sourceTree = "<group>"; };
 		340E078F213692600029D8E2 /* ShimmerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerTableViewCell.swift; sourceTree = "<group>"; tabWidth = 5; };
 		340E0791213697770029D8E2 /* NoneSelectionStyleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneSelectionStyleTableViewCell.swift; sourceTree = "<group>"; };
+		340E07942136A49E0029D8E2 /* GenericTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableViewController.swift; sourceTree = "<group>"; };
 		343B1D9D211C4116004E7E42 /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
 		343B1DA0211C416B004E7E42 /* LoginTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewCell.swift; sourceTree = "<group>"; };
 		34645FB421227D7E00D3D59D /* PaddingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
@@ -163,6 +165,14 @@
 			path = views;
 			sourceTree = "<group>";
 		};
+		340E07932136A47F0029D8E2 /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				340E07942136A49E0029D8E2 /* GenericTableViewController.swift */,
+			);
+			path = Generic;
+			sourceTree = "<group>";
+		};
 		341E9CC3211BE0A500031E55 /* Reuseable View */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +231,7 @@
 		3478C43721193A46009F2240 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				340E07932136A47F0029D8E2 /* Generic */,
 				34F6D2882126755800C84CE6 /* Manager */,
 				6B95898A21232C5B0058CF74 /* Controller */,
 				3478C44221195E64009F2240 /* View */,
@@ -540,6 +551,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				340E07952136A49E0029D8E2 /* GenericTableViewController.swift in Sources */,
 				3478C49E211AD2E6009F2240 /* LeftBubbleTableViewCell.swift in Sources */,
 				3478C4A6211AF64B009F2240 /* NotificationObserverViewController.swift in Sources */,
 				34645FB8212290B900D3D59D /* MessageUiViewController.swift in Sources */,
