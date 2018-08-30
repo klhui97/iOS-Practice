@@ -45,16 +45,25 @@ class CircleProgressViewController: KLViewController, URLSessionDownloadDelegate
         
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let center = safeAreaContentView.convert(safeAreaContentView.center, from: safeAreaContentView.superview)
+        pulsatingLayer.position = center
+        trackLayer.position = center
+        progressShapeLayer.position = center
+        percentageLabel.center = center
+    }
+    
     private func setupNotificationObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(handleDownloadCompleted), name: CircleProgressViewController.DidFinishDownloadingImage, object: nil)
     }
     
     private func initView() {
         setupProgressView()
-        view.backgroundColor = .backgroundColor
-        view.addSubview(percentageLabel)
+        safeAreaContentView.backgroundColor = .backgroundColor
+        safeAreaContentView.addSubview(percentageLabel)
         percentageLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        percentageLabel.center = view.center
     }
     
     @objc func handleDownloadCompleted() {
@@ -68,7 +77,7 @@ class CircleProgressViewController: KLViewController, URLSessionDownloadDelegate
 extension CircleProgressViewController {
     
     fileprivate func setupProgressView() {
-        let center = view.center
+        
         let circularPath = UIBezierPath(arcCenter: .zero, radius: 100, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
         
         // pulsating
@@ -77,8 +86,7 @@ extension CircleProgressViewController {
         pulsatingLayer.lineWidth = 10
         pulsatingLayer.lineCap = kCALineCapRound
         pulsatingLayer.fillColor = UIColor.pulsatingFillColor.cgColor
-        pulsatingLayer.position = center
-        view.layer.addSublayer(pulsatingLayer)
+        safeAreaContentView.layer.addSublayer(pulsatingLayer)
         
         // track layer
         trackLayer.path = circularPath.cgPath
@@ -86,8 +94,7 @@ extension CircleProgressViewController {
         trackLayer.fillColor = UIColor.backgroundColor.cgColor
         trackLayer.lineWidth = 10
         trackLayer.lineCap = kCALineCapRound
-        trackLayer.position = center
-        view.layer.addSublayer(trackLayer)
+        safeAreaContentView.layer.addSublayer(trackLayer)
 
         // progress
         progressShapeLayer.path = circularPath.cgPath
@@ -96,11 +103,10 @@ extension CircleProgressViewController {
         progressShapeLayer.lineWidth = 10
         progressShapeLayer.lineCap = kCALineCapRound
         progressShapeLayer.strokeEnd = 0
-        progressShapeLayer.position = center
         progressShapeLayer.transform = CATransform3DMakeRotation(-CGFloat.pi / 2, 0, 0, 1)
-        view.layer.addSublayer(progressShapeLayer)
+        safeAreaContentView.layer.addSublayer(progressShapeLayer)
 
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleProgressTap)))
+        safeAreaContentView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleProgressTap)))
     }
     
     private func animatePulsatingLayer() {
