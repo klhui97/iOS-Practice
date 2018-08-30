@@ -34,14 +34,7 @@ class MessageUiViewController: KLViewController, MFMailComposeViewControllerDele
         let messageBody = "Hey, Hello:)"
         let toRecipients = ["me@klhui.hk"]
         
-        let mailComposer = MFMailComposeViewController()
-        mailComposer.mailComposeDelegate = self
-        mailComposer.setSubject(emailTitle)
-        mailComposer.setMessageBody(messageBody, isHTML: false)
-        mailComposer.setToRecipients(toRecipients)
-        mailComposer.mailComposeDelegate = self
-        
-        present(mailComposer, animated: true)
+        iOSMessageManager.showEmail(presenter: self, delegate: self, emailTitle: emailTitle, messageBody: messageBody, toRecipients: toRecipients)
     }
 
     // MARK: - MFMailComposeViewControllerDelegate
