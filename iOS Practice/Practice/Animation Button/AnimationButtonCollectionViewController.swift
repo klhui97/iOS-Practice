@@ -11,7 +11,7 @@ import UIKit
 
 class AnimationButtonCollectionViewController: KLCollectionViewController {
     
-    var rows: [AnimatedButtonCell.AnimationType] = [.shake, .pulsate]
+    var rows: [AnimatedButtonCell.AnimationType] = [.test, .shake, .pulsate, .deepPress]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,18 +20,16 @@ class AnimationButtonCollectionViewController: KLCollectionViewController {
         
         collectionView?.register(AnimatedButtonCell.self)
         collectionViewFlowLayout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        collectionViewFlowLayout.itemSize = CGSize(width: 60, height: 60)
+        collectionViewFlowLayout.itemSize = CGSize(width: 100, height: 40)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return rows.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: AnimatedButtonCell = collectionView.dequeueReusableCell(for: indexPath)
-        if indexPath.row < rows.count {
-            cell.type = rows[indexPath.row]
-        }
+        cell.type = rows[indexPath.row]
         
         return cell
     }

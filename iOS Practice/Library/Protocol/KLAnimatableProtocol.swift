@@ -1,5 +1,5 @@
 //
-//  AnimatedButton.swift
+//  KLAnimatableProtocol.swift
 //  iOS Practice
 //
 //  Created by david.hui on 31/8/2018.
@@ -8,8 +8,29 @@
 
 import UIKit
 
-class AnimatedButton: UIButton {
+protocol KLAnimatableProtocol {
+    var center: CGPoint { get }
+    var layer: CALayer { get }
+}
+
+extension KLAnimatableProtocol where Self: UIView {
     
+    func test() {
+        
+    }
+    
+    func deepPress() {
+        let pulse = CASpringAnimation(keyPath: "transform.scale")
+        pulse.duration = 0.2
+        pulse.toValue = 1.0
+        pulse.byValue = 0.2
+        pulse.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        pulse.damping = 0.1
+        pulse.isRemovedOnCompletion = true
+        
+        layer.add(pulse, forKey: nil)
+    }
+
     func shake() {
         let shake = CABasicAnimation(keyPath: "position")
         shake.duration = 0.1
@@ -41,5 +62,5 @@ class AnimatedButton: UIButton {
         
         layer.add(pulse, forKey: nil)
     }
-    
 }
+
