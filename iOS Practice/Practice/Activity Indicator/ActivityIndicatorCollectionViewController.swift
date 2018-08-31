@@ -10,6 +10,8 @@ import UIKit
 
 class ActivityIndicatorCollectionViewController: KLCollectionViewController {
     
+    let rows: [KLActivityIndicatorView] = [.threeBallPulse, .ballGridPulse, .ballClipRotate, .squareSpin]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,17 +20,18 @@ class ActivityIndicatorCollectionViewController: KLCollectionViewController {
         
         collectionView?.register(ActivityIndicatorCollectionViewCell.self)
         collectionViewFlowLayout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        collectionViewFlowLayout.itemSize = CGSize(width: 100, height: 40)
+        collectionViewFlowLayout.itemSize = CGSize(width: 100, height: 60)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return rows.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: ActivityIndicatorCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
         cell.backgroundColor = .black
-        
+        cell.numberLabel.text = String(indexPath.row)
+        cell.animation = rows[indexPath.row].animation()
         return cell
     }
 }
