@@ -32,3 +32,18 @@ extension UITableView {
         return cell
     }
 }
+
+extension UICollectionViewCell: ReusableView {
+    
+}
+
+extension UICollectionView {
+    func register<T: UICollectionViewCell>(_: T.Type) {
+        self.register(T.self, forCellWithReuseIdentifier: T.defaultReuseIdentifier)
+    }
+    
+    func dequeueReusableCell<T: UICollectionViewCell>(for indexPath: IndexPath) -> T {
+        let cell = dequeueReusableCell(withReuseIdentifier: T.defaultReuseIdentifier, for: indexPath) as! T
+        return cell
+    }
+}

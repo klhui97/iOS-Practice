@@ -38,6 +38,11 @@ class LoginTableViewController: KLTableViewController {
         guard let type = InputType(rawValue: textField.tag) else { return }
         switch type {
         case .name:
+            if ValidatorManager.isValidatedEmail(textField.text ?? "") {
+                print("isValidatedEmail")
+            }else {
+                print("isNotValidatedEmail")
+            }
             print("name changed to \(textField.text ?? "")")
         case .password:
             print("password changed to \(textField.text ?? "")")
