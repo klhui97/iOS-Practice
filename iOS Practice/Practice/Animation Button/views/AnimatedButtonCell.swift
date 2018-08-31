@@ -37,7 +37,7 @@ class AnimatedButtonCell: UICollectionViewCell {
         button.backgroundColor = .blue
         button.addTarget(self, action: #selector(buttonOnClicked), for: .touchUpInside)
         
-        autoPressEffectTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: (#selector(timerPress)), userInfo: nil, repeats: true)
+        autoPressEffectTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(timerPress)), userInfo: nil, repeats: true)
     }
     
     required init?(coder aDecoder: NSCoder) {
