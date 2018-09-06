@@ -58,9 +58,10 @@ class KLAlertViewManager {
             smartAlertButton?.frame = finalFrame
         }) { [weak smartAlertButton] (completed) in
             if completed == true {
-                UIView.animate(withDuration: self.showDuration, delay: self.showDuration, options: UIViewAnimationOptions(), animations: {
+                UIView.animate(withDuration: self.slideDuration, delay: self.showDuration, options: UIViewAnimationOptions(), animations: {
                     [weak smartAlertButton] in
                     smartAlertButton?.alpha = 0
+                    smartAlertButton?.frame = initFrame
                 }) { [weak smartAlertButton] (completed) in
                     smartAlertButton?.removeFromSuperview()
                 }

@@ -43,6 +43,8 @@ private extension MenuTableViewController {
             return AnimationButtonCollectionViewController()
         case .activityIndicator:
             return ActivityIndicatorCollectionViewController()
+        case .popUpView:
+            return PopUpViewController()
         }
     }
 }
@@ -64,9 +66,10 @@ class MenuTableViewController: KLTableViewController {
         case animationView = "Animation View"
         case animationButton = "Animation Button"
         case activityIndicator = "Activity Indicator"
+        case popUpView = "Pop Up View"
     }
     
-    var rows: [Row] = [.swift4Json, .hkKmbData, .chatUi, .notificationObserver, .bluetoothReadWrite, .messageUi, .whatsappApi, .rssParse, .circleProgressView, .magicalGridView, .animationView, .animationButton, .activityIndicator]
+    var rows: [Row] = [.swift4Json, .hkKmbData, .chatUi, .notificationObserver, .bluetoothReadWrite, .messageUi, .whatsappApi, .rssParse, .circleProgressView, .magicalGridView, .animationView, .animationButton, .activityIndicator, .popUpView]
     var delegate: MenuTableViewControllerDelegate?
     
     // MARK: - Life cycle

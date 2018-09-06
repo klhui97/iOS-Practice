@@ -22,6 +22,9 @@ class KMBSearchViewController: KLTableViewController, UISearchBarDelegate {
         
         title = "KMB Data"
         
+        // Load the shared data first
+        print(KMBDataManager.shared.getKmbData)
+        
         searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
