@@ -80,6 +80,7 @@
 		6B95898F21233B8B0058CF74 /* RSSParseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B95898E21233B8B0058CF74 /* RSSParseViewController.swift */; };
 		6BA52664214172F8008354D8 /* iOSMessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA52662214172F8008354D8 /* iOSMessageManager.swift */; };
 		6BA52665214172F8008354D8 /* SharingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA52663214172F8008354D8 /* SharingManager.swift */; };
+		6BA52669214176A8008354D8 /* VersionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA52668214176A8008354D8 /* VersionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -158,6 +159,7 @@
 		6B95898E21233B8B0058CF74 /* RSSParseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSParseViewController.swift; sourceTree = "<group>"; };
 		6BA52662214172F8008354D8 /* iOSMessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSMessageManager.swift; sourceTree = "<group>"; };
 		6BA52663214172F8008354D8 /* SharingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharingManager.swift; sourceTree = "<group>"; };
+		6BA52668214176A8008354D8 /* VersionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -431,6 +433,7 @@
 			isa = PBXGroup;
 			children = (
 				6BA52662214172F8008354D8 /* iOSMessageManager.swift */,
+				6BA52668214176A8008354D8 /* VersionManager.swift */,
 				6BA52663214172F8008354D8 /* SharingManager.swift */,
 				34F6D28A2126759A00C84CE6 /* NetworkManager.swift */,
 				34390B2C2138E414005F7503 /* ValidatorManager.swift */,
@@ -707,6 +710,7 @@
 				3478C49B211AD1F0009F2240 /* ChatUITableViewController.swift in Sources */,
 				6B4C381A2118A91F00D5320A /* Swift4JsonTableViewController.swift in Sources */,
 				3478C43D21195BE1009F2240 /* Swift4JsonTableViewCell.swift in Sources */,
+				6BA52669214176A8008354D8 /* VersionManager.swift in Sources */,
 				34E1685521411BA600522628 /* PaperSwitch.swift in Sources */,
 				34390B382138F778005F7503 /* KLCollectionViewController.swift in Sources */,
 				34F6D28B2126759A00C84CE6 /* NetworkManager.swift in Sources */,
