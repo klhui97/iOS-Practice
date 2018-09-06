@@ -44,8 +44,13 @@ class PopUpCollectionViewCell: UICollectionViewCell {
                 KLAlertViewManager.shared.showBottomAlert(target: view, text: "hi")
             }
         case .pickerView:
-            let vc = PickerViewController(items: ["1", "2", "3"], selectedIndex: 0, didSelectAtIndexCallback: { (selectedIndex) in
+            let items = ["1", "2", "3"]
+            let vc = KLPickerViewController(items: ["1", "2", "3"], selectedIndex: 0, didSelectAtIndexCallback: { (selectedIndex) in
+                print("didchanged to \(items[selectedIndex])")
             })
+            vc.didCancelCallback = {
+                print("cancel")
+            }
             vc.callbackImmediatelyWhenValueChange = false
             controller?.present(vc, animated: true, completion: nil)
         }

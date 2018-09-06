@@ -9,9 +9,8 @@
 import UIKit
 
 class BottomCardViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
-    var duration: TimeInterval {
-        return 0.3
-    }
+    
+    var duration: TimeInterval = 0.3
     let contentView: UIView = {
         let view = UIView()
         view.clipsToBounds = true
@@ -25,6 +24,7 @@ class BottomCardViewController: UIViewController, UIViewControllerTransitioningD
         view.backgroundColor = UIColor(white: 0, alpha: 0.4)
         return view
     }()
+    
     private var contentViewStartConstraint: NSLayoutConstraint!
     private var contentViewEndConstraint: NSLayoutConstraint!
     private var contentViewEndViewBottomConstraint: NSLayoutConstraint!
@@ -129,8 +129,7 @@ class BottomCardViewController: UIViewController, UIViewControllerTransitioningD
                 transitionContext.completeTransition(true)
             })
             animator.startAnimation()
-        }
-        else{
+        }else{
             let animator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1, animations: {
                 self.dimView.alpha = 0
                 self.contentViewEndConstraint.isActive = false
@@ -140,8 +139,6 @@ class BottomCardViewController: UIViewController, UIViewControllerTransitioningD
             })
             animator.addCompletion({ (_) in
                 transitionContext.completeTransition(true)
-                //                let toView = transitionContext.viewForKey(UITransitionContextFromViewKey)!
-                //                toView.removeFromSuperview()
             })
             animator.startAnimation()
         }

@@ -8,10 +8,9 @@
 
 import UIKit
 
-class PickerViewController: BottomCardViewController, UIPickerViewDataSource, UIPickerViewDelegate {
-    var doneTitle: String? {
-        return nil
-    }
+class KLPickerViewController: BottomCardViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    var doneTitle: String? = nil
     var callbackImmediatelyWhenValueChange = true
     var didCancelCallback: (() -> ())?
     let navigationBar = UINavigationBar()
@@ -35,16 +34,14 @@ class PickerViewController: BottomCardViewController, UIPickerViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationBar.translatesAutoresizingMaskIntoConstraints = false
         pickerView = UIPickerView()
-        pickerView.translatesAutoresizingMaskIntoConstraints = false
         pickerView.dataSource = self
         pickerView.delegate = self
         pickerView.backgroundColor = UIColor.white
-        contentView.addSubview(pickerView)
+        contentView.add(pickerView)
         pickerView.selectRow(selectedIndex, inComponent: 0, animated: false)
         
-        contentView.addSubview(navigationBar)
+        contentView.add(navigationBar)
         
         let doneButtonItem: UIBarButtonItem
         if let doneTitle = doneTitle {
@@ -90,8 +87,7 @@ class PickerViewController: BottomCardViewController, UIPickerViewDataSource, UI
     @objc override func didTapDimView() {
         if callbackImmediatelyWhenValueChange {
             didDone()
-        }
-        else {
+        }else {
             dismiss(animated: true) {
                 self.didCancelCallback?()
             }
@@ -99,7 +95,7 @@ class PickerViewController: BottomCardViewController, UIPickerViewDataSource, UI
     }
 }
 
-private extension PickerViewController {
+private extension KLPickerViewController {
     @objc func didDone() {
         dismiss(animated: true) {
             self.didSelectAtIndexCallback?(self.selectedIndex)
