@@ -19,6 +19,8 @@ class iOSMessageManager {
         mailComposer.setToRecipients(toRecipients)
         mailComposer.mailComposeDelegate = delegate
         
-        presenter.present(mailComposer, animated: true)
+        if MFMailComposeViewController.canSendMail() {
+            presenter.present(mailComposer, animated: true)
+        }
     }
 }
