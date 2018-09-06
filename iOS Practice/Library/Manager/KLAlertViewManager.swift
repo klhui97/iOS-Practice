@@ -11,9 +11,10 @@ import UIKit
 class KLAlertViewManager {
     
     static let shared = KLAlertViewManager()
-    let smartTipShowDuration:TimeInterval = 5
-    let smartTipSlideDuration:TimeInterval = 0.3
-    
+    let showDuration: TimeInterval = 3
+    let slideDuration: TimeInterval = 0.3
+    let backgroundColor = UIColor.orange
+    let textColor = UIColor.white
     
     /// The view that is displaying the alert
     var animatedView: UIView?
@@ -25,16 +26,19 @@ class KLAlertViewManager {
     func showBottomAlert(target targetView: UIView, size: CGSize = CGSize(width: ScreenSizeManager.screenWidth, height: 45), text: String, icon: UIImage? = nil, completion:(() -> Void)? = nil){
         
         let bottomInset = ScreenSizeManager.safeAreaBottomInset
+        let initFrame = CGRect(x: 0, y: ScreenSizeManager.screenHeight, width: size.width, height: size.height + bottomInset)
+        let finalFrame = CGRect(x: 0, y: initFrame.origin.y - initFrame.size.height, width: ScreenSizeManager.screenWidth, height: initFrame.size.height)
+        
         
         let smartAlertButton = UIButton(type: .custom)
         smartAlertButton.setTitle(text, for: UIControlState())
-        smartAlertButton.frame = CGRect(x: 0, y: ScreenSizeManager.screenHeight, width: size.width, height: size.height + bottomInset)
+        smartAlertButton.frame = initFrame
         if (icon != nil) {
             smartAlertButton.setImage(icon, for: UIControlState())
             smartAlertButton.imageEdgeInsets = UIEdgeInsetsMake(0, -6, 0, 6)
         }
-        smartAlertButton.backgroundColor = UIColor.orange
-        smartAlertButton.setTitleColor(UIColor.white, for: UIControlState())
+        smartAlertButton.backgroundColor = backgroundColor
+        smartAlertButton.setTitleColor(textColor, for: UIControlState())
         smartAlertButton.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 20)
         smartAlertButton.titleEdgeInsets.bottom = bottomInset
         smartAlertButton.alpha = 0
@@ -48,15 +52,13 @@ class KLAlertViewManager {
         animatedView = smartAlertButton
         targetView.addSubview(smartAlertButton)
         
-        UIView.animate(withDuration: smartTipSlideDuration, delay: 0, options: UIViewAnimationOptions(), animations: {
+        UIView.animate(withDuration: slideDuration, delay: 0, options: UIViewAnimationOptions(), animations: {
             [weak smartAlertButton] in
-            guard let strongSmartAlertButton = smartAlertButton else { return }
-            
             smartAlertButton?.alpha = 1
-            smartAlertButton?.frame = CGRect(x: 0, y: strongSmartAlertButton.frame.origin.y - strongSmartAlertButton.frame.size.height, width: ScreenSizeManager.screenWidth, height: strongSmartAlertButton.frame.size.height)
+            smartAlertButton?.frame = finalFrame
         }) { [weak smartAlertButton] (completed) in
             if completed == true {
-                UIView.animate(withDuration: self.smartTipSlideDuration, delay: self.smartTipShowDuration, options: UIViewAnimationOptions(), animations: {
+                UIView.animate(withDuration: self.showDuration, delay: self.showDuration, options: UIViewAnimationOptions(), animations: {
                     [weak smartAlertButton] in
                     smartAlertButton?.alpha = 0
                 }) { [weak smartAlertButton] (completed) in
