@@ -53,6 +53,7 @@
 		3478C4A6211AF64B009F2240 /* NotificationObserverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C4A5211AF64B009F2240 /* NotificationObserverViewController.swift */; };
 		34B7FFF22140D109009F25D8 /* ScreenSizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7FFF12140D109009F25D8 /* ScreenSizeManager.swift */; };
 		34B7FFF42140D1A4009F25D8 /* KLAlertViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7FFF32140D1A4009F25D8 /* KLAlertViewManager.swift */; };
+		34B7FFF62140E7AF009F25D8 /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7FFF52140E7AF009F25D8 /* MenuManager.swift */; };
 		34F6D28B2126759A00C84CE6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6D28A2126759A00C84CE6 /* NetworkManager.swift */; };
 		34F6D28D2126899900C84CE6 /* KMBClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6D28C2126899900C84CE6 /* KMBClientModel.swift */; };
 		34F6D291212693A000C84CE6 /* KMBETAClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6D290212693A000C84CE6 /* KMBETAClientModel.swift */; };
@@ -122,6 +123,7 @@
 		3478C4A5211AF64B009F2240 /* NotificationObserverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationObserverViewController.swift; sourceTree = "<group>"; };
 		34B7FFF12140D109009F25D8 /* ScreenSizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSizeManager.swift; sourceTree = "<group>"; };
 		34B7FFF32140D1A4009F25D8 /* KLAlertViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLAlertViewManager.swift; sourceTree = "<group>"; };
+		34B7FFF52140E7AF009F25D8 /* MenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
 		34F6D28A2126759A00C84CE6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		34F6D28C2126899900C84CE6 /* KMBClientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMBClientModel.swift; sourceTree = "<group>"; };
 		34F6D290212693A000C84CE6 /* KMBETAClientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMBETAClientModel.swift; sourceTree = "<group>"; };
@@ -494,6 +496,7 @@
 		6B4C38162118A6FB00D5320A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				34B7FFF52140E7AF009F25D8 /* MenuManager.swift */,
 				6B4C38142118A38600D5320A /* MenuTableViewController.swift */,
 				3478C492211A86E7009F2240 /* HomeViewController.swift */,
 			);
@@ -698,6 +701,7 @@
 				34F6D29F2126D8F700C84CE6 /* KMBStopsInformationTableViewController.swift in Sources */,
 				3478C497211A9F57009F2240 /* LargeTitleTableViewCell.swift in Sources */,
 				340E0790213692600029D8E2 /* ShimmerTableViewCell.swift in Sources */,
+				34B7FFF62140E7AF009F25D8 /* MenuManager.swift in Sources */,
 				34390B4A21392CAE005F7503 /* KLActivityIndicatorShape.swift in Sources */,
 				3478C4A0211AD9AF009F2240 /* BaseBubbleTableViewCell.swift in Sources */,
 				3478C49121199873009F2240 /* LoadingOverlay.swift in Sources */,

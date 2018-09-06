@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MenuTableViewControllerDelegate {
-    func changeRootViewControllerTo(controller: UIViewController)
+    func changeViewController(toController: UIViewController)
 }
 
 private extension MenuTableViewController {
@@ -111,7 +111,7 @@ class MenuTableViewController: KLTableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if indexPath.section == 1 {
-            delegate?.changeRootViewControllerTo(controller: getController(rows[indexPath.row]))
+            delegate?.changeViewController(toController: getController(rows[indexPath.row]))
         }
     }
 }

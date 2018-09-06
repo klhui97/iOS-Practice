@@ -10,9 +10,7 @@ import UIKit
 
 class HomeViewController: KLViewController, MenuTableViewControllerDelegate {
 
-    let menuController = MenuTableViewController()
-    var menuWidth: CGFloat!
-    var menuLeadingConstraint: NSLayoutConstraint?
+    let menuManager = MenuManager()
     
     // MARK: - View
     let overlayView: UIView = {
@@ -49,13 +47,8 @@ class HomeViewController: KLViewController, MenuTableViewControllerDelegate {
         view.add(testingButton)
         testingButton.al_centerToView()
         testingButton.addTarget(self, action: #selector(testButtonOnClicked), for: UIControlEvents.touchUpInside)
-        overlayView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapOverlayView)))
         
-        if let window = UIApplication.shared.keyWindow {
-            menuWidth = window.frame.size.width / 1.5
-        }
-        
-        menuController.delegate = self
+        menuManager.setDelegate(delegate: self)
     }
     
     // MARK: - Init
@@ -77,76 +70,13 @@ class HomeViewController: KLViewController, MenuTableViewControllerDelegate {
     }
     
     @objc func showMenu() {
-        if let window = UIApplication.shared.keyWindow {
-            navigationController?.view.add(overlayView)
-            overlayView.al_fillSuperview()
-            
-            // menuContainerView
-            window.add(menuContainerView)
-            if menuLeadingConstraint == nil {
-                menuLeadingConstraint = menuContainerView.leadingAnchor.constraint(equalTo: window.leadingAnchor)
-            }
-            NSLayoutConstraint.activate([
-                menuLeadingConstraint!,
-                menuContainerView.topAnchor.constraint(equalTo: window.topAnchor),
-                menuContainerView.widthAnchor.constraint(equalToConstant: menuWidth),
-                menuContainerView.bottomAnchor.constraint(equalTo: window.bottomAnchor)])
-            
-            // menuController
-            menuContainerView.add(menuController.tableView)
-            NSLayoutConstraint.activate([
-                menuController.tableView.leadingAnchor.constraint(equalTo: menuContainerView.leadingAnchor),
-                menuController.tableView.trailingAnchor.constraint(equalTo: menuContainerView.trailingAnchor),
-                menuController.tableView.topAnchor.constraint(equalTo: menuContainerView.topAnchor, constant: UIApplication.shared.statusBarFrame.height),
-                menuController.tableView.bottomAnchor.constraint(equalTo: menuContainerView.bottomAnchor)])
-            
-            // before animation
-            overlayView.alpha = 0
-            menuLeadingConstraint?.constant = -menuWidth
-            view.layoutIfNeeded()
-            window.layoutIfNeeded()
-            
-            let animator = UIViewPropertyAnimator(duration: 0.35, dampingRatio: 1, animations: {
-                self.overlayView.alpha = 1
-                self.menuLeadingConstraint?.constant = 0
-                window.layoutIfNeeded()
-            })
-            
-            animator.startAnimation()
-        }
-    }
-    
-    @objc func didTapOverlayView() {
-        removeMenu(duration: 0.35, completion: nil)
-    }
-    
-    // MARK: - Method
-    private func removeMenu(duration: TimeInterval, completion: (() -> Void)? = nil) {
-        if let window = UIApplication.shared.keyWindow {
-            let animator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1, animations: {
-                self.overlayView.alpha = 0
-                self.menuLeadingConstraint?.constant = -self.menuWidth
-                window.layoutIfNeeded()
-            })
-            
-            animator.addCompletion { (_) in
-                self.overlayView.removeFromSuperview()
-                self.menuContainerView.removeFromSuperview()
-                self.menuController.view.removeFromSuperview()
-                if let completion = completion {
-                    completion()
-                }
-            }
-            
-            animator.startAnimation()
-        }
+        menuManager.showMenu()
     }
     
     // MARK: - MenuTableViewControllerDelegate
-    
-    func changeRootViewControllerTo(controller: UIViewController) {
-        removeMenu(duration: 0.1, completion: {
-            self.navigationController?.pushViewController(controller, animated: true)
+    func changeViewController(toController: UIViewController) {
+        menuManager.removeMenu(duration: 0.1, completion: {
+            self.navigationController?.pushViewController(toController, animated: true)
         })
     }
     
