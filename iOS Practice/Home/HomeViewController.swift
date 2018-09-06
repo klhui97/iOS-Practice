@@ -31,6 +31,12 @@ class HomeViewController: KLViewController, MenuTableViewControllerDelegate {
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
+    let testingButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("test", for: UIControlState())
+        button.backgroundColor = .black
+        return button
+    }()
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -40,6 +46,9 @@ class HomeViewController: KLViewController, MenuTableViewControllerDelegate {
         
         view.add(backgroundImageView)
         backgroundImageView.al_fillSuperview()
+        view.add(testingButton)
+        testingButton.al_centerToView()
+        testingButton.addTarget(self, action: #selector(testButtonOnClicked), for: UIControlEvents.touchUpInside)
         overlayView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapOverlayView)))
         
         if let window = UIApplication.shared.keyWindow {
@@ -63,6 +72,10 @@ class HomeViewController: KLViewController, MenuTableViewControllerDelegate {
     }
     
     // MARK: - Action
+    @objc func testButtonOnClicked() {
+        KLAlertViewManager.shared.showBottomAlert(target: view, text: "hi")
+    }
+    
     @objc func showMenu() {
         if let window = UIApplication.shared.keyWindow {
             navigationController?.view.add(overlayView)

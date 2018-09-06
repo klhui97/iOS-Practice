@@ -51,6 +51,8 @@
 		3478C4A0211AD9AF009F2240 /* BaseBubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C49F211AD9AF009F2240 /* BaseBubbleTableViewCell.swift */; };
 		3478C4A2211ADC76009F2240 /* RightBubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C4A1211ADC76009F2240 /* RightBubbleTableViewCell.swift */; };
 		3478C4A6211AF64B009F2240 /* NotificationObserverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C4A5211AF64B009F2240 /* NotificationObserverViewController.swift */; };
+		34B7FFF22140D109009F25D8 /* ScreenSizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7FFF12140D109009F25D8 /* ScreenSizeManager.swift */; };
+		34B7FFF42140D1A4009F25D8 /* KLAlertViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7FFF32140D1A4009F25D8 /* KLAlertViewManager.swift */; };
 		34F6D28B2126759A00C84CE6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6D28A2126759A00C84CE6 /* NetworkManager.swift */; };
 		34F6D28D2126899900C84CE6 /* KMBClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6D28C2126899900C84CE6 /* KMBClientModel.swift */; };
 		34F6D291212693A000C84CE6 /* KMBETAClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6D290212693A000C84CE6 /* KMBETAClientModel.swift */; };
@@ -118,6 +120,8 @@
 		3478C49F211AD9AF009F2240 /* BaseBubbleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBubbleTableViewCell.swift; sourceTree = "<group>"; };
 		3478C4A1211ADC76009F2240 /* RightBubbleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightBubbleTableViewCell.swift; sourceTree = "<group>"; };
 		3478C4A5211AF64B009F2240 /* NotificationObserverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationObserverViewController.swift; sourceTree = "<group>"; };
+		34B7FFF12140D109009F25D8 /* ScreenSizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSizeManager.swift; sourceTree = "<group>"; };
+		34B7FFF32140D1A4009F25D8 /* KLAlertViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLAlertViewManager.swift; sourceTree = "<group>"; };
 		34F6D28A2126759A00C84CE6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		34F6D28C2126899900C84CE6 /* KMBClientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMBClientModel.swift; sourceTree = "<group>"; };
 		34F6D290212693A000C84CE6 /* KMBETAClientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMBETAClientModel.swift; sourceTree = "<group>"; };
@@ -397,6 +401,8 @@
 			children = (
 				34F6D28A2126759A00C84CE6 /* NetworkManager.swift */,
 				34390B2C2138E414005F7503 /* ValidatorManager.swift */,
+				34B7FFF12140D109009F25D8 /* ScreenSizeManager.swift */,
+				34B7FFF32140D1A4009F25D8 /* KLAlertViewManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -678,6 +684,7 @@
 				34645FD12123DF0B00D3D59D /* FreeAppCell.swift in Sources */,
 				340E07872136645B0029D8E2 /* MagicalGridViewController.swift in Sources */,
 				3478C44121195D26009F2240 /* UITableView.swift in Sources */,
+				34B7FFF22140D109009F25D8 /* ScreenSizeManager.swift in Sources */,
 				34390B342138EFB3005F7503 /* AnimationButtonCollectionViewController.swift in Sources */,
 				34645FB521227D7E00D3D59D /* PaddingTextField.swift in Sources */,
 				34F6D298212697A300C84CE6 /* FreeAppParserModel.swift in Sources */,
@@ -687,6 +694,7 @@
 				6B95898C21232C690058CF74 /* KLViewController.swift in Sources */,
 				34390B4D21393041005F7503 /* ActivityIndicatorCollectionViewCell.swift in Sources */,
 				340E07822135104A0029D8E2 /* CircleProgressViewController.swift in Sources */,
+				34B7FFF42140D1A4009F25D8 /* KLAlertViewManager.swift in Sources */,
 				34F6D29F2126D8F700C84CE6 /* KMBStopsInformationTableViewController.swift in Sources */,
 				3478C497211A9F57009F2240 /* LargeTitleTableViewCell.swift in Sources */,
 				340E0790213692600029D8E2 /* ShimmerTableViewCell.swift in Sources */,
