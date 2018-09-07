@@ -56,11 +56,6 @@ class PagingCollectionViewController: KLCollectionViewController {
         return cell
     }
     
-    override func collectionView(_ collectionView: UICollectionView, targetContentOffsetForProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
-        print(collectionView.contentOffset.x / collectionView.frame.size.width)
-        return super.collectionView(collectionView, targetContentOffsetForProposedContentOffset: proposedContentOffset)
-    }
-    
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let collectionView = collectionView else {
             return
