@@ -19,8 +19,11 @@ class ActivityIndicatorCollectionViewController: KLCollectionViewController {
         title = "Activity Indicator"
         
         collectionView?.register(ActivityIndicatorCollectionViewCell.self)
+    }
+    
+    override func configCollectionViewFlowLayout() {
         collectionViewFlowLayout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        collectionViewFlowLayout.itemSize = CGSize(width: 100, height: 60)
+        collectionViewFlowLayout.itemSize = CGSize(width: 100, height: 40)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

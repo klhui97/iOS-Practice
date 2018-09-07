@@ -26,5 +26,10 @@ class KLCollectionViewController: UICollectionViewController, UICollectionViewDe
         
         collectionView?.backgroundColor = .white
         collectionView?.register(UICollectionViewCell.self)
+        configCollectionViewFlowLayout()
+    }
+    
+    func configCollectionViewFlowLayout() {
+        fatalError("configCollectionViewFlowLayout(): has not been implemented")
     }
 }

@@ -18,6 +18,9 @@ class PopUpViewController: KLCollectionViewController {
         title = "Pop Up View"
         
         collectionView?.register(PopUpCollectionViewCell.self)
+    }
+    
+    override func configCollectionViewFlowLayout() {
         collectionViewFlowLayout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
         collectionViewFlowLayout.itemSize = CGSize(width: 100, height: 40)
     }

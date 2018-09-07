@@ -19,6 +19,9 @@ class AnimationButtonCollectionViewController: KLCollectionViewController {
         title = "Button Animation"
         
         collectionView?.register(AnimatedButtonCell.self)
+    }
+    
+    override func configCollectionViewFlowLayout() {
         collectionViewFlowLayout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
         collectionViewFlowLayout.itemSize = CGSize(width: 100, height: 40)
     }

@@ -58,6 +58,8 @@
 		34E168512140FA9900522628 /* KLPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E168502140FA9900522628 /* KLPickerViewController.swift */; };
 		34E168532140FB0400522628 /* BottomCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E168522140FB0400522628 /* BottomCardViewController.swift */; };
 		34E1685521411BA600522628 /* PaperSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E1685421411BA600522628 /* PaperSwitch.swift */; };
+		34E168582142331A00522628 /* PagingCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E168572142331A00522628 /* PagingCollectionViewController.swift */; };
+		34E1685A2142442300522628 /* PagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E168592142442300522628 /* PagingViewController.swift */; };
 		34F6D28B2126759A00C84CE6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6D28A2126759A00C84CE6 /* NetworkManager.swift */; };
 		34F6D28D2126899900C84CE6 /* KMBClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6D28C2126899900C84CE6 /* KMBClientModel.swift */; };
 		34F6D294212694A400C84CE6 /* KivawsLoanClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6D293212694A400C84CE6 /* KivawsLoanClientModel.swift */; };
@@ -134,6 +136,8 @@
 		34E168502140FA9900522628 /* KLPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLPickerViewController.swift; sourceTree = "<group>"; };
 		34E168522140FB0400522628 /* BottomCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCardViewController.swift; sourceTree = "<group>"; };
 		34E1685421411BA600522628 /* PaperSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperSwitch.swift; sourceTree = "<group>"; };
+		34E168572142331A00522628 /* PagingCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingCollectionViewController.swift; sourceTree = "<group>"; };
+		34E168592142442300522628 /* PagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingViewController.swift; sourceTree = "<group>"; };
 		34F6D28A2126759A00C84CE6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		34F6D28C2126899900C84CE6 /* KMBClientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMBClientModel.swift; sourceTree = "<group>"; };
 		34F6D293212694A400C84CE6 /* KivawsLoanClientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KivawsLoanClientModel.swift; sourceTree = "<group>"; };
@@ -411,6 +415,15 @@
 			path = views;
 			sourceTree = "<group>";
 		};
+		34E16856214232F900522628 /* Collection View Paging */ = {
+			isa = PBXGroup;
+			children = (
+				34E168572142331A00522628 /* PagingCollectionViewController.swift */,
+				34E168592142442300522628 /* PagingViewController.swift */,
+			);
+			path = "Collection View Paging";
+			sourceTree = "<group>";
+		};
 		34F6D28421266A0400C84CE6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -547,6 +560,7 @@
 		6B4C381B2118B0AE00D5320A /* Practice */ = {
 			isa = PBXGroup;
 			children = (
+				34E16856214232F900522628 /* Collection View Paging */,
 				34B7FFF72140F3DA009F25D8 /* Pop Up View */,
 				34390B4621392C36005F7503 /* Activity Indicator */,
 				34390B322138EF99005F7503 /* Animation Button */,
@@ -700,6 +714,7 @@
 				3478C43A21193A73009F2240 /* Layoutable.swift in Sources */,
 				6B7AC4FD2120534400590ED6 /* BluetoothReadWriteViewController.swift in Sources */,
 				6B7AE3C62124807200365A65 /* KMBETAClient.swift in Sources */,
+				34E168582142331A00522628 /* PagingCollectionViewController.swift in Sources */,
 				3478C44421195E7F009F2240 /* CircleImageView.swift in Sources */,
 				34645FD52123EFA400D3D59D /* String.swift in Sources */,
 				34645FC62123CE5700D3D59D /* KMBClient.swift in Sources */,
@@ -716,6 +731,7 @@
 				343B1D9E211C4116004E7E42 /* LoginTableViewController.swift in Sources */,
 				34E168532140FB0400522628 /* BottomCardViewController.swift in Sources */,
 				34390B4421390E18005F7503 /* KLAnimatableProtocol.swift in Sources */,
+				34E1685A2142442300522628 /* PagingViewController.swift in Sources */,
 				34390B552139372F005F7503 /* KLActivityIndicatorType.swift in Sources */,
 				6B4C38032118A31A00D5320A /* AppDelegate.swift in Sources */,
 				6B7AC4FA2120530700590ED6 /* UIView.swift in Sources */,
