@@ -30,3 +30,26 @@ class KMBETAClient {
         }
     }
 }
+
+// MARK: - Struct
+
+extension KMBETAClient {
+    
+    struct EtaResponse: Codable {
+        var responsecode: Int
+        var response: [EtaData]
+    }
+    
+    struct EtaData: Codable {
+        var etaDisplayString: String {
+            return shortArrivalTime + "     / " + detailArrivalTime
+        }
+        var detailArrivalTime: String
+        var shortArrivalTime: String
+        
+        enum CodingKeys: String, CodingKey {
+            case detailArrivalTime = "ex"
+            case shortArrivalTime = "t"
+        }
+    }
+}

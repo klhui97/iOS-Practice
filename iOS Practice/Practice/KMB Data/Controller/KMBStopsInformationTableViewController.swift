@@ -21,21 +21,27 @@ class KMBStopsInformationTableViewController: KLTableViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        tableView.register(ETATableViewCell.self)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         for (i, _) in service.routeStops.enumerated() {
             KMBETAClient.getEtaInfo(routeStop: service.routeStops[i]) { (eta) in
-                guard eta != nil else { return }
-                OperationQueue.main.addOperation {
+                guard let eta = eta, eta.count > 0 else {
+                    print("No eta data: ", self.service.routeStops[i].cName)
+                    return
+                }
+                DispatchQueue.main.async {
                     self.service.routeStops[i].eta = eta
                     self.tableView.reloadRows(at: [IndexPath(row: i, section: 0)], with: UITableViewRowAnimation.automatic)
                 }
             }
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
+        tableView.register(ETATableViewCell.self)
     }
     
     // MARK: - Table view data source
@@ -56,10 +62,15 @@ class KMBStopsInformationTableViewController: KLTableViewController {
         if let etas = service.routeStops[indexPath.row].eta {
             var etaString = ""
             for eta in etas {
-                etaString += eta.shortArrivalTime + "\n"
+                etaString += eta.etaDisplayString + "\n"
             }
             cell.etaLabel.text = etaString
+            cell.etaLabel.textColor = .black
+        }else {
+            cell.etaLabel.text = "沒有數據"
+            cell.etaLabel.textColor = .red
         }
+        
         
         return cell
     }
