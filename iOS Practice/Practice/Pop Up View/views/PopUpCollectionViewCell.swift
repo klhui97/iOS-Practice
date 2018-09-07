@@ -41,7 +41,7 @@ class PopUpCollectionViewCell: UICollectionViewCell {
         switch type {
         case .buttonAlert:
             if let view = controller?.view {
-                KLAlertViewManager.shared.showBottomAlert(target: view, text: "hi")
+                KLAlertViewManager().showBottomAlert(target: view, text: "hi")
             }
         case .pickerView:
             let items = ["1", "2", "3"]

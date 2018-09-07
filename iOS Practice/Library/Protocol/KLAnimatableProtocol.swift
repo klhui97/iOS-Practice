@@ -62,6 +62,7 @@ extension KLAnimatableProtocol where Self: UIView {
         
         addAnimation(pulse)
     }
+    
     private func setInitValue(_ animation: CABasicAnimation, fromValue: Any? = nil, toValue: Any? = nil, byValue: Any? = nil) {
         animation.fromValue = fromValue
         animation.toValue = toValue

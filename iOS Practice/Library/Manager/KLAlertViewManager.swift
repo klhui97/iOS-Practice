@@ -10,7 +10,6 @@ import UIKit
 
 class KLAlertViewManager {
     
-    static let shared = KLAlertViewManager()
     let showDuration: TimeInterval = 3
     let slideDuration: TimeInterval = 0.3
     let backgroundColor = UIColor.orange
@@ -19,7 +18,7 @@ class KLAlertViewManager {
     /// The view that is displaying the alert
     var animatedView: UIView?
     
-    private init() {
+    init() {
         
     }
     

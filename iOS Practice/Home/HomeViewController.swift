@@ -66,7 +66,7 @@ class HomeViewController: KLViewController, MenuTableViewControllerDelegate {
     
     // MARK: - Action
     @objc func testButtonOnClicked() {
-        KLAlertViewManager.shared.showBottomAlert(target: view, text: "hi")
+        KLAlertViewManager().showBottomAlert(target: view, text: "hi")
     }
     
     @objc func showMenu() {
