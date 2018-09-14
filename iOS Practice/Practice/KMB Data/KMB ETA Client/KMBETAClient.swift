@@ -42,10 +42,35 @@ extension KMBETAClient {
     
     struct EtaData: Codable {
         var etaDisplayString: String {
-            return shortArrivalTime + "     / " + detailArrivalTime
+            if let remindingArrivalTime = remindingArrivalTime {
+                return remindingArrivalTime + "  /  " + detailArrivalTime
+            }else {
+                return shortArrivalTime + "  /  " + detailArrivalTime
+            }
+            
         }
         var detailArrivalTime: String
         var shortArrivalTime: String
+        
+        var remindingArrivalTime: String? {
+            if let arrivalDate = DateHelper.stringToDate(dateString: detailArrivalTime) {
+                if let remainingTime = DateHelper.timeDifferent(from: DateHelper.now, to: arrivalDate) {
+                    var expression: String = "仲有: "
+                    if remainingTime.hour != 0 {
+                        expression += String(remainingTime.hour) + "小時"
+                    }
+                    if remainingTime.minute != 0 {
+                        expression += String(remainingTime.minute) + "分鐘"
+                    }
+                    if remainingTime.second != 0 {
+                        expression += String(remainingTime.second) + "秒"
+                    }
+                    expression += "到達"
+                    return expression
+                }
+            }
+            return nil
+        }
         
         enum CodingKeys: String, CodingKey {
             case detailArrivalTime = "ex"
