@@ -47,6 +47,8 @@ private extension MenuTableViewController {
             return PopUpViewController()
         case .collectionViewPaging:
             return PagingViewController()
+        case .speechRecognition:
+            return SpeechRecognitionViewController()
         }
     }
 }
@@ -70,9 +72,10 @@ class MenuTableViewController: KLTableViewController {
         case activityIndicator = "Activity Indicator"
         case popUpView = "Pop Up View"
         case collectionViewPaging = "Collection View Paging"
+        case speechRecognition = "Speech Recognition"
     }
     
-    var rows: [Row] = [.collectionViewPaging, .swift4Json, .hkKmbData, .chatUi, .notificationObserver, .bluetoothReadWrite, .messageUi, .whatsappApi, .rssParse, .circleProgressView, .magicalGridView, .animationView, .animationButton, .activityIndicator, .popUpView]
+    var rows: [Row] = [.collectionViewPaging, .speechRecognition, .swift4Json, .hkKmbData, .chatUi, .notificationObserver, .bluetoothReadWrite, .messageUi, .whatsappApi, .rssParse, .circleProgressView, .magicalGridView, .animationView, .animationButton, .activityIndicator, .popUpView]
     var delegate: MenuTableViewControllerDelegate?
     
     // MARK: - Life cycle
