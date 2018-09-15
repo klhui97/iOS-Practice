@@ -12,7 +12,7 @@ import SafariServices
 class WhatsappClient: NSObject {
     
     static func openWhatsappViaSafari(controller: UIViewController, phone: String, text: String) {
-        if let url = URL(string: "https://api.whatsapp.com/send?phone=\(phone)&text=\(text.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)") {
+        if let url = URL(string: "https://api.whatsapp.com/send?phone=\(phone.trimmingCharacters(in: .whitespaces))&text=\(text.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)") {
             let config = SFSafariViewController.Configuration()
             config.entersReaderIfAvailable = true
             
