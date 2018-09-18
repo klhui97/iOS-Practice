@@ -10,7 +10,7 @@ import UIKit
 
 open class LargeTitleTableViewCell: UITableViewCell {
     
-    open let largeTitleLabel: UILabel = {
+    public let largeTitleLabel: UILabel = {
         let label = UILabel()
         label.font =  UIFont.boldSystemFont(ofSize: 32)
         return label

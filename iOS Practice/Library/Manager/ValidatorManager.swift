@@ -10,7 +10,7 @@ import Foundation
 
 class ValidatorManager {
     
-    open static func isValidatedEmail(_ email: String) -> Bool {
+    public static func isValidatedEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         if emailTest.evaluate(with: email) {

@@ -10,11 +10,11 @@ import UIKit
 
 extension UIColor {
     
-    open static var randomColor: UIColor {
+    public static var randomColor: UIColor {
         return UIColor(red: CGFloat(drand48()), green: CGFloat(drand48()), blue: CGFloat(drand48()), alpha: 1)
     }
     
-    open static func rgb(r: CGFloat, g: CGFloat, b: CGFloat) -> UIColor {
+    public static func rgb(r: CGFloat, g: CGFloat, b: CGFloat) -> UIColor {
         return UIColor(red: r / 255, green: g / 255, blue: b / 255, alpha: 1)
     }
 }

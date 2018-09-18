@@ -13,7 +13,7 @@ protocol KLAnimatableProtocol {
     var layer: CALayer { get }
 }
 
-extension KLAnimatableProtocol where Self: UIView {
+extension KLAnimatableProtocol {
     
     func test() {
 
