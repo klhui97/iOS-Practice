@@ -45,6 +45,12 @@ class DateHelper {
         return formatter.date(from: dateString)
     }
     
+    static func dateToString(dateFormat: String = "yyyy-MM-dd HH:mm:ss", date: Date) -> String? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = dateFormat
+        return formatter.string(from: date)
+    }
+    
     
     /// Find the time different between two date
     ///
