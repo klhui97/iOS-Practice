@@ -87,8 +87,8 @@ class WhatsappApiViewController: KLViewController, UITextFieldDelegate {
         view.endEditing(true)
 
         if let phone = phoneTextField.text, let navigationController = navigationController {
-            WhatsappClient.openWhatsappViaSafari(controller: navigationController, phone: phone, text: textTextView.text)
-//            WhatsappClient.openWhatsappDirectly(controller: navigationController, phone: phone, text: textTextView.text)
+//            WhatsappClient.openWhatsappViaSafari(controller: navigationController, phone: phone, text: textTextView.text)
+            WhatsappClient.openWhatsappDirectly(controller: navigationController, phone: phone, text: textTextView.text)
         }
     }
 }
