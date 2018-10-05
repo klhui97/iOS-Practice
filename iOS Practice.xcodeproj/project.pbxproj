@@ -403,12 +403,12 @@
 			path = views;
 			sourceTree = "<group>";
 		};
-		3478C4A4211AF61D009F2240 /* Notification Observer */ = {
+		3478C4A4211AF61D009F2240 /* Input Observer */ = {
 			isa = PBXGroup;
 			children = (
 				3478C4A5211AF64B009F2240 /* NotificationObserverViewController.swift */,
 			);
-			path = "Notification Observer";
+			path = "Input Observer";
 			sourceTree = "<group>";
 		};
 		34B7FFF72140F3DA009F25D8 /* Pop Up View */ = {
@@ -586,7 +586,7 @@
 				34645FC02122D41F00D3D59D /* KMB Data */,
 				34645FB62122909000D3D59D /* Message UI */,
 				6B7AC4FB2120532C00590ED6 /* Bluetooth RW */,
-				3478C4A4211AF61D009F2240 /* Notification Observer */,
+				3478C4A4211AF61D009F2240 /* Input Observer */,
 				3478C499211AD1BE009F2240 /* Chat UI */,
 				6B4C38182118A8EE00D5320A /* Swift4Json */,
 			);

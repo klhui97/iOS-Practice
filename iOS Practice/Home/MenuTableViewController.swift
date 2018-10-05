@@ -21,8 +21,8 @@ private extension MenuTableViewController {
             return Swift4JsonTableViewController()
         case .chatUi:
             return ChatUITableViewController()
-        case .notificationObserver:
-            return NotificationObserverViewController()
+        case .inputObserver:
+            return InputObserverViewController()
         case .bluetoothReadWrite:
             return BluetoothReadWriteViewController()
         case .messageUi:
@@ -59,7 +59,7 @@ class MenuTableViewController: KLTableViewController {
     enum Row: String {
         case swift4Json = "Codable JSON Example"
         case chatUi = "Chat UI"
-        case notificationObserver = "Notification Observer"
+        case inputObserver = "Input Observer"
         case bluetoothReadWrite = "BT Read&Write"
         case messageUi = "Message UI"
         case hkKmbData = "KMB Data"
@@ -75,7 +75,7 @@ class MenuTableViewController: KLTableViewController {
         case speechRecognition = "Speech Recognition"
     }
     
-    var rows: [Row] = [.collectionViewPaging, .speechRecognition, .swift4Json, .hkKmbData, .chatUi, .notificationObserver, .bluetoothReadWrite, .messageUi, .whatsappApi, .rssParse, .circleProgressView, .magicalGridView, .animationView, .animationButton, .activityIndicator, .popUpView]
+    var rows: [Row] = [.collectionViewPaging, .speechRecognition, .swift4Json, .hkKmbData, .chatUi, .inputObserver, .bluetoothReadWrite, .messageUi, .whatsappApi, .rssParse, .circleProgressView, .magicalGridView, .animationView, .animationButton, .activityIndicator, .popUpView]
     var delegate: MenuTableViewControllerDelegate?
     
     // MARK: - Life cycle
