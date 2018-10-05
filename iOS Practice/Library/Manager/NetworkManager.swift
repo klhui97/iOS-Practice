@@ -14,7 +14,7 @@ enum RequestMethod: String {
 
 class NetworkManager {
     
-    static func request(url: String, query: [String: String]? = nil, method: RequestMethod = .get, callback: @escaping (_ error: Error?, _ data: Data?) -> Void) {
+    static func request(url: String, query: [String: String]? = nil, method: RequestMethod = .get, callback: ((_ error: Error?, _ data: Data?) -> Void)? = nil) {
         var urlComponents = URLComponents(url: URL(string: url)!, resolvingAgainstBaseURL: false)!
         if let query = query {
             urlComponents.queryItems = getQueryItems(from: query)
@@ -27,7 +27,7 @@ class NetworkManager {
         request.httpMethod = method.rawValue
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
-            callback(error, data)
+            callback?(error, data)
         }).resume()
     }
     
