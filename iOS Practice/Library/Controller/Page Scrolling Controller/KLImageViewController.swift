@@ -18,11 +18,6 @@ class KLImageViewController: UIViewController {
         self.index = index
         self.imageContentMode = imageContentMode
         super.init(nibName: nil, bundle: nil)
-        print("inited \(index)")
-    }
-    
-    deinit {
-        print("deinited \(index)")
     }
     
     required init?(coder aDecoder: NSCoder) {

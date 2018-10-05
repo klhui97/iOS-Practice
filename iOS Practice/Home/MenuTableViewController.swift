@@ -49,12 +49,12 @@ private extension MenuTableViewController {
             return PagingViewController()
         case .speechRecognition:
             return SpeechRecognitionViewController()
-        case .uIPageViewController:
+        case .infinteImagesScroll:
             var images: [UIImage] = []
             for i in 1...5 {
                 images.append(UIImage(named: "demo\(i)")!)
             }
-            return KLImagePageViewController(mode: .infinite, images: images)
+            return KLImagePageViewController(mode: .autoInfinite, images: images)
         }
     }
 }
@@ -79,10 +79,10 @@ class MenuTableViewController: KLTableViewController {
         case popUpView = "Pop Up View"
         case collectionViewPaging = "Collection View Paging"
         case speechRecognition = "Speech Recognition"
-        case uIPageViewController = "UIPageViewController"
+        case infinteImagesScroll = "Infinte images scroll"
     }
     
-    var rows: [Row] = [.uIPageViewController, .collectionViewPaging, .speechRecognition, .swift4Json, .hkKmbData, .chatUi, .inputObserver, .bluetoothReadWrite, .messageUi, .whatsappApi, .rssParse, .circleProgressView, .magicalGridView, .animationView, .animationButton, .activityIndicator, .popUpView]
+    var rows: [Row] = [.infinteImagesScroll, .collectionViewPaging, .speechRecognition, .swift4Json, .hkKmbData, .chatUi, .inputObserver, .bluetoothReadWrite, .messageUi, .whatsappApi, .rssParse, .circleProgressView, .magicalGridView, .animationView, .animationButton, .activityIndicator, .popUpView]
     var delegate: MenuTableViewControllerDelegate?
     
     // MARK: - Life cycle
