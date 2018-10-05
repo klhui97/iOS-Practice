@@ -38,6 +38,8 @@
 		34645FD32123E99A00D3D59D /* WhatsappClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34645FD22123E99A00D3D59D /* WhatsappClient.swift */; };
 		34645FD52123EFA400D3D59D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34645FD42123EFA400D3D59D /* String.swift */; };
 		34645FD821242D9100D3D59D /* KMBDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34645FD721242D9100D3D59D /* KMBDataManager.swift */; };
+		346D2FF42167440F0071AF7D /* KLImagePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346D2FF32167440F0071AF7D /* KLImagePageViewController.swift */; };
+		346D2FF62167455E0071AF7D /* KLImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346D2FF52167455E0071AF7D /* KLImageViewController.swift */; };
 		3478C43A21193A73009F2240 /* Layoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C43921193A73009F2240 /* Layoutable.swift */; };
 		3478C43D21195BE1009F2240 /* Swift4JsonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C43C21195BE1009F2240 /* Swift4JsonTableViewCell.swift */; };
 		3478C44121195D26009F2240 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C44021195D26009F2240 /* UITableView.swift */; };
@@ -119,6 +121,8 @@
 		34645FD22123E99A00D3D59D /* WhatsappClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsappClient.swift; sourceTree = "<group>"; };
 		34645FD42123EFA400D3D59D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		34645FD721242D9100D3D59D /* KMBDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMBDataManager.swift; sourceTree = "<group>"; };
+		346D2FF32167440F0071AF7D /* KLImagePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLImagePageViewController.swift; sourceTree = "<group>"; };
+		346D2FF52167455E0071AF7D /* KLImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLImageViewController.swift; sourceTree = "<group>"; };
 		3478C43921193A73009F2240 /* Layoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layoutable.swift; sourceTree = "<group>"; };
 		3478C43C21195BE1009F2240 /* Swift4JsonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift4JsonTableViewCell.swift; sourceTree = "<group>"; };
 		3478C44021195D26009F2240 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
@@ -336,6 +340,15 @@
 				34645FD02123DF0B00D3D59D /* FreeAppCell.swift */,
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		346D2FF7216751B10071AF7D /* Page Scrolling Controller */ = {
+			isa = PBXGroup;
+			children = (
+				346D2FF52167455E0071AF7D /* KLImageViewController.swift */,
+				346D2FF32167440F0071AF7D /* KLImagePageViewController.swift */,
+			);
+			path = "Page Scrolling Controller";
 			sourceTree = "<group>";
 		};
 		3478C43721193A46009F2240 /* Library */ = {
@@ -624,6 +637,7 @@
 		6B95898A21232C5B0058CF74 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				346D2FF7216751B10071AF7D /* Page Scrolling Controller */,
 				6B95898B21232C690058CF74 /* KLViewController.swift */,
 				34645FCD2123DE4200D3D59D /* KLTableViewController.swift */,
 				34390B372138F778005F7503 /* KLCollectionViewController.swift */,
@@ -753,6 +767,7 @@
 				34645FD52123EFA400D3D59D /* String.swift in Sources */,
 				34645FC62123CE5700D3D59D /* KMBClient.swift in Sources */,
 				3478C49B211AD1F0009F2240 /* ChatUITableViewController.swift in Sources */,
+				346D2FF62167455E0071AF7D /* KLImageViewController.swift in Sources */,
 				6B4C381A2118A91F00D5320A /* Swift4JsonTableViewController.swift in Sources */,
 				3478C43D21195BE1009F2240 /* Swift4JsonTableViewCell.swift in Sources */,
 				6BA52669214176A8008354D8 /* VersionManager.swift in Sources */,
@@ -793,6 +808,7 @@
 				34F6D29F2126D8F700C84CE6 /* KMBStopsInformationTableViewController.swift in Sources */,
 				3478C497211A9F57009F2240 /* LargeTitleTableViewCell.swift in Sources */,
 				340E0790213692600029D8E2 /* ShimmerTableViewCell.swift in Sources */,
+				346D2FF42167440F0071AF7D /* KLImagePageViewController.swift in Sources */,
 				34B7FFF62140E7AF009F25D8 /* MenuManager.swift in Sources */,
 				34390B4A21392CAE005F7503 /* KLActivityIndicatorShape.swift in Sources */,
 				3478C4A0211AD9AF009F2240 /* BaseBubbleTableViewCell.swift in Sources */,

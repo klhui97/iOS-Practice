@@ -49,6 +49,12 @@ private extension MenuTableViewController {
             return PagingViewController()
         case .speechRecognition:
             return SpeechRecognitionViewController()
+        case .uIPageViewController:
+            var images: [UIImage] = []
+            for i in 1...5 {
+                images.append(UIImage(named: "demo\(i)")!)
+            }
+            return KLImagePageViewController(mode: .infinite, images: images)
         }
     }
 }
@@ -73,9 +79,10 @@ class MenuTableViewController: KLTableViewController {
         case popUpView = "Pop Up View"
         case collectionViewPaging = "Collection View Paging"
         case speechRecognition = "Speech Recognition"
+        case uIPageViewController = "UIPageViewController"
     }
     
-    var rows: [Row] = [.collectionViewPaging, .speechRecognition, .swift4Json, .hkKmbData, .chatUi, .inputObserver, .bluetoothReadWrite, .messageUi, .whatsappApi, .rssParse, .circleProgressView, .magicalGridView, .animationView, .animationButton, .activityIndicator, .popUpView]
+    var rows: [Row] = [.uIPageViewController, .collectionViewPaging, .speechRecognition, .swift4Json, .hkKmbData, .chatUi, .inputObserver, .bluetoothReadWrite, .messageUi, .whatsappApi, .rssParse, .circleProgressView, .magicalGridView, .animationView, .animationButton, .activityIndicator, .popUpView]
     var delegate: MenuTableViewControllerDelegate?
     
     // MARK: - Life cycle
