@@ -18,9 +18,11 @@ class PagingCollectionViewController: KLCollectionViewController {
         case firstPage
         case SecondPage
         case thirdPage
+        case fourthPage
+        case fifthPage
     }
     
-    let items: [Page] = [.firstPage, .SecondPage, .thirdPage]
+    let items: [Page] = [.firstPage, .SecondPage, .thirdPage, .fourthPage, .fifthPage]
     var pagingDelegate: KLPagingDelegate?
     
     override func viewDidLoad() {
@@ -28,6 +30,7 @@ class PagingCollectionViewController: KLCollectionViewController {
 
         collectionView?.isScrollEnabled = true
         collectionView?.isPagingEnabled = true
+        collectionView?.register(ImageCollectionViewCell.self)
     }
 
     override func configCollectionViewFlowLayout() {
@@ -49,9 +52,9 @@ class PagingCollectionViewController: KLCollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
+        let cell: ImageCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
         
-        cell.contentView.backgroundColor = indexPath.row % 2 == 0 ? .red : .green
+        cell.imageView.image = UIImage(named: "demo\(indexPath.row % 5 + 1)")
         
         return cell
     }

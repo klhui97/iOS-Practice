@@ -11,22 +11,16 @@ import UIKit
 class PagingViewController: KLViewController, KLPagingDelegate {
     
     let collectionViewController = PagingCollectionViewController()
-    let topicContainerView = UIView()
-    let topicStackView: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .horizontal
-        stack.distribution = .fillEqually
-        return stack
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addChildViewController(PagingCollectionViewController())
+        addChildViewController(collectionViewController)
         if let collectionView = collectionViewController.collectionView {
             safeAreaContentView.add(collectionView)
             collectionView.al_fillSuperview()
         }
+        collectionViewController.pagingDelegate = self
     }
     
     // MARK: - KLPagingDelegate

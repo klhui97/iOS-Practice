@@ -51,6 +51,7 @@
 		3478C4A0211AD9AF009F2240 /* BaseBubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C49F211AD9AF009F2240 /* BaseBubbleTableViewCell.swift */; };
 		3478C4A2211ADC76009F2240 /* RightBubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C4A1211ADC76009F2240 /* RightBubbleTableViewCell.swift */; };
 		3478C4A6211AF64B009F2240 /* NotificationObserverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478C4A5211AF64B009F2240 /* NotificationObserverViewController.swift */; };
+		347DAE602167325500BEAD34 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347DAE5F2167325500BEAD34 /* ImageCollectionViewCell.swift */; };
 		34B7FFF22140D109009F25D8 /* ScreenSizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7FFF12140D109009F25D8 /* ScreenSizeManager.swift */; };
 		34B7FFF42140D1A4009F25D8 /* KLAlertViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7FFF32140D1A4009F25D8 /* KLAlertViewManager.swift */; };
 		34B7FFF62140E7AF009F25D8 /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7FFF52140E7AF009F25D8 /* MenuManager.swift */; };
@@ -131,6 +132,7 @@
 		3478C49F211AD9AF009F2240 /* BaseBubbleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBubbleTableViewCell.swift; sourceTree = "<group>"; };
 		3478C4A1211ADC76009F2240 /* RightBubbleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightBubbleTableViewCell.swift; sourceTree = "<group>"; };
 		3478C4A5211AF64B009F2240 /* NotificationObserverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationObserverViewController.swift; sourceTree = "<group>"; };
+		347DAE5F2167325500BEAD34 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		34B7FFF12140D109009F25D8 /* ScreenSizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSizeManager.swift; sourceTree = "<group>"; };
 		34B7FFF32140D1A4009F25D8 /* KLAlertViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLAlertViewManager.swift; sourceTree = "<group>"; };
 		34B7FFF52140E7AF009F25D8 /* MenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
@@ -411,6 +413,14 @@
 			path = "Input Observer";
 			sourceTree = "<group>";
 		};
+		347DAE5E2167322300BEAD34 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				347DAE5F2167325500BEAD34 /* ImageCollectionViewCell.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		34B7FFF72140F3DA009F25D8 /* Pop Up View */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,6 +441,7 @@
 		34E16856214232F900522628 /* Collection View Paging */ = {
 			isa = PBXGroup;
 			children = (
+				347DAE5E2167322300BEAD34 /* views */,
 				34E168572142331A00522628 /* PagingCollectionViewController.swift */,
 				34E168592142442300522628 /* PagingViewController.swift */,
 			);
@@ -762,6 +773,7 @@
 				34645FD32123E99A00D3D59D /* WhatsappClient.swift in Sources */,
 				34645FD12123DF0B00D3D59D /* FreeAppCell.swift in Sources */,
 				340E07872136645B0029D8E2 /* MagicalGridViewController.swift in Sources */,
+				347DAE602167325500BEAD34 /* ImageCollectionViewCell.swift in Sources */,
 				3478C44121195D26009F2240 /* UITableView.swift in Sources */,
 				34B7FFF22140D109009F25D8 /* ScreenSizeManager.swift in Sources */,
 				34390B342138EFB3005F7503 /* AnimationButtonCollectionViewController.swift in Sources */,
