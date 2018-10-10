@@ -55,6 +55,8 @@ private extension MenuTableViewController {
                 images.append(UIImage(named: "demo\(i)")!)
             }
             return KLImagePageViewController(mode: .autoInfinite, images: images)
+        case .arKits:
+            return ARKitViewController()
         }
     }
 }
@@ -80,9 +82,10 @@ class MenuTableViewController: KLTableViewController {
         case collectionViewPaging = "Collection View Paging"
         case speechRecognition = "Speech Recognition"
         case infinteImagesScroll = "Infinte images scroll"
+        case arKits = "AR Kits"
     }
     
-    var rows: [Row] = [.infinteImagesScroll, .collectionViewPaging, .speechRecognition, .swift4Json, .hkKmbData, .chatUi, .inputObserver, .bluetoothReadWrite, .messageUi, .whatsappApi, .rssParse, .circleProgressView, .magicalGridView, .animationView, .animationButton, .activityIndicator, .popUpView]
+    var rows: [Row] = [.arKits, .infinteImagesScroll, .collectionViewPaging, .speechRecognition, .swift4Json, .hkKmbData, .chatUi, .inputObserver, .bluetoothReadWrite, .messageUi, .whatsappApi, .rssParse, .circleProgressView, .magicalGridView, .animationView, .animationButton, .activityIndicator, .popUpView]
     var delegate: MenuTableViewControllerDelegate?
     
     // MARK: - Life cycle

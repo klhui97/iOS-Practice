@@ -59,6 +59,9 @@
 		34B7FFF62140E7AF009F25D8 /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7FFF52140E7AF009F25D8 /* MenuManager.swift */; };
 		34B7FFF92140F3EE009F25D8 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7FFF82140F3EE009F25D8 /* PopUpViewController.swift */; };
 		34B7FFFC2140F4BC009F25D8 /* PopUpCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7FFFB2140F4BC009F25D8 /* PopUpCollectionViewCell.swift */; };
+		34BAC636216DE365003AD55A /* ARKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BAC635216DE365003AD55A /* ARKitViewController.swift */; };
+		34BAC63A216DE455003AD55A /* ship.scn in Resources */ = {isa = PBXBuildFile; fileRef = 34BAC638216DE455003AD55A /* ship.scn */; };
+		34BAC63D216DE8AD003AD55A /* ship.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BAC63C216DE8AD003AD55A /* ship.png */; };
 		34E168512140FA9900522628 /* KLPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E168502140FA9900522628 /* KLPickerViewController.swift */; };
 		34E168532140FB0400522628 /* BottomCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E168522140FB0400522628 /* BottomCardViewController.swift */; };
 		34E1685521411BA600522628 /* PaperSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E1685421411BA600522628 /* PaperSwitch.swift */; };
@@ -142,6 +145,9 @@
 		34B7FFF52140E7AF009F25D8 /* MenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
 		34B7FFF82140F3EE009F25D8 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		34B7FFFB2140F4BC009F25D8 /* PopUpCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpCollectionViewCell.swift; sourceTree = "<group>"; };
+		34BAC635216DE365003AD55A /* ARKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKitViewController.swift; sourceTree = "<group>"; };
+		34BAC638216DE455003AD55A /* ship.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = ship.scn; sourceTree = "<group>"; };
+		34BAC63C216DE8AD003AD55A /* ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship.png; sourceTree = "<group>"; };
 		34E168502140FA9900522628 /* KLPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLPickerViewController.swift; sourceTree = "<group>"; };
 		34E168522140FB0400522628 /* BottomCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCardViewController.swift; sourceTree = "<group>"; };
 		34E1685421411BA600522628 /* PaperSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperSwitch.swift; sourceTree = "<group>"; };
@@ -451,6 +457,24 @@
 			path = views;
 			sourceTree = "<group>";
 		};
+		34BAC634216DE34D003AD55A /* AR Kits */ = {
+			isa = PBXGroup;
+			children = (
+				34BAC637216DE455003AD55A /* 3D Objects */,
+				34BAC635216DE365003AD55A /* ARKitViewController.swift */,
+			);
+			path = "AR Kits";
+			sourceTree = "<group>";
+		};
+		34BAC637216DE455003AD55A /* 3D Objects */ = {
+			isa = PBXGroup;
+			children = (
+				34BAC638216DE455003AD55A /* ship.scn */,
+				34BAC63C216DE8AD003AD55A /* ship.png */,
+			);
+			path = "3D Objects";
+			sourceTree = "<group>";
+		};
 		34E16856214232F900522628 /* Collection View Paging */ = {
 			isa = PBXGroup;
 			children = (
@@ -597,6 +621,7 @@
 		6B4C381B2118B0AE00D5320A /* Practice */ = {
 			isa = PBXGroup;
 			children = (
+				34BAC634216DE34D003AD55A /* AR Kits */,
 				3437D1D8214B6EF20073BD9A /* Speech Recognition */,
 				34E16856214232F900522628 /* Collection View Paging */,
 				34B7FFF72140F3DA009F25D8 /* Pop Up View */,
@@ -724,7 +749,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B4C380D2118A31D00D5320A /* LaunchScreen.storyboard in Resources */,
+				34BAC63D216DE8AD003AD55A /* ship.png in Resources */,
 				6B7AE3C221247C2F00365A65 /* kmbData.json in Resources */,
+				34BAC63A216DE455003AD55A /* ship.scn in Resources */,
 				6B4C380A2118A31D00D5320A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -792,6 +819,7 @@
 				3478C44121195D26009F2240 /* UITableView.swift in Sources */,
 				34B7FFF22140D109009F25D8 /* ScreenSizeManager.swift in Sources */,
 				34390B342138EFB3005F7503 /* AnimationButtonCollectionViewController.swift in Sources */,
+				34BAC636216DE365003AD55A /* ARKitViewController.swift in Sources */,
 				34645FB521227D7E00D3D59D /* PaddingTextField.swift in Sources */,
 				34F6D298212697A300C84CE6 /* FreeAppParserModel.swift in Sources */,
 				34E168512140FA9900522628 /* KLPickerViewController.swift in Sources */,
@@ -951,7 +979,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 26Z79RZT8A;
 				INFOPLIST_FILE = "iOS Practice/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -972,7 +1000,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "iOS Practice/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
