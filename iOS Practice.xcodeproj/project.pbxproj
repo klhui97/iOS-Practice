@@ -59,9 +59,10 @@
 		34B7FFF62140E7AF009F25D8 /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7FFF52140E7AF009F25D8 /* MenuManager.swift */; };
 		34B7FFF92140F3EE009F25D8 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7FFF82140F3EE009F25D8 /* PopUpViewController.swift */; };
 		34B7FFFC2140F4BC009F25D8 /* PopUpCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7FFFB2140F4BC009F25D8 /* PopUpCollectionViewCell.swift */; };
-		34BAC636216DE365003AD55A /* ARKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BAC635216DE365003AD55A /* ARKitViewController.swift */; };
+		34BAC636216DE365003AD55A /* ARKitTapToAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BAC635216DE365003AD55A /* ARKitTapToAddViewController.swift */; };
 		34BAC63A216DE455003AD55A /* ship.scn in Resources */ = {isa = PBXBuildFile; fileRef = 34BAC638216DE455003AD55A /* ship.scn */; };
 		34BAC63D216DE8AD003AD55A /* ship.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BAC63C216DE8AD003AD55A /* ship.png */; };
+		34BAC641216E01A0003AD55A /* ARKitGeogAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BAC640216E01A0003AD55A /* ARKitGeogAddViewController.swift */; };
 		34E168512140FA9900522628 /* KLPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E168502140FA9900522628 /* KLPickerViewController.swift */; };
 		34E168532140FB0400522628 /* BottomCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E168522140FB0400522628 /* BottomCardViewController.swift */; };
 		34E1685521411BA600522628 /* PaperSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E1685421411BA600522628 /* PaperSwitch.swift */; };
@@ -145,9 +146,10 @@
 		34B7FFF52140E7AF009F25D8 /* MenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
 		34B7FFF82140F3EE009F25D8 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		34B7FFFB2140F4BC009F25D8 /* PopUpCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpCollectionViewCell.swift; sourceTree = "<group>"; };
-		34BAC635216DE365003AD55A /* ARKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKitViewController.swift; sourceTree = "<group>"; };
+		34BAC635216DE365003AD55A /* ARKitTapToAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKitTapToAddViewController.swift; sourceTree = "<group>"; };
 		34BAC638216DE455003AD55A /* ship.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = ship.scn; sourceTree = "<group>"; };
 		34BAC63C216DE8AD003AD55A /* ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship.png; sourceTree = "<group>"; };
+		34BAC640216E01A0003AD55A /* ARKitGeogAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKitGeogAddViewController.swift; sourceTree = "<group>"; };
 		34E168502140FA9900522628 /* KLPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLPickerViewController.swift; sourceTree = "<group>"; };
 		34E168522140FB0400522628 /* BottomCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCardViewController.swift; sourceTree = "<group>"; };
 		34E1685421411BA600522628 /* PaperSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperSwitch.swift; sourceTree = "<group>"; };
@@ -460,8 +462,9 @@
 		34BAC634216DE34D003AD55A /* AR Kits */ = {
 			isa = PBXGroup;
 			children = (
+				34BAC63F216E0161003AD55A /* GeogAdd */,
+				34BAC63E216E0154003AD55A /* TapToAdd */,
 				34BAC637216DE455003AD55A /* 3D Objects */,
-				34BAC635216DE365003AD55A /* ARKitViewController.swift */,
 			);
 			path = "AR Kits";
 			sourceTree = "<group>";
@@ -473,6 +476,22 @@
 				34BAC63C216DE8AD003AD55A /* ship.png */,
 			);
 			path = "3D Objects";
+			sourceTree = "<group>";
+		};
+		34BAC63E216E0154003AD55A /* TapToAdd */ = {
+			isa = PBXGroup;
+			children = (
+				34BAC635216DE365003AD55A /* ARKitTapToAddViewController.swift */,
+			);
+			path = TapToAdd;
+			sourceTree = "<group>";
+		};
+		34BAC63F216E0161003AD55A /* GeogAdd */ = {
+			isa = PBXGroup;
+			children = (
+				34BAC640216E01A0003AD55A /* ARKitGeogAddViewController.swift */,
+			);
+			path = GeogAdd;
 			sourceTree = "<group>";
 		};
 		34E16856214232F900522628 /* Collection View Paging */ = {
@@ -806,6 +825,7 @@
 				34645FCE2123DE4200D3D59D /* KLTableViewController.swift in Sources */,
 				343B1D9E211C4116004E7E42 /* LoginTableViewController.swift in Sources */,
 				34E168532140FB0400522628 /* BottomCardViewController.swift in Sources */,
+				34BAC641216E01A0003AD55A /* ARKitGeogAddViewController.swift in Sources */,
 				34390B4421390E18005F7503 /* KLAnimatableProtocol.swift in Sources */,
 				34E1685A2142442300522628 /* PagingViewController.swift in Sources */,
 				34390B552139372F005F7503 /* KLActivityIndicatorType.swift in Sources */,
@@ -819,7 +839,7 @@
 				3478C44121195D26009F2240 /* UITableView.swift in Sources */,
 				34B7FFF22140D109009F25D8 /* ScreenSizeManager.swift in Sources */,
 				34390B342138EFB3005F7503 /* AnimationButtonCollectionViewController.swift in Sources */,
-				34BAC636216DE365003AD55A /* ARKitViewController.swift in Sources */,
+				34BAC636216DE365003AD55A /* ARKitTapToAddViewController.swift in Sources */,
 				34645FB521227D7E00D3D59D /* PaddingTextField.swift in Sources */,
 				34F6D298212697A300C84CE6 /* FreeAppParserModel.swift in Sources */,
 				34E168512140FA9900522628 /* KLPickerViewController.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  ARKitViewController.swift
+//  ARKitTapToAddViewController.swift
 //  iOS Practice
 //
 //  Created by david.hui on 10/10/2018.
@@ -9,7 +9,7 @@
 import UIKit
 import ARKit
 
-class ARKitViewController: KLViewController {
+class ARKitTapToAddViewController: KLViewController {
     
     let sceneView = ARSCNView()
     
@@ -22,7 +22,7 @@ class ARKitViewController: KLViewController {
         view.add(sceneView)
         sceneView.al_fillSuperview()
         setUpSceneView()
-//         configureLighting()
+        configureLighting()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,7 +52,7 @@ class ARKitViewController: KLViewController {
         sceneView.autoenablesDefaultLighting = true
         sceneView.automaticallyUpdatesLighting = true
     }
-
+    
     @objc func addShipToSceneView(withGestureRecognizer recognizer: UIGestureRecognizer) {
         let tapLocation = recognizer.location(in: sceneView)
         let hitTestResults = sceneView.hitTest(tapLocation, types: .existingPlaneUsingExtent)
@@ -73,11 +73,11 @@ class ARKitViewController: KLViewController {
     }
 }
 
-extension ARKitViewController: ARSCNViewDelegate {
+extension ARKitTapToAddViewController: ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-
+        
         let width = CGFloat(planeAnchor.extent.x)
         let height = CGFloat(planeAnchor.extent.z)
         let plane = SCNPlane(width: width, height: height)
@@ -85,7 +85,7 @@ extension ARKitViewController: ARSCNViewDelegate {
         plane.materials.first?.diffuse.contents = UIColor.transparentLightBlue
         
         let planeNode = SCNNode(geometry: plane)
-
+        
         let x = CGFloat(planeAnchor.center.x)
         let y = CGFloat(planeAnchor.center.y)
         let z = CGFloat(planeAnchor.center.z)
@@ -101,29 +101,16 @@ extension ARKitViewController: ARSCNViewDelegate {
             let plane = planeNode.geometry as? SCNPlane
             else { return }
         
-
+        
         let width = CGFloat(planeAnchor.extent.x)
         let height = CGFloat(planeAnchor.extent.z)
         plane.width = width
         plane.height = height
         
-
+        
         let x = CGFloat(planeAnchor.center.x)
         let y = CGFloat(planeAnchor.center.y)
         let z = CGFloat(planeAnchor.center.z)
         planeNode.position = SCNVector3(x, y, z)
-    }
-}
-
-extension float4x4 {
-    var translation: float3 {
-        let translation = self.columns.3
-        return float3(translation.x, translation.y, translation.z)
-    }
-}
-
-extension UIColor {
-    open class var transparentLightBlue: UIColor {
-        return UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 0.50)
     }
 }
