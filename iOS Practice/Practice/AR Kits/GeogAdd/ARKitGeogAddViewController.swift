@@ -24,7 +24,7 @@ class ARKitGeogAddViewController: UIViewController {
     
     ///Whether to show a map view
     ///The initial value is respected
-    var showMapView: Bool = true
+    var showMapView: Bool = false
     
     var centerMapOnUserLocation: Bool = true
     
