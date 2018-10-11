@@ -6,11 +6,13 @@
 //  Copyright © 2018 KL. All rights reserved.
 //
 
+
 import UIKit
 import SceneKit
 import MapKit
 
 @available(iOS 11.0, *)
+/// Source: https://github.com/ProjectDent/ARKit-CoreLocation
 class ARKitGeogAddViewController: UIViewController {
     let sceneLocationView = SceneLocationView()
     
@@ -22,7 +24,7 @@ class ARKitGeogAddViewController: UIViewController {
     
     ///Whether to show a map view
     ///The initial value is respected
-    var showMapView: Bool = false
+    var showMapView: Bool = true
     
     var centerMapOnUserLocation: Bool = true
     
@@ -39,6 +41,8 @@ class ARKitGeogAddViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.isNavigationBarHidden = true
         
         infoLabel.font = UIFont.systemFont(ofSize: 10)
         infoLabel.textAlignment = .left
@@ -58,7 +62,7 @@ class ARKitGeogAddViewController: UIViewController {
         //        sceneLocationView.orientToTrueNorth = false
         
         //        sceneLocationView.locationEstimateMethod = .coreLocationDataOnly
-        sceneLocationView.showAxesNode = true
+        sceneLocationView.showAxesNode = false
         sceneLocationView.locationDelegate = self
         
         if displayDebugging {
@@ -200,6 +204,8 @@ class ARKitGeogAddViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         
+        return // disable touch
+        
         guard
             let touch = touches.first,
             let touchView = touch.view
@@ -282,18 +288,10 @@ extension ARKitGeogAddViewController: SceneLocationViewDelegate {
 private extension ARKitGeogAddViewController {
     func buildDemoData() -> [LocationAnnotationNode] {
         var nodes: [LocationAnnotationNode] = []
-        
         // TODO: add a few more demo points of interest.
         // TODO: use more varied imagery.
-        
-        let spaceNeedle = buildNode(latitude: 47.6205, longitude: -122.3493, altitude: 225, imageName: "pin")
+        let spaceNeedle = buildNode(latitude: 22.452626, longitude: 114.24934, altitude: 225, imageName: "pin")
         nodes.append(spaceNeedle)
-        
-        let empireStateBuilding = buildNode(latitude: 40.7484, longitude: -73.9857, altitude: 14.3, imageName: "pin")
-        nodes.append(empireStateBuilding)
-        
-        let canaryWharf = buildNode(latitude: 51.504607, longitude: -0.019592, altitude: 236, imageName: "pin")
-        nodes.append(canaryWharf)
         
         return nodes
     }
