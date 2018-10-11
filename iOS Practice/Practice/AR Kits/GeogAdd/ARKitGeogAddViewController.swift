@@ -7,124 +7,320 @@
 //
 
 import UIKit
-import ARKit
+import SceneKit
+import MapKit
 
-class ARKitGeogAddViewController: KLViewController {
+@available(iOS 11.0, *)
+class ARKitGeogAddViewController: UIViewController {
+    let sceneLocationView = SceneLocationView()
     
-    let sceneView = ARSCNView()
+    let mapView = MKMapView()
+    var userAnnotation: MKPointAnnotation?
+    var locationEstimateAnnotation: MKPointAnnotation?
+    
+    var updateUserLocationTimer: Timer?
+    
+    ///Whether to show a map view
+    ///The initial value is respected
+    var showMapView: Bool = false
+    
+    var centerMapOnUserLocation: Bool = true
+    
+    ///Whether to display some debugging data
+    ///This currently displays the coordinate of the best location estimate
+    ///The initial value is respected
+    var displayDebugging = false
+    
+    var infoLabel = UILabel()
+    
+    var updateInfoLabelTimer: Timer?
+    
+    var adjustNorthByTappingSidesOfScreen = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.largeTitleDisplayMode = .never
-        navigationController?.hidesBarsOnTap = true
+        infoLabel.font = UIFont.systemFont(ofSize: 10)
+        infoLabel.textAlignment = .left
+        infoLabel.textColor = UIColor.white
+        infoLabel.numberOfLines = 0
+        sceneLocationView.addSubview(infoLabel)
         
-        view.add(sceneView)
-        sceneView.al_fillSuperview()
-        setUpSceneView()
-        //         configureLighting()
+        updateInfoLabelTimer = Timer.scheduledTimer(
+            timeInterval: 0.1,
+            target: self,
+            selector: #selector(updateInfoLabel),
+            userInfo: nil,
+            repeats: true)
+        
+        // Set to true to display an arrow which points north.
+        //Checkout the comments in the property description and on the readme on this.
+        //        sceneLocationView.orientToTrueNorth = false
+        
+        //        sceneLocationView.locationEstimateMethod = .coreLocationDataOnly
+        sceneLocationView.showAxesNode = true
+        sceneLocationView.locationDelegate = self
+        
+        if displayDebugging {
+            sceneLocationView.showFeaturePoints = true
+        }
+        
+        buildDemoData().forEach { sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: $0) }
+        
+        view.addSubview(sceneLocationView)
+        
+        if showMapView {
+            mapView.delegate = self
+            mapView.showsUserLocation = true
+            mapView.alpha = 0.8
+            view.addSubview(mapView)
+            
+            updateUserLocationTimer = Timer.scheduledTimer(
+                timeInterval: 0.5,
+                target: self,
+                selector: #selector(updateUserLocation),
+                userInfo: nil,
+                repeats: true)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setUpSceneView()
+        print("run")
+        sceneLocationView.run()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        sceneView.session.pause()
+        
+        print("pause")
+        // Pause the view's session
+        sceneLocationView.pause()
     }
     
-    func setUpSceneView() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addShipToSceneView(withGestureRecognizer:)))
-        sceneView.addGestureRecognizer(tapGestureRecognizer)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
-        let configuration = ARWorldTrackingConfiguration()
-        configuration.planeDetection = .horizontal
+        sceneLocationView.frame = view.bounds
         
-        sceneView.session.run(configuration)
+        infoLabel.frame = CGRect(x: 6, y: 0, width: self.view.frame.size.width - 12, height: 14 * 4)
         
-        sceneView.delegate = self
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+        if showMapView {
+            infoLabel.frame.origin.y = (self.view.frame.size.height / 2) - infoLabel.frame.size.height
+        } else {
+            infoLabel.frame.origin.y = self.view.frame.size.height - infoLabel.frame.size.height
+        }
+        
+        mapView.frame = CGRect(
+            x: 0,
+            y: self.view.frame.size.height / 2,
+            width: self.view.frame.size.width,
+            height: self.view.frame.size.height / 2)
     }
     
-    func configureLighting() {
-        sceneView.autoenablesDefaultLighting = true
-        sceneView.automaticallyUpdatesLighting = true
+    @objc func updateUserLocation() {
+        guard let currentLocation = sceneLocationView.currentLocation() else {
+            return
+        }
+        
+        DispatchQueue.main.async {
+            if let bestEstimate = self.sceneLocationView.bestLocationEstimate(),
+                let position = self.sceneLocationView.currentScenePosition() {
+                print("")
+                print("Fetch current location")
+                print("best location estimate, position: \(bestEstimate.position), location: \(bestEstimate.location.coordinate), accuracy: \(bestEstimate.location.horizontalAccuracy), date: \(bestEstimate.location.timestamp)")
+                print("current position: \(position)")
+                
+                let translation = bestEstimate.translatedLocation(to: position)
+                
+                print("translation: \(translation)")
+                print("translated location: \(currentLocation)")
+                print("")
+            }
+            
+            if self.userAnnotation == nil {
+                self.userAnnotation = MKPointAnnotation()
+                self.mapView.addAnnotation(self.userAnnotation!)
+            }
+            
+            UIView.animate(withDuration: 0.5, delay: 0, options: UIViewAnimationOptions.allowUserInteraction, animations: {
+                self.userAnnotation?.coordinate = currentLocation.coordinate
+            }, completion: nil)
+            
+            if self.centerMapOnUserLocation {
+                UIView.animate(withDuration: 0.45, delay: 0, options: UIViewAnimationOptions.allowUserInteraction, animations: {
+                    self.mapView.setCenter(self.userAnnotation!.coordinate, animated: false)
+                }, completion: { _ in
+                    self.mapView.region.span = MKCoordinateSpan(latitudeDelta: 0.0005, longitudeDelta: 0.0005)
+                })
+            }
+            
+            if self.displayDebugging {
+                let bestLocationEstimate = self.sceneLocationView.bestLocationEstimate()
+                
+                if bestLocationEstimate != nil {
+                    if self.locationEstimateAnnotation == nil {
+                        self.locationEstimateAnnotation = MKPointAnnotation()
+                        self.mapView.addAnnotation(self.locationEstimateAnnotation!)
+                    }
+                    
+                    self.locationEstimateAnnotation!.coordinate = bestLocationEstimate!.location.coordinate
+                } else {
+                    if self.locationEstimateAnnotation != nil {
+                        self.mapView.removeAnnotation(self.locationEstimateAnnotation!)
+                        self.locationEstimateAnnotation = nil
+                    }
+                }
+            }
+        }
     }
     
-    @objc func addShipToSceneView(withGestureRecognizer recognizer: UIGestureRecognizer) {
-        let tapLocation = recognizer.location(in: sceneView)
-        let hitTestResults = sceneView.hitTest(tapLocation, types: .existingPlaneUsingExtent)
+    @objc func updateInfoLabel() {
+        if let position = sceneLocationView.currentScenePosition() {
+            infoLabel.text = "x: \(String(format: "%.2f", position.x)), y: \(String(format: "%.2f", position.y)), z: \(String(format: "%.2f", position.z))\n"
+        }
         
-        guard let hitTestResult = hitTestResults.first else { return }
-        let translation = hitTestResult.worldTransform.translation
-        let x = translation.x
-        let y = translation.y
-        let z = translation.z
+        if let eulerAngles = sceneLocationView.currentEulerAngles() {
+            infoLabel.text!.append("Euler x: \(String(format: "%.2f", eulerAngles.x)), y: \(String(format: "%.2f", eulerAngles.y)), z: \(String(format: "%.2f", eulerAngles.z))\n")
+        }
         
-        guard let shipScene = SCNScene(named: "ship.scn"),
-            let shipNode = shipScene.rootNode.childNode(withName: "ship", recursively: false)
-            else { return }
+        if let heading = sceneLocationView.locationManager.heading,
+            let accuracy = sceneLocationView.locationManager.headingAccuracy {
+            infoLabel.text!.append("Heading: \(heading)º, accuracy: \(Int(round(accuracy)))º\n")
+        }
         
+        let date = Date()
+        let comp = Calendar.current.dateComponents([.hour, .minute, .second, .nanosecond], from: date)
         
-        shipNode.position = SCNVector3(x,y,z)
-        sceneView.scene.rootNode.addChildNode(shipNode)
+        if let hour = comp.hour, let minute = comp.minute, let second = comp.second, let nanosecond = comp.nanosecond {
+            infoLabel.text!.append("\(String(format: "%02d", hour)):\(String(format: "%02d", minute)):\(String(format: "%02d", second)):\(String(format: "%03d", nanosecond / 1000000))")
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        
+        guard
+            let touch = touches.first,
+            let touchView = touch.view
+            else {
+                return
+        }
+        
+        if mapView == touchView || mapView.recursiveSubviews().contains(touchView) {
+            centerMapOnUserLocation = false
+        } else {
+            let location = touch.location(in: self.view)
+            
+            if location.x <= 40 && adjustNorthByTappingSidesOfScreen {
+                print("left side of the screen")
+                sceneLocationView.moveSceneHeadingAntiClockwise()
+            } else if location.x >= view.frame.size.width - 40 && adjustNorthByTappingSidesOfScreen {
+                print("right side of the screen")
+                sceneLocationView.moveSceneHeadingClockwise()
+            } else {
+                let image = UIImage(named: "pin")!
+                let annotationNode = LocationAnnotationNode(location: nil, image: image)
+                annotationNode.scaleRelativeToDistance = true
+                sceneLocationView.addLocationNodeForCurrentPosition(locationNode: annotationNode)
+            }
+        }
     }
 }
 
-extension ARKitGeogAddViewController: ARSCNViewDelegate {
+// MARK: - MKMapViewDelegate
+@available(iOS 11.0, *)
+extension ARKitGeogAddViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        
+        guard let pointAnnotation = annotation as? MKPointAnnotation else {
+            return nil
+        }
+        
+        let marker = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        marker.displayPriority = .required
+        
+        if pointAnnotation == self.userAnnotation {
+            marker.glyphImage = UIImage(named: "user")
+        } else {
+            marker.markerTintColor = UIColor(hue: 0.267, saturation: 0.67, brightness: 0.77, alpha: 1.0)
+            marker.glyphImage = UIImage(named: "compass")
+        }
+        
+        return marker
+    }
+}
+
+// MARK: - SceneLocationViewDelegate
+@available(iOS 11.0, *)
+extension ARKitGeogAddViewController: SceneLocationViewDelegate {
+    func sceneLocationViewDidAddSceneLocationEstimate(sceneLocationView: SceneLocationView, position: SCNVector3, location: CLLocation) {
+        print("add scene location estimate, position: \(position), location: \(location.coordinate), accuracy: \(location.horizontalAccuracy), date: \(location.timestamp)")
+    }
     
-    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        
-        let width = CGFloat(planeAnchor.extent.x)
-        let height = CGFloat(planeAnchor.extent.z)
-        let plane = SCNPlane(width: width, height: height)
-        
-        plane.materials.first?.diffuse.contents = UIColor.transparentLightBlue
-        
-        let planeNode = SCNNode(geometry: plane)
-        
-        let x = CGFloat(planeAnchor.center.x)
-        let y = CGFloat(planeAnchor.center.y)
-        let z = CGFloat(planeAnchor.center.z)
-        planeNode.position = SCNVector3(x,y,z)
-        planeNode.eulerAngles.x = -.pi / 2
-        
-        node.addChildNode(planeNode)
+    func sceneLocationViewDidRemoveSceneLocationEstimate(sceneLocationView: SceneLocationView, position: SCNVector3, location: CLLocation) {
+        print("remove scene location estimate, position: \(position), location: \(location.coordinate), accuracy: \(location.horizontalAccuracy), date: \(location.timestamp)")
     }
     
-    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        guard let planeAnchor = anchor as?  ARPlaneAnchor,
-            let planeNode = node.childNodes.first,
-            let plane = planeNode.geometry as? SCNPlane
-            else { return }
+    func sceneLocationViewDidConfirmLocationOfNode(sceneLocationView: SceneLocationView, node: LocationNode) {
+    }
+    
+    func sceneLocationViewDidSetupSceneNode(sceneLocationView: SceneLocationView, sceneNode: SCNNode) {
         
+    }
+    
+    func sceneLocationViewDidUpdateLocationAndScaleOfLocationNode(sceneLocationView: SceneLocationView, locationNode: LocationNode) {
         
-        let width = CGFloat(planeAnchor.extent.x)
-        let height = CGFloat(planeAnchor.extent.z)
-        plane.width = width
-        plane.height = height
-        
-        
-        let x = CGFloat(planeAnchor.center.x)
-        let y = CGFloat(planeAnchor.center.y)
-        let z = CGFloat(planeAnchor.center.z)
-        planeNode.position = SCNVector3(x, y, z)
     }
 }
 
-extension float4x4 {
-    var translation: float3 {
-        let translation = self.columns.3
-        return float3(translation.x, translation.y, translation.z)
+// MARK: - Data Helpers
+@available(iOS 11.0, *)
+private extension ARKitGeogAddViewController {
+    func buildDemoData() -> [LocationAnnotationNode] {
+        var nodes: [LocationAnnotationNode] = []
+        
+        // TODO: add a few more demo points of interest.
+        // TODO: use more varied imagery.
+        
+        let spaceNeedle = buildNode(latitude: 47.6205, longitude: -122.3493, altitude: 225, imageName: "pin")
+        nodes.append(spaceNeedle)
+        
+        let empireStateBuilding = buildNode(latitude: 40.7484, longitude: -73.9857, altitude: 14.3, imageName: "pin")
+        nodes.append(empireStateBuilding)
+        
+        let canaryWharf = buildNode(latitude: 51.504607, longitude: -0.019592, altitude: 236, imageName: "pin")
+        nodes.append(canaryWharf)
+        
+        return nodes
+    }
+    
+    func buildNode(latitude: CLLocationDegrees, longitude: CLLocationDegrees, altitude: CLLocationDistance, imageName: String) -> LocationAnnotationNode {
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        let location = CLLocation(coordinate: coordinate, altitude: altitude)
+        let image = UIImage(named: imageName)!
+        return LocationAnnotationNode(location: location, image: image)
     }
 }
 
-extension UIColor {
-    open class var transparentLightBlue: UIColor {
-        return UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 0.50)
+extension DispatchQueue {
+    func asyncAfter(timeInterval: TimeInterval, execute: @escaping () -> Void) {
+        self.asyncAfter(
+            deadline: DispatchTime.now() + Double(Int64(timeInterval * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: execute)
     }
 }
 
+extension UIView {
+    func recursiveSubviews() -> [UIView] {
+        var recursiveSubviews = self.subviews
+        
+        for subview in subviews {
+            recursiveSubviews.append(contentsOf: subview.recursiveSubviews())
+        }
+        
+        return recursiveSubviews
+    }
+}

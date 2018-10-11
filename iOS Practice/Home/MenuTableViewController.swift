@@ -57,6 +57,8 @@ private extension MenuTableViewController {
             return KLImagePageViewController(mode: .autoInfinite, images: images)
         case .arKitsTapToadd:
             return ARKitTapToAddViewController()
+        case .arKitsGeodAdd:
+            return ARKitGeogAddViewController()
         }
     }
 }
@@ -83,9 +85,10 @@ class MenuTableViewController: KLTableViewController {
         case speechRecognition = "Speech Recognition"
         case infinteImagesScroll = "Infinte images scroll"
         case arKitsTapToadd = "AR Kits(Tap to add)"
+        case arKitsGeodAdd = "AR Kits(Geog add)"
     }
     
-    var rows: [Row] = [.arKitsTapToadd, .infinteImagesScroll, .collectionViewPaging, .speechRecognition, .swift4Json, .hkKmbData, .chatUi, .inputObserver, .bluetoothReadWrite, .messageUi, .whatsappApi, .rssParse, .circleProgressView, .magicalGridView, .animationView, .animationButton, .activityIndicator, .popUpView]
+    var rows: [Row] = [.arKitsGeodAdd, .arKitsTapToadd, .infinteImagesScroll, .collectionViewPaging, .speechRecognition, .swift4Json, .hkKmbData, .chatUi, .inputObserver, .bluetoothReadWrite, .messageUi, .whatsappApi, .rssParse, .circleProgressView, .magicalGridView, .animationView, .animationButton, .activityIndicator, .popUpView]
     var delegate: MenuTableViewControllerDelegate?
     
     // MARK: - Life cycle
