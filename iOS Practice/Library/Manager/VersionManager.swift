@@ -14,4 +14,9 @@ class VersionManager {
         guard let dictionary = Bundle.main.infoDictionary, let version = dictionary["CFBundleShortVersionString"] as? String else { return "" }
         return version
     }
+    
+    static var fullVersionString: String {
+        guard let dictionary = Bundle.main.infoDictionary, let version = dictionary["CFBundleVersion"] as? String else { return "" }
+        return versionString + "." + version
+    }
 }

@@ -12,8 +12,8 @@ class KLTableViewController: UITableViewController, HasLoadingOverlay {
     
     var loadingOverlay: LoadingOverlay?
     
-    init() {
-        super.init(style: UITableViewStyle.plain)
+    override init(style: UITableViewStyle = .plain) {
+        super.init(style: style)
     }
     
     required init?(coder aDecoder: NSCoder) {
