@@ -16,4 +16,11 @@ extension NSLayoutConstraint {
         }
         NSLayoutConstraint.activate(constraints)
     }
+    
+    public static func activateRequiredPriority(_ constraints: [NSLayoutConstraint]) {
+        for constraint in constraints {
+            constraint.priority = .required
+        }
+        NSLayoutConstraint.activate(constraints)
+    }
 }
