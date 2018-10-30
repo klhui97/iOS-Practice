@@ -24,9 +24,8 @@ extension HasEmptyTableView where Self: KLCustomTableViewController {
     }
 }
 
-class KLCustomTableViewController: KLViewController, UITableViewDelegate, UITableViewDataSource, HasLoadingOverlay {
+class KLCustomTableViewController: KLViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var loadingOverlay: LoadingOverlay?
     let tableView: UITableView
     
     init(style: UITableViewStyle) {
@@ -41,19 +40,18 @@ class KLCustomTableViewController: KLViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpAutoLayout()
+        
         tableView.delegate = self
         tableView.dataSource = self
-        tableViewSetup()
-    }
-    
-    
-    /// Override this function to customize the position of table view
-    func tableViewSetup() {
-        safeAreaContentView.add(tableView)
-        tableView.al_fillSuperview()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
         tableView.tableFooterView = UIView()
+    }
+    
+    func setUpAutoLayout() {
+        safeAreaContentView.add(tableView)
+        tableView.al_fillSuperview()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
