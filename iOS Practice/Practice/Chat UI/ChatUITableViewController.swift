@@ -10,7 +10,7 @@ import UIKit
 
 class ChatUITableViewController: KLTableViewController {
 
-    let sampleChats = ["Hello John! How are you doing?",
+    var sampleChats = ["Hello John! How are you doing?",
                        "Perfect, I am really glad to hear that! How may I help you today?",
                        "I am really sorry to hear that. Is there anything I can do to help you?",
                        "Hello Mary. I understand the problem and will be happy to help you. Let’s see what I can do.",
@@ -23,6 +23,7 @@ class ChatUITableViewController: KLTableViewController {
         super.viewDidLoad()
 
         title = "Chat UI"
+        sampleChats[0] = DataManager.shared.psuhToken
         
         tableView.allowsSelection = false
         tableView.register(LeftBubbleTableViewCell.self)
