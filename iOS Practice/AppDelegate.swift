@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
         
+        UIApplication.shared.applicationIconBadgeNumber = 0
         UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .alert, .sound], completionHandler: {(granted, error) in
             if granted {
                 DispatchQueue.main.async {
