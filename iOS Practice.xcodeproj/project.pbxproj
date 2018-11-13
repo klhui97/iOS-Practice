@@ -14,6 +14,7 @@
 		340E0790213692600029D8E2 /* ShimmerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E078F213692600029D8E2 /* ShimmerTableViewCell.swift */; };
 		340E0792213697770029D8E2 /* NoneSelectionStyleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E0791213697770029D8E2 /* NoneSelectionStyleTableViewCell.swift */; };
 		34301FED219ACCCF00CAC121 /* UINavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34301FEC219ACCCF00CAC121 /* UINavigationItem.swift */; };
+		34301FEF219ACEF700CAC121 /* KLWebViewBottomCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34301FEE219ACEF700CAC121 /* KLWebViewBottomCardViewController.swift */; };
 		3437D1DA214B6F170073BD9A /* SpeechRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437D1D9214B6F170073BD9A /* SpeechRecognitionViewController.swift */; };
 		34390B2D2138E414005F7503 /* ValidatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34390B2C2138E414005F7503 /* ValidatorHelper.swift */; };
 		34390B342138EFB3005F7503 /* AnimationButtonCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34390B332138EFB3005F7503 /* AnimationButtonCollectionViewController.swift */; };
@@ -65,7 +66,7 @@
 		3479FF71216F05D10076F53C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3479FF67216F05D10076F53C /* LocationManager.swift */; };
 		3479FF72216F05D10076F53C /* SCNNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3479FF68216F05D10076F53C /* SCNNode+Extensions.swift */; };
 		347DAE602167325500BEAD34 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347DAE5F2167325500BEAD34 /* ImageCollectionViewCell.swift */; };
-		34B7FFF22140D109009F25D8 /* ScreenSizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7FFF12140D109009F25D8 /* ScreenSizeManager.swift */; };
+		34B7FFF22140D109009F25D8 /* ScreenSizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7FFF12140D109009F25D8 /* ScreenSizeHelper.swift */; };
 		34B7FFF42140D1A4009F25D8 /* KLAlertViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7FFF32140D1A4009F25D8 /* KLAlertViewManager.swift */; };
 		34B7FFF62140E7AF009F25D8 /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7FFF52140E7AF009F25D8 /* MenuManager.swift */; };
 		34B7FFF92140F3EE009F25D8 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7FFF82140F3EE009F25D8 /* PopUpViewController.swift */; };
@@ -113,6 +114,7 @@
 		340E078F213692600029D8E2 /* ShimmerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerTableViewCell.swift; sourceTree = "<group>"; tabWidth = 5; };
 		340E0791213697770029D8E2 /* NoneSelectionStyleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneSelectionStyleTableViewCell.swift; sourceTree = "<group>"; };
 		34301FEC219ACCCF00CAC121 /* UINavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationItem.swift; sourceTree = "<group>"; };
+		34301FEE219ACEF700CAC121 /* KLWebViewBottomCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLWebViewBottomCardViewController.swift; sourceTree = "<group>"; };
 		3437D1D9214B6F170073BD9A /* SpeechRecognitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionViewController.swift; sourceTree = "<group>"; };
 		34390B2C2138E414005F7503 /* ValidatorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorHelper.swift; sourceTree = "<group>"; };
 		34390B332138EFB3005F7503 /* AnimationButtonCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationButtonCollectionViewController.swift; sourceTree = "<group>"; };
@@ -164,7 +166,7 @@
 		3479FF67216F05D10076F53C /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3479FF68216F05D10076F53C /* SCNNode+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SCNNode+Extensions.swift"; sourceTree = "<group>"; };
 		347DAE5F2167325500BEAD34 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
-		34B7FFF12140D109009F25D8 /* ScreenSizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSizeManager.swift; sourceTree = "<group>"; };
+		34B7FFF12140D109009F25D8 /* ScreenSizeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSizeHelper.swift; sourceTree = "<group>"; };
 		34B7FFF32140D1A4009F25D8 /* KLAlertViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLAlertViewManager.swift; sourceTree = "<group>"; };
 		34B7FFF52140E7AF009F25D8 /* MenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
 		34B7FFF82140F3EE009F25D8 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
@@ -258,6 +260,38 @@
 				343B1D9C211C40F5004E7E42 /* Base Login */,
 			);
 			path = "Reuseable View";
+			sourceTree = "<group>";
+		};
+		34301FF0219ACF0200CAC121 /* Web View */ = {
+			isa = PBXGroup;
+			children = (
+				34301FEE219ACEF700CAC121 /* KLWebViewBottomCardViewController.swift */,
+			);
+			path = "Web View";
+			sourceTree = "<group>";
+		};
+		34301FF1219ACF1500CAC121 /* Collection View */ = {
+			isa = PBXGroup;
+			children = (
+				34390B372138F778005F7503 /* KLCollectionViewController.swift */,
+			);
+			path = "Collection View";
+			sourceTree = "<group>";
+		};
+		34301FF2219ACF2200CAC121 /* Picker View */ = {
+			isa = PBXGroup;
+			children = (
+				34E168502140FA9900522628 /* KLPickerViewController.swift */,
+			);
+			path = "Picker View";
+			sourceTree = "<group>";
+		};
+		34301FF3219ACF2D00CAC121 /* Bottom Card View */ = {
+			isa = PBXGroup;
+			children = (
+				34E168522140FB0400522628 /* BottomCardViewController.swift */,
+			);
+			path = "Bottom Card View";
 			sourceTree = "<group>";
 		};
 		3437D1D8214B6EF20073BD9A /* Speech Recognition */ = {
@@ -571,7 +605,6 @@
 				6BA52668214176A8008354D8 /* VersionManager.swift */,
 				6BA52663214172F8008354D8 /* SharingManager.swift */,
 				34F6D28A2126759A00C84CE6 /* NetworkManager.swift */,
-				34B7FFF12140D109009F25D8 /* ScreenSizeManager.swift */,
 				34B7FFF32140D1A4009F25D8 /* KLAlertViewManager.swift */,
 			);
 			path = Manager;
@@ -734,12 +767,13 @@
 		6B95898A21232C5B0058CF74 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				34301FF3219ACF2D00CAC121 /* Bottom Card View */,
+				34301FF2219ACF2200CAC121 /* Picker View */,
+				34301FF1219ACF1500CAC121 /* Collection View */,
+				34301FF0219ACF0200CAC121 /* Web View */,
 				34663151217D72FA00BA222D /* Table View Controller */,
 				346D2FF7216751B10071AF7D /* Page Scrolling Controller */,
 				6B95898B21232C690058CF74 /* KLViewController.swift */,
-				34390B372138F778005F7503 /* KLCollectionViewController.swift */,
-				34E168502140FA9900522628 /* KLPickerViewController.swift */,
-				34E168522140FB0400522628 /* BottomCardViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -759,6 +793,7 @@
 			children = (
 				6BA47DE02145332A004CE427 /* DateHelper.swift */,
 				34390B2C2138E414005F7503 /* ValidatorHelper.swift */,
+				34B7FFF12140D109009F25D8 /* ScreenSizeHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -881,6 +916,7 @@
 				34645FD52123EFA400D3D59D /* String.swift in Sources */,
 				3479FF71216F05D10076F53C /* LocationManager.swift in Sources */,
 				34645FC62123CE5700D3D59D /* KMBClient.swift in Sources */,
+				34301FEF219ACEF700CAC121 /* KLWebViewBottomCardViewController.swift in Sources */,
 				3478C49B211AD1F0009F2240 /* ChatUITableViewController.swift in Sources */,
 				346D2FF62167455E0071AF7D /* KLImageViewController.swift in Sources */,
 				6B4C381A2118A91F00D5320A /* Swift4JsonTableViewController.swift in Sources */,
@@ -907,7 +943,7 @@
 				340E07872136645B0029D8E2 /* MagicalGridViewController.swift in Sources */,
 				347DAE602167325500BEAD34 /* ImageCollectionViewCell.swift in Sources */,
 				3478C44121195D26009F2240 /* UITableView.swift in Sources */,
-				34B7FFF22140D109009F25D8 /* ScreenSizeManager.swift in Sources */,
+				34B7FFF22140D109009F25D8 /* ScreenSizeHelper.swift in Sources */,
 				34390B342138EFB3005F7503 /* AnimationButtonCollectionViewController.swift in Sources */,
 				34BAC636216DE365003AD55A /* ARKitTapToAddViewController.swift in Sources */,
 				34645FB521227D7E00D3D59D /* PaddingTextField.swift in Sources */,
