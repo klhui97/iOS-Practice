@@ -13,10 +13,9 @@
 		340E078D213691830029D8E2 /* AnimationViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E078C213691830029D8E2 /* AnimationViewTableViewController.swift */; };
 		340E0790213692600029D8E2 /* ShimmerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E078F213692600029D8E2 /* ShimmerTableViewCell.swift */; };
 		340E0792213697770029D8E2 /* NoneSelectionStyleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E0791213697770029D8E2 /* NoneSelectionStyleTableViewCell.swift */; };
-		340E07952136A49E0029D8E2 /* GenericTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E07942136A49E0029D8E2 /* GenericTableViewController.swift */; };
 		34301FED219ACCCF00CAC121 /* UINavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34301FEC219ACCCF00CAC121 /* UINavigationItem.swift */; };
 		3437D1DA214B6F170073BD9A /* SpeechRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437D1D9214B6F170073BD9A /* SpeechRecognitionViewController.swift */; };
-		34390B2D2138E414005F7503 /* ValidatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34390B2C2138E414005F7503 /* ValidatorManager.swift */; };
+		34390B2D2138E414005F7503 /* ValidatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34390B2C2138E414005F7503 /* ValidatorHelper.swift */; };
 		34390B342138EFB3005F7503 /* AnimationButtonCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34390B332138EFB3005F7503 /* AnimationButtonCollectionViewController.swift */; };
 		34390B382138F778005F7503 /* KLCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34390B372138F778005F7503 /* KLCollectionViewController.swift */; };
 		34390B3B2138F90D005F7503 /* AnimatedButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34390B3A2138F90D005F7503 /* AnimatedButtonCell.swift */; };
@@ -113,10 +112,9 @@
 		340E078C213691830029D8E2 /* AnimationViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewTableViewController.swift; sourceTree = "<group>"; };
 		340E078F213692600029D8E2 /* ShimmerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerTableViewCell.swift; sourceTree = "<group>"; tabWidth = 5; };
 		340E0791213697770029D8E2 /* NoneSelectionStyleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneSelectionStyleTableViewCell.swift; sourceTree = "<group>"; };
-		340E07942136A49E0029D8E2 /* GenericTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableViewController.swift; sourceTree = "<group>"; };
 		34301FEC219ACCCF00CAC121 /* UINavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationItem.swift; sourceTree = "<group>"; };
 		3437D1D9214B6F170073BD9A /* SpeechRecognitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionViewController.swift; sourceTree = "<group>"; };
-		34390B2C2138E414005F7503 /* ValidatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorManager.swift; sourceTree = "<group>"; };
+		34390B2C2138E414005F7503 /* ValidatorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorHelper.swift; sourceTree = "<group>"; };
 		34390B332138EFB3005F7503 /* AnimationButtonCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationButtonCollectionViewController.swift; sourceTree = "<group>"; };
 		34390B372138F778005F7503 /* KLCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLCollectionViewController.swift; sourceTree = "<group>"; };
 		34390B3A2138F90D005F7503 /* AnimatedButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedButtonCell.swift; sourceTree = "<group>"; };
@@ -252,14 +250,6 @@
 				340E0791213697770029D8E2 /* NoneSelectionStyleTableViewCell.swift */,
 			);
 			path = views;
-			sourceTree = "<group>";
-		};
-		340E07932136A47F0029D8E2 /* Generic */ = {
-			isa = PBXGroup;
-			children = (
-				340E07942136A49E0029D8E2 /* GenericTableViewController.swift */,
-			);
-			path = Generic;
 			sourceTree = "<group>";
 		};
 		341E9CC3211BE0A500031E55 /* Reuseable View */ = {
@@ -402,7 +392,6 @@
 				6BA47DDF2145332A004CE427 /* Helper */,
 				34390B4B21392CBE005F7503 /* KLActivityIndicator */,
 				34390B4221390E03005F7503 /* Protocol */,
-				340E07932136A47F0029D8E2 /* Generic */,
 				34F6D2882126755800C84CE6 /* Manager */,
 				6B95898A21232C5B0058CF74 /* Controller */,
 				3478C44221195E64009F2240 /* View */,
@@ -582,7 +571,6 @@
 				6BA52668214176A8008354D8 /* VersionManager.swift */,
 				6BA52663214172F8008354D8 /* SharingManager.swift */,
 				34F6D28A2126759A00C84CE6 /* NetworkManager.swift */,
-				34390B2C2138E414005F7503 /* ValidatorManager.swift */,
 				34B7FFF12140D109009F25D8 /* ScreenSizeManager.swift */,
 				34B7FFF32140D1A4009F25D8 /* KLAlertViewManager.swift */,
 			);
@@ -770,6 +758,7 @@
 			isa = PBXGroup;
 			children = (
 				6BA47DE02145332A004CE427 /* DateHelper.swift */,
+				34390B2C2138E414005F7503 /* ValidatorHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -853,9 +842,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				34390B3B2138F90D005F7503 /* AnimatedButtonCell.swift in Sources */,
-				340E07952136A49E0029D8E2 /* GenericTableViewController.swift in Sources */,
 				3478C49E211AD2E6009F2240 /* LeftBubbleTableViewCell.swift in Sources */,
-				34390B2D2138E414005F7503 /* ValidatorManager.swift in Sources */,
+				34390B2D2138E414005F7503 /* ValidatorHelper.swift in Sources */,
 				3478C4A6211AF64B009F2240 /* NotificationObserverViewController.swift in Sources */,
 				34390B53213935A7005F7503 /* KLActivityIndicatorAnimationDelegate.swift in Sources */,
 				34301FED219ACCCF00CAC121 /* UINavigationItem.swift in Sources */,

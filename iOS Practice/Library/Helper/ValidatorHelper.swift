@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ValidatorManager {
+class ValidatorHelper {
     
     public static func isValidatedEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"

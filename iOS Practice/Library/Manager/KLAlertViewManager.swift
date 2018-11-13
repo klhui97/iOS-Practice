@@ -22,11 +22,11 @@ class KLAlertViewManager {
         
     }
     
-    func showBottomAlert(target targetView: UIView, size: CGSize = CGSize(width: ScreenSizeManager.screenWidth, height: 45), text: String, icon: UIImage? = nil, completion:(() -> Void)? = nil){
+    func showBottomAlert(target targetView: UIView, size: CGSize = CGSize(width: ScreenSizeHelper.screenWidth, height: 45), text: String, icon: UIImage? = nil, completion:(() -> Void)? = nil){
         
-        let bottomInset = ScreenSizeManager.safeAreaBottomInset
-        let initFrame = CGRect(x: 0, y: ScreenSizeManager.screenHeight, width: size.width, height: size.height + bottomInset)
-        let finalFrame = CGRect(x: 0, y: targetView.frame.height - initFrame.size.height, width: ScreenSizeManager.screenWidth, height: initFrame.size.height)
+        let bottomInset = ScreenSizeHelper.safeAreaBottomInset
+        let initFrame = CGRect(x: 0, y: ScreenSizeHelper.screenHeight, width: size.width, height: size.height + bottomInset)
+        let finalFrame = CGRect(x: 0, y: targetView.frame.height - initFrame.size.height, width: ScreenSizeHelper.screenWidth, height: initFrame.size.height)
         
         
         let smartAlertButton = UIButton(type: .custom)

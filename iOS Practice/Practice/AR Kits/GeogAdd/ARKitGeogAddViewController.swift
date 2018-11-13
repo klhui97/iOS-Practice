@@ -204,14 +204,9 @@ class ARKitGeogAddViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         
-        return // disable touch
+//        return // disable touch
         
-        guard
-            let touch = touches.first,
-            let touchView = touch.view
-            else {
-                return
-        }
+        guard let touch = touches.first, let touchView = touch.view else { return }
         
         if mapView == touchView || mapView.recursiveSubviews().contains(touchView) {
             centerMapOnUserLocation = false

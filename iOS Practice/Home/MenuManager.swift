@@ -27,7 +27,7 @@ class MenuManager {
     
     init() {
         controller = MenuTableViewController()
-        menuWidth = ScreenSizeManager.windowWidth / 1.5
+        menuWidth = ScreenSizeHelper.windowWidth / 1.5
         overlayView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapOverlayView)))
     }
     

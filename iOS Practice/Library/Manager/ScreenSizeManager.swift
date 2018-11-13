@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScreenSizeManager {
+class ScreenSizeHelper {
     
     static var screenBounds: CGRect {
         return UIScreen.main.bounds
