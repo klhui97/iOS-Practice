@@ -2,7 +2,7 @@
 //  PaperSwitch.swift
 //  iOS Practice
 //
-//  Created by david.hui on 6/9/2018.
+//  Created by KL on 6/9/2018.
 //  Copyright © 2018 KL. All rights reserved.
 //
 

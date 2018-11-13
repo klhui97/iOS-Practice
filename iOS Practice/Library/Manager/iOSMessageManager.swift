@@ -2,7 +2,7 @@
 //  iOSMessageManager.swift
 //  Big2Scorer
 //
-//  Created by david.hui on 30/8/2018.
+//  Created by KL on 30/8/2018.
 //  Copyright © 2018 KL. All rights reserved.
 //
 

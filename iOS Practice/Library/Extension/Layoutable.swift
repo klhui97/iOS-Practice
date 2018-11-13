@@ -2,7 +2,7 @@
 //  Layoutable.swift
 //  iOS Practice
 //
-//  Created by david.hui on 7/8/2018.
+//  Created by KL on 7/8/2018.
 //  Copyright © 2018 KL. All rights reserved.
 //
 
@@ -93,8 +93,10 @@ extension Layoutable {
         al_leftToView(owningView!, distance: distance)
     }
     
-    func al_leftToView(_ view: UIView, distance: CGFloat = 0) {
-        NSLayoutConstraint.activate([leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: distance)])
+    func al_leftToView(_ view: UIView, distance: CGFloat = 0, priority: UILayoutPriority = .required) {
+        let constraint = leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: distance)
+        constraint.isActive = true
+        constraint.priority = priority
     }
     
     func al_leftToMargin(_ view: UIView? = nil) {
@@ -112,8 +114,10 @@ extension Layoutable {
         al_rightToView(owningView!, distance: distance)
     }
     
-    func al_rightToView(_ view: UIView, distance: CGFloat = 0) {
-        NSLayoutConstraint.activate([rightAnchor.constraint(equalTo: view.rightAnchor, constant: distance)])
+    func al_rightToView(_ view: UIView, distance: CGFloat = 0, priority: UILayoutPriority = .required) {
+        let constraint = rightAnchor.constraint(equalTo: view.rightAnchor, constant: distance)
+        constraint.isActive = true
+        constraint.priority = priority
     }
     
     // MARK: Top
@@ -121,11 +125,15 @@ extension Layoutable {
         al_topToView(owningView!, distance: distance, alignToSafeArea: alignToSafeArea)
     }
     
-    func al_topToView(_ view: UIView, distance: CGFloat = 0, alignToSafeArea: Bool = false) {
+    func al_topToView(_ view: UIView, distance: CGFloat = 0, alignToSafeArea: Bool = false, priority: UILayoutPriority = .required) {
         if alignToSafeArea {
-            NSLayoutConstraint.activate([topAnchor.constraint(equalTo: view.safeTopAnchor, constant: distance)])
+            let constraint = topAnchor.constraint(equalTo: view.safeTopAnchor, constant: distance)
+            constraint.isActive = true
+            constraint.priority = priority
         }else {
-            NSLayoutConstraint.activate([topAnchor.constraint(equalTo: view.topAnchor, constant: distance)])
+            let constraint = topAnchor.constraint(equalTo: view.topAnchor, constant: distance)
+            constraint.isActive = true
+            constraint.priority = priority
         }
     }
     
@@ -134,11 +142,15 @@ extension Layoutable {
         al_bottomToView(owningView!, distance: distance, alignToSafeArea: alignToSafeArea)
     }
     
-    func al_bottomToView(_ view: UIView, distance: CGFloat = 0, alignToSafeArea: Bool = false) {
+    func al_bottomToView(_ view: UIView, distance: CGFloat = 0, alignToSafeArea: Bool = false, priority: UILayoutPriority = .required) {
         if alignToSafeArea {
-            NSLayoutConstraint.activate([bottomAnchor.constraint(equalTo: view.safeBottomAnchor, constant: distance)])
+            let constraint = bottomAnchor.constraint(equalTo: view.safeBottomAnchor, constant: distance)
+            constraint.isActive = true
+            constraint.priority = priority
         }else {
-            NSLayoutConstraint.activate([bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: distance)])
+            let constraint = bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: distance)
+            constraint.isActive = true
+            constraint.priority = priority
         }
     }
     

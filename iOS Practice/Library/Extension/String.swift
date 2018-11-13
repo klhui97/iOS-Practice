@@ -2,7 +2,7 @@
 //  String.swift
 //  iOS Practice
 //
-//  Created by david.hui on 15/8/2018.
+//  Created by KL on 15/8/2018.
 //  Copyright © 2018 KL. All rights reserved.
 //
 
@@ -33,7 +33,7 @@ extension String {
         }
     }
     
-    func isValidDouble(maxDecimalPlaces: Int) -> Bool {
+    func isDouble(maxDecimalPlaces: Int) -> Bool {
         let formatter = NumberFormatter()
         formatter.allowsFloats = true
         let decimalSeparator = formatter.decimalSeparator ?? "."

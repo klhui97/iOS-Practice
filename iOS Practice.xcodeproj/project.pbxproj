@@ -14,6 +14,7 @@
 		340E0790213692600029D8E2 /* ShimmerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E078F213692600029D8E2 /* ShimmerTableViewCell.swift */; };
 		340E0792213697770029D8E2 /* NoneSelectionStyleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E0791213697770029D8E2 /* NoneSelectionStyleTableViewCell.swift */; };
 		340E07952136A49E0029D8E2 /* GenericTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E07942136A49E0029D8E2 /* GenericTableViewController.swift */; };
+		34301FED219ACCCF00CAC121 /* UINavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34301FEC219ACCCF00CAC121 /* UINavigationItem.swift */; };
 		3437D1DA214B6F170073BD9A /* SpeechRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437D1D9214B6F170073BD9A /* SpeechRecognitionViewController.swift */; };
 		34390B2D2138E414005F7503 /* ValidatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34390B2C2138E414005F7503 /* ValidatorManager.swift */; };
 		34390B342138EFB3005F7503 /* AnimationButtonCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34390B332138EFB3005F7503 /* AnimationButtonCollectionViewController.swift */; };
@@ -113,6 +114,7 @@
 		340E078F213692600029D8E2 /* ShimmerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerTableViewCell.swift; sourceTree = "<group>"; tabWidth = 5; };
 		340E0791213697770029D8E2 /* NoneSelectionStyleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneSelectionStyleTableViewCell.swift; sourceTree = "<group>"; };
 		340E07942136A49E0029D8E2 /* GenericTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableViewController.swift; sourceTree = "<group>"; };
+		34301FEC219ACCCF00CAC121 /* UINavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationItem.swift; sourceTree = "<group>"; };
 		3437D1D9214B6F170073BD9A /* SpeechRecognitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionViewController.swift; sourceTree = "<group>"; };
 		34390B2C2138E414005F7503 /* ValidatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorManager.swift; sourceTree = "<group>"; };
 		34390B332138EFB3005F7503 /* AnimationButtonCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationButtonCollectionViewController.swift; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 		3478C43721193A46009F2240 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				3478C43821193A62009F2240 /* Extension */,
 				6BA47DDF2145332A004CE427 /* Helper */,
 				34390B4B21392CBE005F7503 /* KLActivityIndicator */,
 				34390B4221390E03005F7503 /* Protocol */,
@@ -403,7 +406,6 @@
 				34F6D2882126755800C84CE6 /* Manager */,
 				6B95898A21232C5B0058CF74 /* Controller */,
 				3478C44221195E64009F2240 /* View */,
-				3478C43821193A62009F2240 /* Extension */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -417,6 +419,7 @@
 				3478C48E211996AC009F2240 /* NSLayoutConstraint.swift */,
 				34645FD42123EFA400D3D59D /* String.swift */,
 				340E078321365C510029D8E2 /* UIColor.swift */,
+				34301FEC219ACCCF00CAC121 /* UINavigationItem.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -855,6 +858,7 @@
 				34390B2D2138E414005F7503 /* ValidatorManager.swift in Sources */,
 				3478C4A6211AF64B009F2240 /* NotificationObserverViewController.swift in Sources */,
 				34390B53213935A7005F7503 /* KLActivityIndicatorAnimationDelegate.swift in Sources */,
+				34301FED219ACCCF00CAC121 /* UINavigationItem.swift in Sources */,
 				3479FF6C216F05D10076F53C /* FloatingPoint+Radians.swift in Sources */,
 				34645FB8212290B900D3D59D /* MessageUiViewController.swift in Sources */,
 				34F6D29D2126D3FF00C84CE6 /* ETATableViewCell.swift in Sources */,

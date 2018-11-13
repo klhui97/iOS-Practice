@@ -2,7 +2,7 @@
 //  KLImageViewController.swift
 //  iOS Practice
 //
-//  Created by david.hui on 5/10/2018.
+//  Created by KL on 5/10/2018.
 //  Copyright © 2018 KL. All rights reserved.
 //
 

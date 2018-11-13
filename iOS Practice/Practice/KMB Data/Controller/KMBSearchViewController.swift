@@ -2,7 +2,7 @@
 //  KMBSearchViewController.swift
 //  iOS Practice
 //
-//  Created by david.hui on 14/8/2018.
+//  Created by KL on 14/8/2018.
 //  Copyright © 2018 KL. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  KLActivityIndicatorType.swift
 //  iOS Practice
 //
-//  Created by david.hui on 31/8/2018.
+//  Created by KL on 31/8/2018.
 //  Copyright © 2018 KL. All rights reserved.
 //
 
