@@ -51,7 +51,7 @@ class KLWebViewBottomCardViewController: BottomCardViewController, WKNavigationD
     func setupAutoLayout() {
         let views = ["webView": webView,
                      "navigationBar": navigationBar]
-        NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "V:|[navigationBar(40)][webView(\(ScreenSizeManager.screenHeight - 120))]|", options: [.alignAllLeft, .alignAllRight], metrics: nil, views: views))
+        NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "V:|[navigationBar(40)][webView(\(ScreenSizeHelper.screenHeight - 120))]|", options: [.alignAllLeft, .alignAllRight], metrics: nil, views: views))
         webView.al_fillSuperViewHorizontally()
     }
     
