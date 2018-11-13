@@ -26,7 +26,7 @@ class KLAlertViewManager {
         
         let bottomInset = ScreenSizeManager.safeAreaBottomInset
         let initFrame = CGRect(x: 0, y: ScreenSizeManager.screenHeight, width: size.width, height: size.height + bottomInset)
-        let finalFrame = CGRect(x: 0, y: initFrame.origin.y - initFrame.size.height, width: ScreenSizeManager.screenWidth, height: initFrame.size.height)
+        let finalFrame = CGRect(x: 0, y: targetView.frame.height - initFrame.size.height, width: ScreenSizeManager.screenWidth, height: initFrame.size.height)
         
         
         let smartAlertButton = UIButton(type: .custom)
