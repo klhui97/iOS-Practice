@@ -81,11 +81,15 @@ extension Layoutable {
     }
     
     func al_fillSafeAreaView(_ view: UIView) {
-        NSLayoutConstraint.activate([
-            leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)])
+        if #available(iOS 11.0, *) {
+            NSLayoutConstraint.activate([
+                leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+                trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+                topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)])
+        } else {
+            al_fillView(view)
+        }
     }
     
     // MARK: Left or leading

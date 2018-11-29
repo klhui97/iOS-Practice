@@ -40,7 +40,11 @@ class ScreenSizeHelper {
     
     static var safeAreaBottomInset: CGFloat {
         if let window = UIApplication.shared.keyWindow {
-            return window.safeAreaInsets.bottom
+            if #available(iOS 11.0, *) {
+                return window.safeAreaInsets.bottom
+            } else {
+                return 0
+            }
         }else {
             return 0
         }
