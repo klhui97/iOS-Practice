@@ -1,5 +1,5 @@
 //
-//  VersionManager.swift
+//  VersionHelper.swift
 //  Big2Scorer
 //
 //  Created by KL on 6/9/2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class VersionManager {
+class VersionHelper {
     
     static var versionString: String {
         guard let dictionary = Bundle.main.infoDictionary, let version = dictionary["CFBundleShortVersionString"] as? String else { return "" }

@@ -14,9 +14,9 @@ class SharingManager {
         guard let activityItem = URL(string: appUrl.urlEncoded()) else { return }
         
         let objectsToShare: [Any] = [activityItem]
-        let activityVc = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-        activityVc.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.addToReadingList]
-        activityVc.popoverPresentationController?.sourceView = soureView
-        controller.present(activityVc, animated: true, completion: nil)
+        let vc = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        vc.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.addToReadingList]
+        vc.popoverPresentationController?.sourceView = soureView
+        controller.present(vc, animated: true, completion: nil)
     }
 }
