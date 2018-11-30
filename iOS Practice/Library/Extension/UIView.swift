@@ -7,19 +7,19 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     
     /// add subviews to view and make them support auto layout, by just putting all subviews in a single parameter that is separated by common
     ///
     /// - Parameter views: UIView...
-    open func add(_ views: UIView...) {
+    public final func add(_ views: UIView...) {
         for view in views {
             view.translatesAutoresizingMaskIntoConstraints = false
             addSubview(view)
         }
     }
     
-    open var safeTopAnchor: NSLayoutYAxisAnchor {
+    public final var safeTopAnchor: NSLayoutYAxisAnchor {
         if #available(iOS 11.0, *) {
             return self.safeAreaLayoutGuide.topAnchor
         } else {
@@ -27,7 +27,7 @@ extension UIView {
         }
     }
     
-    open var safeLeftAnchor: NSLayoutXAxisAnchor {
+    public final var safeLeftAnchor: NSLayoutXAxisAnchor {
         if #available(iOS 11.0, *){
             return self.safeAreaLayoutGuide.leftAnchor
         }else {
@@ -35,7 +35,7 @@ extension UIView {
         }
     }
     
-    open var safeRightAnchor: NSLayoutXAxisAnchor {
+    public final var safeRightAnchor: NSLayoutXAxisAnchor {
         if #available(iOS 11.0, *){
             return self.safeAreaLayoutGuide.rightAnchor
         }else {
@@ -43,7 +43,7 @@ extension UIView {
         }
     }
     
-    open var safeBottomAnchor: NSLayoutYAxisAnchor {
+    public final var safeBottomAnchor: NSLayoutYAxisAnchor {
         if #available(iOS 11.0, *) {
             return self.safeAreaLayoutGuide.bottomAnchor
         } else {

@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol ReusableView {
+public protocol ReusableView {
     static var defaultReuseIdentifier: String { get }
 }
 
-extension ReusableView {
+public extension ReusableView {
     static var defaultReuseIdentifier: String {
         return String(describing: self)
     }
@@ -22,7 +22,7 @@ extension UITableViewCell: ReusableView {
     
 }
 
-extension UITableView {
+public extension UITableView {
     func register<T: UITableViewCell>(_: T.Type) {
         register(T.self, forCellReuseIdentifier: T.defaultReuseIdentifier)
     }
@@ -37,7 +37,7 @@ extension UICollectionViewCell: ReusableView {
     
 }
 
-extension UICollectionView {
+public extension UICollectionView {
     func register<T: UICollectionViewCell>(_: T.Type) {
         self.register(T.self, forCellWithReuseIdentifier: T.defaultReuseIdentifier)
     }

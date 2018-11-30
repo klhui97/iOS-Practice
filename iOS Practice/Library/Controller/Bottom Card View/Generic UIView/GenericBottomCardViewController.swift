@@ -8,25 +8,25 @@
 
 import UIKit
 
-class GenericBottomCardViewController<T: UIView>: BottomCardViewController {
+open class GenericBottomCardViewController<T: UIView>: BottomCardViewController {
     
-    let coreView: T
+    public let coreView: T
     
-    var coreViewHeight: CGFloat = ScreenSizeHelper.screenHeight - 120
-    var navTitle: String? = nil
-    var doneTitle: String? = nil
-    let navigationBar = UINavigationBar()
+    public var coreViewHeight: CGFloat = ScreenSizeHelper.screenHeight - 120
+    public var navTitle: String? = nil
+    public var doneTitle: String? = nil
+    public let navigationBar = UINavigationBar()
     
     init(view: T) {
         self.coreView = view
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         setupNavigationBar()

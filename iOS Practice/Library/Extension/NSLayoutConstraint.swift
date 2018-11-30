@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension NSLayoutConstraint {
+public extension NSLayoutConstraint {
     
     public static func activateHighPriority(_ constraints: [NSLayoutConstraint]) {
         for constraint in constraints {

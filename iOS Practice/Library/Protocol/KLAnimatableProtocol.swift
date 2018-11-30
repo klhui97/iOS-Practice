@@ -8,18 +8,18 @@
 
 import UIKit
 
-protocol KLAnimatableProtocol {
+public protocol KLAnimatableProtocol {
     var center: CGPoint { get }
     var layer: CALayer { get }
 }
 
-extension KLAnimatableProtocol {
+public extension KLAnimatableProtocol {
     
-    func test() {
+    public func test() {
 
     }
     
-    func deepPress() {
+    public func deepPress() {
         let pulse = CASpringAnimation(keyPath: "transform.scale")
         setInitValue(pulse, fromValue: nil, toValue: 1.0, byValue: 0.2)
         
@@ -32,7 +32,7 @@ extension KLAnimatableProtocol {
         addAnimation(pulse)
     }
 
-    func shake() {
+    public func shake() {
         let shake = CABasicAnimation(keyPath: "position")
         
         let fromPoint = CGPoint(x: center.x - 3, y: center.y)
@@ -49,7 +49,7 @@ extension KLAnimatableProtocol {
         addAnimation(shake)
     }
     
-    func pulsate() {
+    public func pulsate() {
         let pulse = CASpringAnimation(keyPath: "transform.scale")
         setInitValue(pulse, fromValue: 1.2, toValue: 1.0, byValue: nil)
         

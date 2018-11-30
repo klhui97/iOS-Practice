@@ -8,10 +8,10 @@
 
 import UIKit
 
-class BottomCardViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
+open class BottomCardViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
     
-    var duration: TimeInterval = 0.3
-    let contentView: UIView = {
+    open var duration: TimeInterval = 0.3
+    public let contentView: UIView = {
         let view = UIView()
         view.clipsToBounds = true
         view.layer.cornerRadius = 13
@@ -36,11 +36,13 @@ class BottomCardViewController: UIViewController, UIViewControllerTransitioningD
         transitioningDelegate = self
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    // MARK: - Life cycle
+    
+    override open func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.clear
         
@@ -73,39 +75,27 @@ class BottomCardViewController: UIViewController, UIViewControllerTransitioningD
         contentViewEndConstraint.isActive = true
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presentingViewController?.view.tintAdjustmentMode = .dimmed
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    override open func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         presentingViewController?.view.tintAdjustmentMode = .normal
     }
     
-    override var preferredStatusBarStyle : UIStatusBarStyle {
+    override open var preferredStatusBarStyle : UIStatusBarStyle {
         return presentingViewController?.preferredStatusBarStyle ?? .lightContent
-    }
-    
-    // MARK: - UIViewControllerTransitioningDelegate
-    
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        self.presenting = true
-        return self
-    }
-    
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        presenting = false
-        return self
     }
     
     // MARK: - UIViewControllerAnimatedTransitioning
     
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
     }
     
-    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+    public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         if presenting {
             let containerView = transitionContext.containerView
             
@@ -144,9 +134,22 @@ class BottomCardViewController: UIViewController, UIViewControllerTransitioningD
         }
     }
     
-    // MARK: -
-    
     @objc func didTapDimView() {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+private extension BottomCardViewController {
+    
+    // MARK: - UIViewControllerTransitioningDelegate
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        self.presenting = true
+        return self
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        presenting = false
+        return self
     }
 }

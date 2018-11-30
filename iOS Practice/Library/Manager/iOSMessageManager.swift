@@ -9,9 +9,9 @@
 import UIKit
 import MessageUI
 
-class iOSMessageManager {
+public class iOSMessageManager {
     
-    static func showEmail(presenter: UIViewController, delegate: MFMailComposeViewControllerDelegate, emailTitle: String = "", messageBody: String = "", toRecipients: [String] = []) {
+    public static func showEmail(presenter: UIViewController, delegate: MFMailComposeViewControllerDelegate, emailTitle: String = "", messageBody: String = "", toRecipients: [String] = []) {
         
         let mailComposer = MFMailComposeViewController()
         mailComposer.setSubject(emailTitle)

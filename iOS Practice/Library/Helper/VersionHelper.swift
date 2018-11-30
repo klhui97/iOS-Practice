@@ -8,14 +8,14 @@
 
 import Foundation
 
-class VersionHelper {
+public class VersionHelper {
     
-    static var versionString: String {
+    public static var versionString: String {
         guard let dictionary = Bundle.main.infoDictionary, let version = dictionary["CFBundleShortVersionString"] as? String else { return "" }
         return version
     }
     
-    static var fullVersionString: String {
+    public static var fullVersionString: String {
         guard let dictionary = Bundle.main.infoDictionary, let version = dictionary["CFBundleVersion"] as? String else { return "" }
         return versionString + "." + version
     }

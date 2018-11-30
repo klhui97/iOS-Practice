@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum KLActivityIndicatorShape {
+public enum KLActivityIndicatorShape {
     case circle
     case circleSemi
     case ring

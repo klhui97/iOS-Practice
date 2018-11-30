@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum KLActivityIndicatorView {
+public enum KLActivityIndicatorView {
     case threeBallPulse
     case ballGridPulse
     case ballClipRotate

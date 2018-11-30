@@ -8,11 +8,11 @@
 
 import UIKit
 
-class KLImageViewController: UIViewController {
+open class KLImageViewController: UIViewController {
     
-    let imageView = UIImageView()
+    public let imageView = UIImageView()
     private let imageContentMode: UIView.ContentMode
-    let index: Int
+    public let index: Int
     
     init(index: Int, imageContentMode: UIView.ContentMode) {
         self.index = index
@@ -20,11 +20,11 @@ class KLImageViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true

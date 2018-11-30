@@ -8,7 +8,7 @@
 
 import UIKit
 
-class KLCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+open class KLCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let collectionViewFlowLayout: UICollectionViewFlowLayout
     
@@ -17,11 +17,11 @@ class KLCollectionViewController: UICollectionViewController, UICollectionViewDe
         super.init(collectionViewLayout: collectionViewFlowLayout)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView?.backgroundColor = .white
@@ -29,7 +29,7 @@ class KLCollectionViewController: UICollectionViewController, UICollectionViewDe
         configCollectionViewFlowLayout()
     }
     
-    func configCollectionViewFlowLayout() {
+    open func configCollectionViewFlowLayout() {
         fatalError("configCollectionViewFlowLayout(): has not been implemented")
     }
 }

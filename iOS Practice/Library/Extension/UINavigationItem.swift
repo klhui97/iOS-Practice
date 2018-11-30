@@ -8,9 +8,9 @@
 
 import UIKit
 
-extension UINavigationItem {
+public extension UINavigationItem {
     
-    func removeBackButtonText() {
+    public func removeBackButtonText() {
         self.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 }

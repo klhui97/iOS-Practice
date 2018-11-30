@@ -8,15 +8,15 @@
 
 import UIKit
 
-class KLImagePageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+open class KLImagePageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
-    enum ScrollMode {
+    public enum ScrollMode {
         case infinite
         case autoInfinite
         case normal
     }
     
-    var images: [UIImage] = [] {
+    public var images: [UIImage] = [] {
         didSet {
             if let vc = initImageViewController(at: 0) {
                 setViewControllers([vc], direction: .forward, animated: false, completion: nil)
@@ -38,7 +38,7 @@ class KLImagePageViewController: UIPageViewController, UIPageViewControllerDataS
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -48,14 +48,14 @@ class KLImagePageViewController: UIPageViewController, UIPageViewControllerDataS
     
     // MARK: - Life cycle
     
-    override func viewWillDisappear(_ animated: Bool) {
+    override open func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         // To make sure the memory can be free
         disableAutoScrollTimer()
     }
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         if let vc = initImageViewController(at: 0) {
@@ -75,7 +75,7 @@ class KLImagePageViewController: UIPageViewController, UIPageViewControllerDataS
     
     // MARK: - UIPageViewControllerDataSource
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    public func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewController = viewController as? KLImageViewController else { return nil}
         
         let index = viewController.index - 1
@@ -91,7 +91,7 @@ class KLImagePageViewController: UIPageViewController, UIPageViewControllerDataS
         }
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    public func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let viewController = viewController as? KLImageViewController else { return nil}
         
         let index = viewController.index + 1
@@ -109,11 +109,11 @@ class KLImagePageViewController: UIPageViewController, UIPageViewControllerDataS
     
     // MARK: - UIPageViewControllerDelegate
     
-    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+    private func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
         disableAutoScrollTimer()
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+    private func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if let vc = pageViewController.viewControllers?[0] as? KLImageViewController {
             print("Scrolled to \(vc.index)")
         }

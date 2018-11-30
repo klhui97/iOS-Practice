@@ -8,36 +8,20 @@
 
 import UIKit
 
-protocol HasEmptyTableView {
-    var emptyView: UIView { get }
-}
-
-extension HasEmptyTableView where Self: KLCustomTableViewController {
+open class KLCustomTableViewController: KLViewController, UITableViewDelegate, UITableViewDataSource {
     
-    func showOrRemoveEmptyViewIfNeeded() {
-        if tableView.visibleCells.isEmpty {
-            safeAreaContentView.add(emptyView)
-            emptyView.al_fillSuperview()
-        }else {
-            emptyView.removeFromSuperview()
-        }
-    }
-}
-
-class KLCustomTableViewController: KLViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    let tableView: UITableView
+    public let tableView: UITableView
     
     init(style: UITableViewStyle) {
         self.tableView = UITableView(frame: .zero, style: style)
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         setUpAutoLayout()
@@ -54,11 +38,11 @@ class KLCustomTableViewController: KLViewController, UITableViewDelegate, UITabl
         tableView.al_fillSuperview()
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         fatalError("nedd to override this function")
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         fatalError("nedd to override this function")
     }
 }

@@ -8,21 +8,21 @@
 
 import UIKit
 
-class KLAlertViewManager {
+public class KLAlertViewManager {
     
-    let showDuration: TimeInterval = 3
-    let slideDuration: TimeInterval = 0.3
-    let backgroundColor = UIColor.orange
-    let textColor = UIColor.white
+    public let showDuration: TimeInterval = 3
+    public let slideDuration: TimeInterval = 0.3
+    public let backgroundColor = UIColor.orange
+    public let textColor = UIColor.white
     
     /// The view that is displaying the alert
-    var animatedView: UIView?
+    public var animatedView: UIView?
     
     init() {
         
     }
     
-    func showBottomAlert(target targetView: UIView, size: CGSize = CGSize(width: ScreenSizeHelper.screenWidth, height: 54), text: String, icon: UIImage? = nil, completion:(() -> Void)? = nil){
+    public func showBottomAlert(target targetView: UIView, size: CGSize = CGSize(width: ScreenSizeHelper.screenWidth, height: 54), text: String, icon: UIImage? = nil, completion:(() -> Void)? = nil){
         
         let bottomInset = ScreenSizeHelper.safeAreaBottomInset
         let initFrame = CGRect(x: 0, y: ScreenSizeHelper.screenHeight, width: size.width, height: size.height + bottomInset)

@@ -8,9 +8,9 @@
 
 import Foundation
 
-extension String {
+public extension String {
     
-   init(htmlString: String) {
+   public init(htmlString: String) {
         self.init()
         guard let encodedData = htmlString.data(using: .utf8) else {
             self = htmlString
@@ -33,7 +33,7 @@ extension String {
         }
     }
     
-    func isDouble(maxDecimalPlaces: Int) -> Bool {
+    public func isDouble(maxDecimalPlaces: Int) -> Bool {
         let formatter = NumberFormatter()
         formatter.allowsFloats = true
         let decimalSeparator = formatter.decimalSeparator ?? "."
@@ -46,13 +46,13 @@ extension String {
         return false
     }
     
-    func urlEncoded() -> String {
+    public func urlEncoded() -> String {
         let encodeUrlString = self.addingPercentEncoding(withAllowedCharacters:
             .urlQueryAllowed)
         return encodeUrlString ?? ""
     }
     
-    func urlDecoded() -> String {
+    public func urlDecoded() -> String {
         return self.removingPercentEncoding ?? ""
     }
 }

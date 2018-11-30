@@ -11,8 +11,8 @@ import SafariServices
 
 class WhatsappApiViewController: KLViewController, UITextFieldDelegate {
     
-    let phoneTextField: PaddingTextField = {
-        let textField = PaddingTextField(edgeInsets: UIEdgeInsets(top: 0, left: 116, bottom: 0, right: 16))
+    let phoneTextField: UITextField = {
+        let textField = UITextField()
         textField.backgroundColor = .groupTableViewBackground
         textField.layer.cornerRadius = 4
         textField.clipsToBounds = true

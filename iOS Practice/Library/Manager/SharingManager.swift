@@ -8,9 +8,9 @@
 
 import UIKit
 
-class SharingManager {
+public class SharingManager {
     
-    static func shareApp(controller: UIViewController, soureView: UIView, appUrl: String) {
+    public static func shareApp(controller: UIViewController, soureView: UIView, appUrl: String) {
         guard let activityItem = URL(string: appUrl.urlEncoded()) else { return }
         
         let objectsToShare: [Any] = [activityItem]

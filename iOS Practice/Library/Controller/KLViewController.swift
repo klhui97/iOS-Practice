@@ -8,11 +8,11 @@
 
 import UIKit
 
-class KLViewController: UIViewController {
+open class KLViewController: UIViewController {
     
-    let safeAreaContentView = UIView()
+    public let safeAreaContentView = UIView()
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white

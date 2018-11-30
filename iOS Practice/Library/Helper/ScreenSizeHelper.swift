@@ -8,21 +8,21 @@
 
 import UIKit
 
-class ScreenSizeHelper {
+public class ScreenSizeHelper {
     
-    static var screenBounds: CGRect {
+    public static var screenBounds: CGRect {
         return UIScreen.main.bounds
     }
     
-    static var screenHeight: CGFloat {
+    public static var screenHeight: CGFloat {
         return UIScreen.main.bounds.height
     }
     
-    static var screenWidth: CGFloat {
+    public static var screenWidth: CGFloat {
         return UIScreen.main.bounds.width
     }
     
-    static var windowWidth: CGFloat {
+    public static var windowWidth: CGFloat {
         if let window = UIApplication.shared.keyWindow {
             return window.frame.size.width
         }else {
@@ -30,7 +30,7 @@ class ScreenSizeHelper {
         }
     }
     
-    static var windowHeight: CGFloat {
+    public static var windowHeight: CGFloat {
         if let window = UIApplication.shared.keyWindow {
             return window.frame.size.height
         }else {
@@ -38,7 +38,7 @@ class ScreenSizeHelper {
         }
     }
     
-    static var safeAreaBottomInset: CGFloat {
+    public static var safeAreaBottomInset: CGFloat {
         if let window = UIApplication.shared.keyWindow {
             if #available(iOS 11.0, *) {
                 return window.safeAreaInsets.bottom

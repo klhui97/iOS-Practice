@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol KLActivityIndicatorAnimationDelegate {
+public protocol KLActivityIndicatorAnimationDelegate {
     func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor)
 }
 
-class KLActivityIndicatorThreeBallPulse: KLActivityIndicatorAnimationDelegate {
-    func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
+public class KLActivityIndicatorThreeBallPulse: KLActivityIndicatorAnimationDelegate {
+    public func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
         let circleSpacing: CGFloat = 2
         let circleSize: CGFloat = (size.width - 2 * circleSpacing) / 3
         let x: CGFloat = (layer.bounds.size.width - size.width) / 2
@@ -48,9 +48,9 @@ class KLActivityIndicatorThreeBallPulse: KLActivityIndicatorAnimationDelegate {
     }
 }
 
-class KLActivityIndicatorBallGridPulse: KLActivityIndicatorAnimationDelegate {
+public class KLActivityIndicatorBallGridPulse: KLActivityIndicatorAnimationDelegate {
     
-    func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
+    public func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
         let circleSpacing: CGFloat = 2
         let circleSize = (size.width - circleSpacing * 2) / 3
         let x = (layer.bounds.size.width - size.width) / 2
@@ -100,9 +100,9 @@ class KLActivityIndicatorBallGridPulse: KLActivityIndicatorAnimationDelegate {
     }
 }
 
-class KLActivityIndicatorAnimationBallClipRotate: KLActivityIndicatorAnimationDelegate {
+public class KLActivityIndicatorAnimationBallClipRotate: KLActivityIndicatorAnimationDelegate {
     
-    func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
+    public func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
         let duration: CFTimeInterval = 0.75
         
         //    Scale animation
@@ -139,9 +139,9 @@ class KLActivityIndicatorAnimationBallClipRotate: KLActivityIndicatorAnimationDe
     }
 }
 
-class KLActivityIndicatorAnimationSquareSpin: KLActivityIndicatorAnimationDelegate {
+public class KLActivityIndicatorAnimationSquareSpin: KLActivityIndicatorAnimationDelegate {
     
-    func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
+    public func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
         let duration: CFTimeInterval = 3
         let timingFunction = CAMediaTimingFunction(controlPoints: 0.09, 0.57, 0.49, 0.9)
         
@@ -173,7 +173,7 @@ class KLActivityIndicatorAnimationSquareSpin: KLActivityIndicatorAnimationDelega
         layer.addSublayer(square)
     }
     
-    func createRotateXTransform(angle: CGFloat) -> CATransform3D {
+    private func createRotateXTransform(angle: CGFloat) -> CATransform3D {
         var transform = CATransform3DMakeRotation(angle, 1, 0, 0)
         
         transform.m34 = CGFloat(-1) / 100
@@ -181,7 +181,7 @@ class KLActivityIndicatorAnimationSquareSpin: KLActivityIndicatorAnimationDelega
         return transform
     }
     
-    func createRotateYTransform(angle: CGFloat) -> CATransform3D {
+    private func createRotateYTransform(angle: CGFloat) -> CATransform3D {
         var transform = CATransform3DMakeRotation(angle, 0, 1, 0)
         
         transform.m34 = CGFloat(-1) / 100

@@ -32,12 +32,12 @@ open class LoadingOverlay: UIView {
     }
 }
 
-protocol HasLoadingOverlayProtocol: class {
+public protocol HasLoadingOverlayProtocol: class {
     func showLoadingOverlay()
     func removeLoadingOverlay()
 }
 
-protocol HasLoadingOverlay: HasLoadingOverlayProtocol {
+public protocol HasLoadingOverlay: HasLoadingOverlayProtocol {
     associatedtype LoadingOverlay: UIView
     var loadingOverlay: LoadingOverlay? { get set }
     func showLoadingOverlay()
@@ -45,7 +45,7 @@ protocol HasLoadingOverlay: HasLoadingOverlayProtocol {
     
 }
 
-extension HasLoadingOverlay {
+public extension HasLoadingOverlay {
     func showLoadingOverlay(in view: UIView) {
         let loadingOverlay: LoadingOverlay
         if let _loadingOverlay = self.loadingOverlay {
@@ -74,13 +74,7 @@ extension HasLoadingOverlay {
     }
 }
 
-extension HasLoadingOverlay where Self: AppDelegate {
-    func showLoadingOverlay() {
-        showLoadingOverlayInWindow()
-    }
-}
-
-extension HasLoadingOverlay where Self: UIViewController {
+public extension HasLoadingOverlay where Self: UIViewController {
     func showLoadingOverlay() {
         showLoadingOverlay(in: self.view)
     }

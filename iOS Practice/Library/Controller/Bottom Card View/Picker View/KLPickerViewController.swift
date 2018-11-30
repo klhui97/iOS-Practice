@@ -8,19 +8,19 @@
 
 import UIKit
 
-class KLPickerViewController: BottomCardViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+open class KLPickerViewController: BottomCardViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    var doneTitle: String? = nil
-    var callbackImmediatelyWhenValueChange = true
-    var didCancelCallback: (() -> ())?
-    let navigationBar = UINavigationBar()
-    var items: [String]
+    public var doneTitle: String? = nil
+    public var callbackImmediatelyWhenValueChange = true
+    public var didCancelCallback: (() -> ())?
+    public let navigationBar = UINavigationBar()
+    public var items: [String]
     
     private var pickerView: UIPickerView!
     private var selectedIndex: Int!
     private var didSelectAtIndexCallback: ((Int) -> ())?
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -31,7 +31,7 @@ class KLPickerViewController: BottomCardViewController, UIPickerViewDataSource, 
         super.init(nibName: nil, bundle: nil)
     }
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         pickerView = UIPickerView()
@@ -61,21 +61,21 @@ class KLPickerViewController: BottomCardViewController, UIPickerViewDataSource, 
     
     // MARK: - UIPickerViewDataSource
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return items.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    private func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return items[row]
     }
     
     // MARK: - UIPickerViewDelegate
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    private func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedIndex = row
         if callbackImmediatelyWhenValueChange, let didSelectAtIndexCallback = self.didSelectAtIndexCallback {
             didSelectAtIndexCallback(selectedIndex)
